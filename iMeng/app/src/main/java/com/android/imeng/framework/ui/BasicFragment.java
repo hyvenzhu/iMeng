@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.imeng.AppDroid;
-import com.android.baseline.R;
+import com.android.imeng.R;
 import com.android.imeng.framework.ui.base.BaseFragment;
 import com.android.imeng.framework.ui.base.UIInterface;
 import com.android.imeng.framework.ui.base.annotations.ViewUtils;

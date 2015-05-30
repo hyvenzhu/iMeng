@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.imeng.AppDroid;
-import com.android.baseline.R;
+import com.android.imeng.R;
 import com.android.imeng.framework.log.Logger;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.base.BaseActivity;
