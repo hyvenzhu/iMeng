@@ -60,6 +60,7 @@
                 android:layout_weight="1"
                 android:gravity="center">
                 <Button
+                    android:id="@+id/emoji_btn"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@drawable/btn_emoji_bg"/>
@@ -78,6 +79,7 @@
                 android:layout_weight="1"
                 android:gravity="center">
                 <Button
+                    android:id="@+id/camera_btn"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@drawable/btn_camera_bg"/>
@@ -96,6 +98,7 @@
                 android:layout_weight="1"
                 android:gravity="center">
                 <Button
+                    android:id="@+id/choose_pic_btn"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@drawable/btn_choose_pic_bg"/>
@@ -125,6 +128,7 @@
             android:layout_weight="1"
             android:gravity="center">
             <LinearLayout
+                android:id="@+id/photo_album_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -153,6 +157,7 @@
                 android:layout_marginRight="5dp"
                 android:background="#eeeeee"/>
             <LinearLayout
+                android:id="@+id/me_favorite_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"

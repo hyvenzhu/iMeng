@@ -16,23 +16,18 @@ import android.text.TextUtils;
  * @author hiphonezhu@gmail.com
  * @version [Android-BaseLine, 2014-8-29]
  */
-public class APKUtil
-{
+public class APKUtil {
     /**
      * 获得版本号
-     * 
+     *
      * @return
      */
-    public static int getVerCode(Context context)
-    {
+    public static int getVerCode(Context context) {
         int verCode = -1;
-        try
-        {
+        try {
             verCode = context.getApplicationContext().getPackageManager()
                     .getPackageInfo(context.getApplicationContext().getPackageName(), 0).versionCode;
-        }
-        catch (NameNotFoundException e)
-        {
+        } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
         return verCode;
@@ -40,19 +35,15 @@ public class APKUtil
 
     /**
      * 获得版本名称
-     * 
+     *
      * @return
      */
-    public static String getVerName(Context context)
-    {
+    public static String getVerName(Context context) {
         String verName = "";
-        try
-        {
+        try {
             verName = context.getApplicationContext().getPackageManager()
                     .getPackageInfo(context.getApplicationContext().getPackageName(), 0).versionName;
-        }
-        catch (NameNotFoundException e)
-        {
+        } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
         return verName;
@@ -60,35 +51,30 @@ public class APKUtil
 
     /**
      * 获得APP包名
-     * 
+     *
      * @return
      */
-    public static String getPackageName(Context context)
-    {
+    public static String getPackageName(Context context) {
         return context.getApplicationContext().getPackageName();
     }
 
     /**
      * 获得磁盘缓存目录 [PS：应用卸载后会被自动删除]
+     *
      * @param context
      * @param uniqueName
      * @return
      */
-    public File getDiskCacheDir(Context context, String uniqueName)
-    {
+    public File getDiskCacheDir(Context context, String uniqueName) {
         String cachePath;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
-                || !Environment.isExternalStorageRemovable())
-        {
+                || !Environment.isExternalStorageRemovable()) {
             cachePath = context.getApplicationContext().getExternalCacheDir().getPath();
-        }
-        else
-        {
+        } else {
             cachePath = context.getApplicationContext().getFilesDir().getPath();
         }
         File dir = new File(cachePath + File.separator + uniqueName);
-        if (!dir.exists())
-        {
+        if (!dir.exists()) {
             dir.mkdirs();
         }
         return dir;
@@ -96,35 +82,35 @@ public class APKUtil
 
     /**
      * 组装参数
+     *
      * @param parameters
      * @return
      */
-    public static String getParameters(Map<String, Object> parameters)
-    {
-        if (parameters == null)
-        {
+    public static String getParameters(Map<String, Object> parameters) {
+        if (parameters == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         Set<String> keys = parameters.keySet();
         Iterator<String> keysIt = keys.iterator();
-        while (keysIt.hasNext())
-        {
+        while (keysIt.hasNext()) {
             String key = keysIt.next();
-            if (!TextUtils.isEmpty(key))
-            {
+            if (!TextUtils.isEmpty(key)) {
                 Object value = parameters.get(key);
-                if (value == null)
-                {
+                if (value == null) {
                     value = "";
                 }
                 sb.append(key + "=" + value + "&");
             }
         }
-        if (sb.length() > 0)
-        {
+        if (sb.length() > 0) {
             return sb.substring(0, sb.length() - 1);
         }
         return sb.toString();
+    }
+
+    public static int dip2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
     }
 }

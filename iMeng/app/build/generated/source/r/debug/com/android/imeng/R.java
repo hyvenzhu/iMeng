@@ -184,6 +184,9 @@ containing a value of this type.
          */
         public static final int viewAspectRatio=0x7f010001;
     }
+    public static final class color {
+        public static final int translucent_background=0x7f050000;
+    }
     public static final class drawable {
         public static final int __leak_canary_icon=0x7f020000;
         public static final int __leak_canary_notification=0x7f020001;
@@ -196,53 +199,69 @@ containing a value of this type.
         public static final int btn_emoji_bg=0x7f020008;
         public static final int btn_emoji_normal=0x7f020009;
         public static final int btn_emoji_pressed=0x7f02000a;
-        public static final int home_default_head1=0x7f02000b;
-        public static final int home_default_head2=0x7f02000c;
-        public static final int home_default_head3=0x7f02000d;
-        public static final int home_default_head4=0x7f02000e;
-        public static final int home_default_head5=0x7f02000f;
-        public static final int home_default_head6=0x7f020010;
-        public static final int home_default_head7=0x7f020011;
-        public static final int home_head_wallpaper06_00_08_00=0x7f020012;
-        public static final int home_head_wallpaper08_00_11_30=0x7f020013;
-        public static final int home_head_wallpaper11_30_12_30=0x7f020014;
-        public static final int home_head_wallpaper12_30_14_00=0x7f020015;
-        public static final int home_head_wallpaper14_00_18_00=0x7f020016;
-        public static final int home_head_wallpaper18_00_22_00=0x7f020017;
-        public static final int home_head_wallpaper22_00_06_00=0x7f020018;
-        public static final int home_imeng_desc=0x7f020019;
-        public static final int home_small_default_self_image=0x7f02001a;
-        public static final int home_small_image_wallpaper=0x7f02001b;
-        public static final int ic_launcher=0x7f02001c;
-        public static final int image_emoji=0x7f02001d;
-        public static final int image_favorite=0x7f02001e;
-        public static final int loading_dialog_bg=0x7f02001f;
-        public static final int loading_error_tip=0x7f020020;
-        public static final int splash_img=0x7f020021;
+        public static final int btn_female_bg=0x7f02000b;
+        public static final int btn_female_normal=0x7f02000c;
+        public static final int btn_female_pressed=0x7f02000d;
+        public static final int btn_male_bg=0x7f02000e;
+        public static final int btn_male_normal=0x7f02000f;
+        public static final int btn_male_pressed=0x7f020010;
+        public static final int home_default_head1=0x7f020011;
+        public static final int home_default_head2=0x7f020012;
+        public static final int home_default_head3=0x7f020013;
+        public static final int home_default_head4=0x7f020014;
+        public static final int home_default_head5=0x7f020015;
+        public static final int home_default_head6=0x7f020016;
+        public static final int home_default_head7=0x7f020017;
+        public static final int home_head_wallpaper06_00_08_00=0x7f020018;
+        public static final int home_head_wallpaper08_00_11_30=0x7f020019;
+        public static final int home_head_wallpaper11_30_12_30=0x7f02001a;
+        public static final int home_head_wallpaper12_30_14_00=0x7f02001b;
+        public static final int home_head_wallpaper14_00_18_00=0x7f02001c;
+        public static final int home_head_wallpaper18_00_22_00=0x7f02001d;
+        public static final int home_head_wallpaper22_00_06_00=0x7f02001e;
+        public static final int home_imeng_desc=0x7f02001f;
+        public static final int home_small_default_self_image=0x7f020020;
+        public static final int home_small_image_wallpaper=0x7f020021;
+        public static final int ic_launcher=0x7f020022;
+        public static final int image_emoji=0x7f020023;
+        public static final int image_favorite=0x7f020024;
+        public static final int loading_dialog_bg=0x7f020025;
+        public static final int loading_error_tip=0x7f020026;
+        public static final int splash_img=0x7f020027;
     }
     public static final class id {
-        public static final int __leak_canary_action=0x7f050002;
-        public static final int __leak_canary_display_leak_list=0x7f050001;
-        public static final int __leak_canary_row_connector=0x7f050005;
-        public static final int __leak_canary_row_more=0x7f050006;
-        public static final int __leak_canary_row_text=0x7f050003;
-        public static final int __leak_canary_row_time=0x7f050004;
-        public static final int image_wallpaper_view=0x7f050007;
-        public static final int loading_progressBar=0x7f050011;
-        public static final int loading_view=0x7f050010;
-        public static final int onLoading=0x7f050000;
-        public static final int self_image_view=0x7f050008;
-        public static final int small_self_image_view=0x7f050009;
-        public static final int splash_view=0x7f05000a;
-        public static final int tipTextView=0x7f05000b;
-        public static final int tip_txt=0x7f050012;
-        public static final int title_lay=0x7f05000c;
-        public static final int title_left_btn=0x7f05000d;
-        public static final int title_right_btn=0x7f05000f;
-        public static final int title_txt=0x7f05000e;
+        public static final int __leak_canary_action=0x7f060002;
+        public static final int __leak_canary_display_leak_list=0x7f060001;
+        public static final int __leak_canary_row_connector=0x7f060005;
+        public static final int __leak_canary_row_more=0x7f060006;
+        public static final int __leak_canary_row_text=0x7f060003;
+        public static final int __leak_canary_row_time=0x7f060004;
+        public static final int camera_btn=0x7f06000b;
+        public static final int choose_pic_btn=0x7f06000c;
+        public static final int emoji_btn=0x7f06000a;
+        public static final int female_btn=0x7f060013;
+        public static final int female_view=0x7f060012;
+        public static final int image_wallpaper_view=0x7f060007;
+        public static final int loading_progressBar=0x7f06001b;
+        public static final int loading_view=0x7f06001a;
+        public static final int male_btn=0x7f060011;
+        public static final int male_view=0x7f060010;
+        public static final int me_favorite_view=0x7f06000e;
+        public static final int onLoading=0x7f060000;
+        public static final int photo_album_view=0x7f06000d;
+        public static final int self_image_view=0x7f060008;
+        public static final int small_self_image_view=0x7f060009;
+        public static final int splash_view=0x7f060014;
+        public static final int tipTextView=0x7f060015;
+        public static final int tip_txt=0x7f06001c;
+        public static final int title_lay=0x7f060016;
+        public static final int title_left_btn=0x7f060017;
+        public static final int title_right_btn=0x7f060019;
+        public static final int title_txt=0x7f060018;
+        public static final int view_lay=0x7f06000f;
     }
     public static final class integer {
-        public static final int __leak_canary_max_stored_leaks=0x7f060000;
+        public static final int __leak_canary_max_stored_leaks=0x7f070000;
     }
     public static final class layout {
         public static final int __leak_canary_display_leak=0x7f030000;
@@ -250,28 +269,30 @@ containing a value of this type.
         public static final int __leak_canary_ref_row=0x7f030002;
         public static final int __leak_canary_ref_top_row=0x7f030003;
         public static final int activity_home=0x7f030004;
-        public static final int activity_splash=0x7f030005;
-        public static final int dialog_loading=0x7f030006;
-        public static final int layout_common_title=0x7f030007;
-        public static final int layout_loading=0x7f030008;
+        public static final int activity_select_sex=0x7f030005;
+        public static final int activity_splash=0x7f030006;
+        public static final int dialog_loading=0x7f030007;
+        public static final int layout_common_title=0x7f030008;
+        public static final int layout_loading=0x7f030009;
     }
     public static final class string {
-        public static final int __leak_canary_class_has_leaked=0x7f070000;
-        public static final int __leak_canary_display_activity_label=0x7f070001;
-        public static final int __leak_canary_leak_list_title=0x7f070002;
-        public static final int __leak_canary_notification_message=0x7f070003;
-        public static final int __leak_canary_share_heap_dump=0x7f070004;
-        public static final int __leak_canary_share_leak=0x7f070005;
-        public static final int __leak_canary_share_with=0x7f070006;
-        public static final int app_name=0x7f070007;
-        public static final int loading_failure=0x7f070008;
-        public static final int loading_text=0x7f070009;
-        public static final int requesting_failure=0x7f07000a;
+        public static final int __leak_canary_class_has_leaked=0x7f080000;
+        public static final int __leak_canary_display_activity_label=0x7f080001;
+        public static final int __leak_canary_leak_list_title=0x7f080002;
+        public static final int __leak_canary_notification_message=0x7f080003;
+        public static final int __leak_canary_share_heap_dump=0x7f080004;
+        public static final int __leak_canary_share_leak=0x7f080005;
+        public static final int __leak_canary_share_with=0x7f080006;
+        public static final int app_name=0x7f080007;
+        public static final int loading_failure=0x7f080008;
+        public static final int loading_text=0x7f080009;
+        public static final int requesting_failure=0x7f08000a;
     }
     public static final class style {
-        public static final int AppTheme=0x7f080000;
-        public static final int __LeakCanary_Base=0x7f080001;
-        public static final int loading_dialog=0x7f080002;
+        public static final int AppTheme=0x7f090000;
+        public static final int __LeakCanary_Base=0x7f090001;
+        public static final int loading_dialog=0x7f090002;
+        public static final int translucent=0x7f090003;
     }
     public static final class styleable {
         /** Attributes that can be used with a GenericDraweeView.
