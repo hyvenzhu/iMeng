@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.android.baseline;
+package com.android.imeng;
 
 public final class R {
     public static final class attr {

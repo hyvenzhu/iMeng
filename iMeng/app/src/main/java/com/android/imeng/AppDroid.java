@@ -7,6 +7,7 @@ import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.BasicFragment;
 import com.android.imeng.framework.ui.util.UIStateHelper;
 import com.android.imeng.util.crash2email.GlobalExceptionHandler;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -28,7 +29,10 @@ public class AppDroid extends Application
         Thread.setDefaultUncaughtExceptionHandler(new GlobalExceptionHandler());
         uiStateHelper = new UIStateHelper();
 
+        // 引用释放监测
         refWatcher = LeakCanary.install(this);
+        // fresco
+        Fresco.initialize(getApplicationContext());
     }
 
     public static AppDroid getInstance()

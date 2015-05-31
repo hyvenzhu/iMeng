@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.baseline"
+    package="com.android.imeng"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -12,8 +12,8 @@
     <application
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme"
-        android:name="com.android.baseline.AppDroid">
-        <activity android:name="com.android.baseline.test.TestActivity"
+        android:name="com.android.imeng.AppDroid">
+        <activity android:name="com.android.imeng.test.TestActivity"
                   android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
