@@ -25,11 +25,11 @@ public abstract class JsonParser extends ResponseParserListenerAdpater
      */
     public InfoResult doParse(final String response) throws JSONException
     {
-        JSONObject jsonObject = JSON.parseObject(response.replace("\n", "&#xA;"));
+        JSONObject jsonObject = JSON.parseObject(response);
         InfoResult infoResult = new InfoResult.Builder()
                    .success(jsonObject.getBooleanValue("success"))
                    .errorCode(jsonObject.getString("errorCode"))
-                   .desc(jsonObject.getString("desc"))
+                   .desc(jsonObject.getString("msg"))
                    .build();
         parseResponse(infoResult, jsonObject);
         return infoResult;

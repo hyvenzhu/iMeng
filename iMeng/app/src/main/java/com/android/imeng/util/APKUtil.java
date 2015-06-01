@@ -1,6 +1,12 @@
 package com.android.imeng.util;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -65,7 +71,7 @@ public class APKUtil {
      * @param uniqueName
      * @return
      */
-    public File getDiskCacheDir(Context context, String uniqueName) {
+    public static File getDiskCacheDir(Context context, String uniqueName) {
         String cachePath;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                 || !Environment.isExternalStorageRemovable()) {
@@ -109,8 +115,78 @@ public class APKUtil {
         return sb.toString();
     }
 
+    /**
+     * dp转px
+     * @param context
+     * @param dipValue
+     * @return
+     */
     public static int dip2px(Context context, float dipValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
+    }
+
+    /**
+     * 将字符串转成MD5值
+     * @param string
+     * @return
+     */
+    public static String stringToMD5(String string) {
+        byte[] hash;
+        try {
+            hash = MessageDigest.getInstance("MD5").digest(string.getBytes("UTF-8"));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        StringBuilder hex = new StringBuilder(hash.length * 2);
+        for (byte b : hash) {
+            if ((b & 0xFF) < 0x10)
+                hex.append("0");
+            hex.append(Integer.toHexString(b & 0xFF));
+        }
+
+        return hex.toString();
+    }
+
+    /**
+     * 保存流到文件
+     * @param is
+     * @param savePath
+     * @throws IOException
+     */
+    public static void save2File(InputStream is, String savePath) throws IOException {
+        File saveFile = new File(savePath);
+        if (!saveFile.exists())
+        {
+            saveFile.createNewFile();
+        }
+        FileOutputStream fos = null;
+        try
+        {
+            fos = new FileOutputStream(saveFile);
+            byte[] buffer = new byte[2048];
+            int len = -1;
+            while((len = is.read(buffer)) != -1)
+            {
+                fos.write(buffer, 0, len);
+            }
+            fos.flush();
+        }
+        finally
+        {
+            if (fos != null)
+            {
+                fos.close();
+            }
+            if (is != null)
+            {
+                is.close();
+            }
+        }
     }
 }

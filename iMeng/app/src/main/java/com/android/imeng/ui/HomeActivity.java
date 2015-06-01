@@ -33,6 +33,12 @@ public class HomeActivity extends BasicActivity {
         setContentView(R.layout.activity_home);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
     @OnClick({R.id.emoji_btn, R.id.camera_btn, R.id.choose_pic_btn, R.id.photo_album_view, R.id.me_favorite_view})
     public void onViewClick(View v)
     {

@@ -10,6 +10,7 @@ public class InfoResult
     private String errorCode;
     private String desc;
     private Object extraObj;
+    private Object otherObj;
 
     private InfoResult(Builder builder)
     {
@@ -58,7 +59,15 @@ public class InfoResult
     {
         this.desc = desc;
     }
-    
+
+    public Object getOtherObj() {
+        return otherObj;
+    }
+
+    public void setOtherObj(Object otherObj) {
+        this.otherObj = otherObj;
+    }
+
     /**
      * The builder to build 'InfoResult'
      * @author hiphonezhu@gmail.com
@@ -70,7 +79,7 @@ public class InfoResult
         private String errorCode;
         private String desc;
         private Object extraObj;
-        
+
         public Builder success(boolean success)
         {
             this.success = success;

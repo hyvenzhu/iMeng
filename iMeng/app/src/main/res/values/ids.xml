@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 定义请求的标示符 -->
 <resources>
-  <item type="id" name="onLoading"/>
+    <item type="id" name="onLoading"/>
+    <item type="id" name="download"/>
+    <item type="id" name="clothes"/>
+    <item type="id" name="hairs"/>
+    <item type="id" name="decorations"/>
+    <item type="id" name="eyes"/>
+    <item type="id" name="faceShapes"/>
+    <item type="id" name="eyebrows"/>
+    <item type="id" name="mouths"/>
 </resources>
