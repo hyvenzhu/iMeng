@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/view_lay"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/male_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/male_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_male_bg"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:text="小鲜肉"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/female_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/female_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_female_bg"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:text="软妹子"/>
+    </LinearLayout>
+</RelativeLayout><!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/layout/activity_select_sex.xml -->

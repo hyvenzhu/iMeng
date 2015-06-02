@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\libs\eventbus.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2dce828c2383900af183f4842016948acf59ee23">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\eventbus-3246ce1587d07e5594b0c4fd21d68665374ec5e8.jar" />
+    </item>
+    <item
+        jar="C:\Users\think\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-analyzer\1.3\c5399b18a672f7973c8a9b9d6b731a3a36e590cc\leakcanary-analyzer-1.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c5399b18a672f7973c8a9b9d6b731a3a36e590cc">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\leakcanary-analyzer-1.3-3d510f2c1f255a62c9459c1f99894e3d3330549d.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\libs\fastjson-1.1.43.android.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="55201133d499efaf33db67ece976c8e303d2de18">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\fastjson-1.1.43.android-2b7834e7c0b0ea5c4f2e6ab4891ae9e45ce75ca4.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\classes-2133e4ff660c63c62ded33788434b21d140561af.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4c52b6f76d1afe959a9b6651ae61d2b0d158f8c9">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\classes-a68863174141c59277925e78bdefd5cdaabd1e55.jar" />
+    </item>
+    <item
+        jar="C:\Users\think\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-b824b790791ca9b9c38a338043bb2e2a5100b6d8.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6c828a82efd4d7b389ea45dcc883f38ba053263d">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\classes-b601b7fb4f00543bcbe5da88e0e699a5d61a1df0.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="aafdd2ccb8b4a3bfecb83127f189cbbb4f864a73">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\classes-6f3631caae9c098b528ae7ea90565b628f86c72c.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\build\intermediates\exploded-aar\com.squareup.leakcanary\leakcanary-android\1.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f4e7adebf49e683db82fb6efac2caaf3d768b8d4">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\classes-6787f2aaf8db736b1b5948b321aaed5886ffc8e9.jar" />
+    </item>
+    <item
+        jar="C:\Users\think\.gradle\caches\modules-2\files-2.1\com.squareup.haha\haha\1.1\b7b2e61ee1ad2d1ac6ae3122de9c940fb0d0e635\haha-1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b7b2e61ee1ad2d1ac6ae3122de9c940fb0d0e635">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\haha-1.1-9072584256deb9c89e3b99981d91e92729deef49.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\libs\mail.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\mail-d15957d6ea4b00bb01a26955ba1c8ee3ae195517.jar" />
+    </item>
+    <item
+        jar="C:\Users\think\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-watcher\1.3\632482a61ad24b7ec864072945d221369f9a606\leakcanary-watcher-1.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0632482a61ad24b7ec864072945d221369f9a606">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\leakcanary-watcher-1.3-949300fb82cf8c3b9e66abfa1461c192d9678d6a.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\libs\additionnal.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\additionnal-4a4e0b47b020e489227b1496da7057aab8ec2ac0.jar" />
+    </item>
+    <item
+        jar="C:\Users\think\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\library-2.4.0-ca8f396b9c081b15c717680c3455f1be9f86ff87.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\libs\volley-plus.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="af6c47b4e2fe6d17c3828c388f8baa1906d93d44">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\volley-plus-6c1bce19399eee284d93d04614f651ed0a884e0e.jar" />
+    </item>
+    <item
+        jar="D:\Android\software\android-sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-a4fb771c3ebbdd038f79785a11581ae4ab396b79.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\libs\activation.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\activation-22e6f7d3ede7fb5a913b20692389f898fe2489f4.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="edcb1bb563fa950dfa638b8efd10398088ceaccc">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\classes-ea6c9921ce3dee1824863b3a6c507d60e13a8d79.jar" />
+    </item>
+    <item
+        jar="D:\Android\source\iMeng\iMeng\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="D:\Android\source\iMeng\iMeng\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-31d1ecbaf246f6900c432e2045920fd608e512c1.jar" />
+    </item>
+
+</items>

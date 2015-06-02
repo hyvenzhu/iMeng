@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/color.xml -->
+    <eat-comment/>
+    <color name="translucent_background">#F0000000</color>
+    <declare-styleable name="GenericDraweeView"><attr format="integer" name="fadeDuration"/><attr format="float" name="viewAspectRatio"/><attr format="reference" name="placeholderImage"/><attr format="string" name="placeholderImageScaleType"/><attr format="reference" name="retryImage"/><attr format="string" name="retryImageScaleType"/><attr format="reference" name="failureImage"/><attr format="string" name="failureImageScaleType"/><attr format="reference" name="progressBarImage"/><attr format="string" name="progressBarImageScaleType"/><attr format="integer" name="progressBarAutoRotateInterval"/><attr format="string" name="actualImageScaleType"/><attr format="reference" name="backgroundImage"/><attr format="reference" name="overlayImage"/><attr format="reference" name="pressedStateOverlayImage"/><attr format="boolean" name="roundAsCircle"/><attr format="dimension" name="roundedCornerRadius"/><attr format="boolean" name="roundTopLeft"/><attr format="boolean" name="roundTopRight"/><attr format="boolean" name="roundBottomRight"/><attr format="boolean" name="roundBottomLeft"/><attr format="color" name="roundWithOverlayColor"/><attr format="dimension" name="roundingBorderWidth"/><attr format="color" name="roundingBorderColor"/></declare-styleable>
     <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/ids.xml -->
     <eat-comment/>
+    <item name="clothes" type="id"/>
+    <item name="decorations" type="id"/>
+    <item name="download" type="id"/>
+    <item name="eyebrows" type="id"/>
+    <item name="eyes" type="id"/>
+    <item name="faceShapes" type="id"/>
+    <item name="hairs" type="id"/>
+    <item name="mouths" type="id"/>
     <item name="onLoading" type="id"/>
-    <item name="testHttp" type="id"/>
-    <item name="testTask" type="id"/>
     <!-- From: file:/D:/Android/source/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
     <eat-comment/>
     <integer name="__leak_canary_max_stored_leaks">7</integer>
@@ -39,4 +49,9 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
 	</style>
+    <style name="translucent">
+        <item name="android:windowBackground">@color/translucent_background</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>
