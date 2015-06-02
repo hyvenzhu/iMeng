@@ -7,6 +7,7 @@ package com.android.imeng.util;
  */
 public class Constants {
     public static final String DOWNLOAD_DIR = "download";
+    public static final String TEMP_DIR = "temp";
 
     public static final String IP_PORT = "http://121.41.114.48";
     public static final String CLOTHES_URL = IP_PORT + "/mm/clothes"; // 衣服列表
