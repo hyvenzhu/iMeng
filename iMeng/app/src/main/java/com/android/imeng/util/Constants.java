@@ -9,6 +9,11 @@ public class Constants {
     public static final String DOWNLOAD_DIR = "download";
     public static final String TEMP_DIR = "temp";
 
+    // face++
+    public static final String API_KEY = "88c06ced7ef99158cda408abee1adc45";
+    public static final String API_SECRET = "IFY9pE1KXazxgTMHv58msCDWgtdlffCI";
+    public static final String DETECT_URL = "http://apicn.faceplusplus.com/v2/detection/detect";
+
     public static final String IP_PORT = "http://121.41.114.48";
     public static final String CLOTHES_URL = IP_PORT + "/mm/clothes"; // 衣服列表
     public static final String HAIRS_URL = IP_PORT + "/mm/hairs"; // 头发列表

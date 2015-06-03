@@ -1,5 +1,12 @@
 package com.android.imeng.util;
 
+import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Environment;
+import android.text.TextUtils;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,11 +17,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
-import android.content.Context;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.Environment;
-import android.text.TextUtils;
 
 /**
  * 基础工具类 [尽量减少类似Util的类存在]
@@ -188,5 +190,36 @@ public class APKUtil {
                 is.close();
             }
         }
+    }
+
+    /**
+     * 根据Uri查找对应的文件路径
+     * @return
+     */
+    public static String uri2LocalPath(Uri uri, Context context)
+    {
+        if (uri != null) {
+            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+            if (cursor != null) {
+                cursor.moveToFirst();
+                int columnIndex = cursor.getColumnIndex("_data");
+                String picturePath = cursor.getString(columnIndex);
+                cursor.close();
+                cursor = null;
+                if (picturePath == null || picturePath.equals("null")) {
+                    return null;
+                } else {
+                    return picturePath;
+                }
+            } else {
+                File file = new File(uri.getPath());
+                if (!file.exists()) {
+                    return null;
+                } else {
+                    return file.getAbsolutePath();
+                }
+            }
+        }
+        return null;
     }
 }

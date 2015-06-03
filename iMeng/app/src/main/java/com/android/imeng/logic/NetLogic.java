@@ -5,10 +5,14 @@ import com.android.imeng.R;
 import com.android.imeng.framework.logic.BaseLogic;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.InputStreamParser;
+import com.android.imeng.framework.volley.InfoResultMultiPartRequest;
 import com.android.imeng.framework.volley.InfoResultRequest;
+import com.android.imeng.logic.parser.DetectParser;
 import com.android.imeng.logic.parser.PictureInfoParser;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
+import com.android.volley.Request;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -179,6 +183,21 @@ public class NetLogic extends BaseLogic {
         InfoResultRequest request = new InfoResultRequest(R.id.mouths, Constants.MOUTHS_URL, params,
                 new PictureInfoParser(), this);
         sendRequest(request, R.id.mouths);
+    }
+
+    /**
+     * 人脸识别
+     * @param apiKey
+     * @param apiSecret
+     * @param filePath
+     */
+    public void faceDetect(String apiKey, String apiSecret, String filePath)
+    {
+        InfoResultMultiPartRequest request = new InfoResultMultiPartRequest(R.id.detect, Constants.DETECT_URL, Request.Method.POST, new DetectParser(), this);
+        request.addFile("img[POST]", filePath);
+        request.addMultipartParam("api_key", "text/plain", apiKey);
+        request.addMultipartParam("api_secret", "text/plain", apiSecret);
+        sendRequest(request, R.id.detect);
     }
 
     /**
