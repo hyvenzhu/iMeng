@@ -8,6 +8,7 @@
     <eat-comment/>
     <item name="clothes" type="id"/>
     <item name="decorations" type="id"/>
+    <item name="detect" type="id"/>
     <item name="download" type="id"/>
     <item name="eyebrows" type="id"/>
     <item name="eyes" type="id"/>
