@@ -4,15 +4,21 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.android.imeng.R;
+import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
+import com.android.imeng.logic.FaceInfo;
+import com.android.imeng.logic.NetLogic;
+import com.android.imeng.util.APKUtil;
+import com.android.imeng.util.Constants;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
 import com.facebook.drawee.interfaces.DraweeController;
@@ -34,6 +40,10 @@ public class FaceDetectiveActivity extends BasicActivity {
     private Button maleBtn;
     @ViewInject(value = R.id.female_btn)
     private Button femaleBtn;
+
+    AnimationDrawable animationDrawable;
+    String photoPath; // 照片路径
+    NetLogic netLogic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +51,28 @@ public class FaceDetectiveActivity extends BasicActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterAll(netLogic);
+    }
+
+    @Override
     protected void init() {
         super.init();
         setTitleBar(true, "选择性别", false);
         leftBtn.setText("重拍");
+        netLogic = new NetLogic(this);
 
         Uri uri = (Uri)getIntent().getParcelableExtra("photoUri");
+        photoPath = null;
+        if (uri.getScheme().equals("content")) // 相册
+        {
+            photoPath = APKUtil.uri2LocalPath(uri, this);
+        }
+        else // 拍照
+        {
+            photoPath = uri.getEncodedPath();
+        }
         // 设置自动旋转
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
                 .setAutoRotateEnabled(true)
@@ -73,8 +99,41 @@ public class FaceDetectiveActivity extends BasicActivity {
                 break;
             case R.id.next_btn:
                 detectiveView.setVisibility(View.VISIBLE);
-                AnimationDrawable animationDrawable = (AnimationDrawable)detectiveView.getDrawable();
+                animationDrawable = (AnimationDrawable)detectiveView.getDrawable();
                 animationDrawable.start();
+
+                // 人脸检测
+                netLogic.faceDetect(photoPath);
+                break;
+        }
+    }
+
+    @Override
+    public void onResponse(Message msg) {
+        super.onResponse(msg);
+        switch (msg.what)
+        {
+            case R.id.detect: // 人脸检测
+                if (checkResponse(msg))
+                {
+                    FaceInfo faceInfo = (FaceInfo)((InfoResult)msg.obj).getExtraObj();
+                    netLogic.face(maleBtn.isEnabled()? 1 : 0, faceInfo.getEye(), faceInfo.getMouth(),
+                            faceInfo.getShape(), faceInfo.getEyebrows());
+                }
+                else
+                {
+                    detectiveView.setVisibility(View.GONE);
+                    if (animationDrawable != null && animationDrawable.isRunning())
+                    {
+                        animationDrawable.stop();
+                    }
+                }
+                break;
+            case R.id.face: // 查询单个脸信息
+                if (checkResponse(msg))
+                {
+
+                }
                 break;
         }
     }

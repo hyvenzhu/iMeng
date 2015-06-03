@@ -11,4 +11,5 @@
     <item type="id" name="eyebrows"/>
     <item type="id" name="mouths"/>
     <item type="id" name="detect"/>
+    <item name="face" type="id"/>
 </resources>

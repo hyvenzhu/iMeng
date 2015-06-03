@@ -2,6 +2,7 @@ package com.android.imeng.logic;
 
 import com.android.imeng.AppDroid;
 import com.android.imeng.R;
+import com.android.imeng.framework.asyncquery.TaskExecutor;
 import com.android.imeng.framework.logic.BaseLogic;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.InputStreamParser;
@@ -187,17 +188,11 @@ public class NetLogic extends BaseLogic {
 
     /**
      * 人脸识别
-     * @param apiKey
-     * @param apiSecret
-     * @param filePath
+     * @param photoPtah
      */
-    public void faceDetect(String apiKey, String apiSecret, String filePath)
+    public void faceDetect(String photoPtah)
     {
-        InfoResultMultiPartRequest request = new InfoResultMultiPartRequest(R.id.detect, Constants.DETECT_URL, Request.Method.POST, new DetectParser(), this);
-        request.addFile("img[POST]", filePath);
-        request.addMultipartParam("api_key", "text/plain", apiKey);
-        request.addMultipartParam("api_secret", "text/plain", apiSecret);
-        sendRequest(request, R.id.detect);
+        TaskExecutor.getInstance().execute(new DetectTask(R.id.detect, this, photoPtah));
     }
 
     /**
@@ -208,9 +203,17 @@ public class NetLogic extends BaseLogic {
      * @param shape 脸型
      * @param eyebrows 眉毛
      */
-    public void face(int sex, int eye, int mouth, int shape, int eyebrows)
+    public void face(int sex, float eye, float mouth, float shape, float eyebrows)
     {
-
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("sex", sex);
+        params.put("eye", eye);
+        params.put("mouth", mouth);
+        params.put("shape", shape);
+        params.put("eyebrows", eyebrows);
+        InfoResultRequest request = new InfoResultRequest(R.id.face, Constants.FACE_URL, params,
+                new PictureInfoParser(), this);
+        sendRequest(request, R.id.face);
     }
 
     /**

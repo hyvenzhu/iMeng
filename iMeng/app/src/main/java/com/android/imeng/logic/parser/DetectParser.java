@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.JsonParser;
+import com.android.imeng.logic.FaceInfo;
 
 /**
  * 人脸识别检测解析
@@ -15,8 +16,12 @@ public class DetectParser extends JsonParser {
 
     @Override
     public InfoResult doParse(String response) throws JSONException {
+        InfoResult infoResult = new InfoResult.Builder().success(true).build();
+        FaceInfo faceInfo = new FaceInfo();
+        // 根据face++返回的人脸(Face)相应的面部轮廓，五官等关键点的位置计算出脸部信息
 
-        return null;
+        infoResult.setExtraObj(faceInfo);
+        return infoResult;
     }
 
     @Override
