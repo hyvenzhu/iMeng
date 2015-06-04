@@ -11,6 +11,7 @@ import com.android.imeng.logic.parser.FaceInfoParser;
 import com.android.imeng.logic.parser.PictureInfoParser;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
+import com.facebook.imagepipeline.image.ImageInfo;
 
 import java.io.File;
 import java.io.InputStream;
@@ -26,6 +27,45 @@ public class NetLogic extends BaseLogic {
 
     public NetLogic(Object subscriber) {
         super(subscriber);
+    }
+
+    /**
+     * 下载图片
+     * @param imageUrl
+     */
+    public void downloadImage(final String imageUrl)
+    {
+        InfoResultRequest request = new InfoResultRequest(R.id.download, imageUrl, new InputStreamParser()
+        {
+            public InfoResult doParse(final InputStream response)
+            {
+                InfoResult infoResult = null;
+                try
+                {
+                    // 保存路径
+                    String localPath = APKUtil.stringToMD5(imageUrl);
+                    File dir = APKUtil.getDiskCacheDir(AppDroid.getInstance().getApplicationContext(), Constants.DOWNLOAD_DIR);
+                    File file = new File(dir, localPath);
+
+                    // 保存到文件
+                    APKUtil.save2File(response, file.getAbsolutePath());
+
+                    // 下载成功
+                    PictureInfo pictureInfo = new PictureInfo();
+                    pictureInfo.setOriginalUrl(imageUrl);
+                    infoResult = new InfoResult.Builder().success(true).extraObj(pictureInfo).build();
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                    // 下载失败
+                    infoResult = new InfoResult.Builder().success(false).extraObj(null).build();
+                }
+                return infoResult;
+            }
+        }, this);
+        request.setNeedStream(true);
+        sendRequest(request, R.id.download);
     }
 
     /**
@@ -201,7 +241,7 @@ public class NetLogic extends BaseLogic {
      * @param shape 脸型
      * @param eyebrows 眉毛
      */
-    public void face(int sex, float eye, float mouth, float shape, float eyebrows)
+    public void face(int sex, int eye, int mouth, int shape, int eyebrows)
     {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("sex", sex);

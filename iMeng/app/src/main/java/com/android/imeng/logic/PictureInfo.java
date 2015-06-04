@@ -38,9 +38,9 @@ public class PictureInfo {
      * 获得大图本地路径
      * @return
      */
-    public Uri getOriginalLocalUri()
+    public String getOriginalLocalPath()
     {
-        if (!TextUtils.isEmpty(originalUrl))
+        if (TextUtils.isEmpty(originalUrl))
         {
             return null;
         }
@@ -54,7 +54,7 @@ public class PictureInfo {
         }
         else
         {
-            return Uri.fromFile(file);
+            return file.getAbsolutePath();
         }
     }
 }

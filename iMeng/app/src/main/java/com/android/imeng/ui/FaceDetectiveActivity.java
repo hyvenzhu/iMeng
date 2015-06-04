@@ -99,7 +99,10 @@ public class FaceDetectiveActivity extends BasicActivity {
                 animationDrawable.start();
 
                 // 人脸检测
-                netLogic.faceDetect(photoPath);
+//                netLogic.faceDetect(photoPath);
+
+                // for test
+                netLogic.face(0, 3, 0, 0, 4);
                 break;
         }
     }
@@ -135,12 +138,19 @@ public class FaceDetectiveActivity extends BasicActivity {
                 if (checkResponse(msg))
                 {
                     FaceInfo faceInfo = (FaceInfo)((InfoResult)msg.obj).getExtraObj();
-                    // 单个脸图片地址
-                    String faceUrl = faceInfo.getUrl();
-                    // 性别
-                    int sex = maleBtn.isEnabled()? 1 : 0;
-                    // 形象拼装界面
-                    AssembleImageActivity.actionStart(faceUrl, sex, this);
+                    if (faceInfo != null)
+                    {
+                        // 单个脸图片地址
+                        String faceUrl = faceInfo.getUrl();
+                        // 性别
+                        int sex = maleBtn.isEnabled()? 1 : 0;
+                        // 形象拼装界面
+                        AssembleImageActivity.actionStart(faceUrl, sex, this);
+                    }
+                    else
+                    {
+                        showToast("未查询到数据");
+                    }
                 }
                 break;
         }

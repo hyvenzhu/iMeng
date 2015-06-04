@@ -18,8 +18,11 @@ public class FaceInfoParser extends JsonParser {
         if (infoResult.isSuccess())
         {
             JSONObject dataObj = jsonObject.getJSONObject("data");
-            FaceInfo faceInfo = JSON.parseObject(dataObj.toJSONString(), FaceInfo.class);
-            infoResult.setExtraObj(faceInfo);
+            if (dataObj != null)
+            {
+                FaceInfo faceInfo = JSON.parseObject(dataObj.toJSONString(), FaceInfo.class);
+                infoResult.setExtraObj(faceInfo);
+            }
         }
     }
 }

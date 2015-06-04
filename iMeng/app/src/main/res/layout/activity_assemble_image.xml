@@ -4,17 +4,55 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <include layout="@layout/layout_common_title"/>
-    <FrameLayout
+    <LinearLayout
+        android:id="@+id/image_wall"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:gravity="center"
         android:background="#CAE4F3">
-
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/face_btn"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:drawableBottom="@drawable/btn_indicator_bg"
+                android:background="@drawable/btn_face_bg"/>
+            <Button
+                android:id="@+id/clothes_btn"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:drawableBottom="@drawable/btn_indicator_bg"
+                android:background="@drawable/btn_clothes_bg"/>
+            <Button
+                android:id="@+id/decoration_btn"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:drawableBottom="@drawable/btn_indicator_bg"
+                android:background="@drawable/btn_decoration_bg"/>
+        </LinearLayout>
+        <ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </LinearLayout>

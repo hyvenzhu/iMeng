@@ -8,6 +8,7 @@ package com.android.imeng.util;
 public class Constants {
     public static final String DOWNLOAD_DIR = "download";
     public static final String TEMP_DIR = "temp";
+    public static final int IMAGE_WIDTH_HEIGHT = 500; // 形象宽高
 
     // face++
     public static final String API_KEY = "88c06ced7ef99158cda408abee1adc45";

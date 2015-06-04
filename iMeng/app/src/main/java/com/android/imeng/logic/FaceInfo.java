@@ -7,41 +7,41 @@ package com.android.imeng.logic;
  */
 public class FaceInfo
 {
-    private float eye; // 眼睛
-    private float mouth; // 嘴
-    private float shape; // 脸型
-    private float eyebrows; // 眉毛
+    private int eye; // 眼睛
+    private int mouth; // 嘴
+    private int shape; // 脸型
+    private int eyebrows; // 眉毛
     private String url; // 脸地址
 
-    public float getEye() {
+    public int getEye() {
         return eye;
     }
 
-    public void setEye(float eye) {
+    public void setEye(int eye) {
         this.eye = eye;
     }
 
-    public float getMouth() {
+    public int getMouth() {
         return mouth;
     }
 
-    public void setMouth(float mouth) {
+    public void setMouth(int mouth) {
         this.mouth = mouth;
     }
 
-    public float getShape() {
+    public int getShape() {
         return shape;
     }
 
-    public void setShape(float shape) {
+    public void setShape(int shape) {
         this.shape = shape;
     }
 
-    public float getEyebrows() {
+    public int getEyebrows() {
         return eyebrows;
     }
 
-    public void setEyebrows(float eyebrows) {
+    public void setEyebrows(int eyebrows) {
         this.eyebrows = eyebrows;
     }
 

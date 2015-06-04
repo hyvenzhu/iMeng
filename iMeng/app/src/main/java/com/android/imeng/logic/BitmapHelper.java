@@ -6,6 +6,12 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 
+import com.android.imeng.AppDroid;
+import com.android.imeng.util.APKUtil;
+import com.android.imeng.util.Constants;
+
+import java.io.File;
+
 /**
  * 图像操作帮助类
  * @author hiphonezhu@gmail.com
@@ -41,5 +47,22 @@ public class BitmapHelper {
                 drawable.getIntrinsicHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    /**
+     * 返回服务器对应的已下载的本地文件路径
+     * @param serverUrl
+     * @return null表示本地不存在
+     */
+    public static String getLocalPath(String serverUrl)
+    {
+        String localPath = APKUtil.stringToMD5(serverUrl);
+        File dir = APKUtil.getDiskCacheDir(AppDroid.getInstance().getApplicationContext(), Constants.DOWNLOAD_DIR);
+        File file = new File(dir, localPath);
+        if (file.exists())
+        {
+            return file.getAbsolutePath();
+        }
+        return null;
     }
 }
