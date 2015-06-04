@@ -24,5 +24,6 @@
         <activity android:name=".ui.HomeActivity"/>
         <activity android:name=".ui.SelectSexActivity" android:theme="@style/translucent"/>
         <activity android:name=".ui.FaceDetectiveActivity"/>
+        <activity android:name=".ui.AssembleImageActivity"/>
     </application>
 </manifest>

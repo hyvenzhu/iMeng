@@ -1,12 +1,10 @@
 package com.android.imeng.ui;
 
-import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -18,9 +16,7 @@ import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.FaceInfo;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.util.APKUtil;
-import com.android.imeng.util.Constants;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -130,9 +126,21 @@ public class FaceDetectiveActivity extends BasicActivity {
                 }
                 break;
             case R.id.face: // 查询单个脸信息
+                detectiveView.setVisibility(View.GONE);
+                if (animationDrawable != null && animationDrawable.isRunning())
+                {
+                    animationDrawable.stop();
+                }
+
                 if (checkResponse(msg))
                 {
-
+                    FaceInfo faceInfo = (FaceInfo)((InfoResult)msg.obj).getExtraObj();
+                    // 单个脸图片地址
+                    String faceUrl = faceInfo.getUrl();
+                    // 性别
+                    int sex = maleBtn.isEnabled()? 1 : 0;
+                    // 形象拼装界面
+                    AssembleImageActivity.actionStart(faceUrl, sex, this);
                 }
                 break;
         }

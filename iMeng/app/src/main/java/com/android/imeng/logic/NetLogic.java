@@ -6,13 +6,11 @@ import com.android.imeng.framework.asyncquery.TaskExecutor;
 import com.android.imeng.framework.logic.BaseLogic;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.InputStreamParser;
-import com.android.imeng.framework.volley.InfoResultMultiPartRequest;
 import com.android.imeng.framework.volley.InfoResultRequest;
-import com.android.imeng.logic.parser.DetectParser;
+import com.android.imeng.logic.parser.FaceInfoParser;
 import com.android.imeng.logic.parser.PictureInfoParser;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
-import com.android.volley.Request;
 
 import java.io.File;
 import java.io.InputStream;
@@ -212,7 +210,7 @@ public class NetLogic extends BaseLogic {
         params.put("shape", shape);
         params.put("eyebrows", eyebrows);
         InfoResultRequest request = new InfoResultRequest(R.id.face, Constants.FACE_URL, params,
-                new PictureInfoParser(), this);
+                new FaceInfoParser(), this);
         sendRequest(request, R.id.face);
     }
 

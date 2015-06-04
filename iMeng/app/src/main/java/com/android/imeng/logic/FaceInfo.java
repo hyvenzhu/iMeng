@@ -11,6 +11,7 @@ public class FaceInfo
     private float mouth; // 嘴
     private float shape; // 脸型
     private float eyebrows; // 眉毛
+    private String url; // 脸地址
 
     public float getEye() {
         return eye;
@@ -42,5 +43,13 @@ public class FaceInfo
 
     public void setEyebrows(float eyebrows) {
         this.eyebrows = eyebrows;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
