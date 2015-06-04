@@ -4,4 +4,4 @@
     <item android:drawable="@drawable/img_dectective1" android:duration="200" />
     <item android:drawable="@drawable/img_dectective2" android:duration="200" />
     <item android:drawable="@drawable/img_dectective3" android:duration="200" />
-</animation-list><!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/drawable/detective_animation.xml -->
+</animation-list><!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/drawable/detective_animation.xml -->
