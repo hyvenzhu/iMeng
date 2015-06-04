@@ -79,6 +79,14 @@ public class AssembleImageActivity extends BasicActivity{
         leftBtn.setText("返回");
         rightBtn.setVisibility(View.VISIBLE);
 
+//        faceBtn.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                Drawable faceBottomDrawable =  faceBtn.getCompoundDrawables()[3];
+//                faceBottomDrawable.setBounds(0, 0, faceBtn.getMeasuredWidth(), faceBottomDrawable.getIntrinsicHeight());
+//            }
+//        });
+
         faceUrl = getIntent().getStringExtra("faceUrl");
         sex = getIntent().getIntExtra("sex", 0);
         netLogic = new NetLogic(this);

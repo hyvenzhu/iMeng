@@ -30,27 +30,30 @@
             <Button
                 android:id="@+id/face_btn"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:enabled="false"
+                android:drawablePadding="3dp"
                 android:drawableBottom="@drawable/btn_indicator_bg"
                 android:background="@drawable/btn_face_bg"/>
             <Button
                 android:id="@+id/clothes_btn"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
+                android:drawablePadding="3dp"
                 android:drawableBottom="@drawable/btn_indicator_bg"
                 android:background="@drawable/btn_clothes_bg"/>
             <Button
                 android:id="@+id/decoration_btn"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
+                android:drawablePadding="3dp"
                 android:drawableBottom="@drawable/btn_indicator_bg"
                 android:background="@drawable/btn_decoration_bg"/>
         </LinearLayout>
-        <ViewPager
+        <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
