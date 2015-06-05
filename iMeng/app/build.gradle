@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.android.imeng"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 19
     }
 

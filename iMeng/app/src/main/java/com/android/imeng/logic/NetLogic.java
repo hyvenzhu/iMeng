@@ -8,10 +8,10 @@ import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.InputStreamParser;
 import com.android.imeng.framework.volley.InfoResultRequest;
 import com.android.imeng.logic.parser.FaceInfoParser;
+import com.android.imeng.logic.parser.HairInfoParser;
 import com.android.imeng.logic.parser.PictureInfoParser;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
-import com.facebook.imagepipeline.image.ImageInfo;
 
 import java.io.File;
 import java.io.InputStream;
@@ -135,7 +135,7 @@ public class NetLogic extends BaseLogic {
         params.put("index", index);
         params.put("length", length);
         InfoResultRequest request = new InfoResultRequest(R.id.hairs, Constants.HAIRS_URL, params,
-                new PictureInfoParser(), this);
+                new HairInfoParser(), this);
         sendRequest(request, R.id.hairs);
     }
 

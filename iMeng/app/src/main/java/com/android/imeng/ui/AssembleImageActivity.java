@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
@@ -11,7 +12,9 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -20,12 +23,14 @@ import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.logic.BitmapHelper;
+import com.android.imeng.logic.HairInfo;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.logic.PictureInfo;
+import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
-import com.facebook.imagepipeline.image.ImageInfo;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,7 +38,7 @@ import java.util.Map;
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015/06/04 17:09]
  */
-public class AssembleImageActivity extends BasicActivity{
+public class AssembleImageActivity extends BasicActivity implements ViewPager.OnPageChangeListener{
 
     /**
      * 跳转
@@ -55,17 +60,35 @@ public class AssembleImageActivity extends BasicActivity{
     private ImageView imageView; // 形象展示View
     @ViewInject(R.id.face_btn)
     private Button faceBtn; // 表情Tab
+    @ViewInject(R.id.face_indicator)
+    private Button faceIndicator;
     @ViewInject(R.id.clothes_btn)
     private Button clothesBtn; // 衣服Tab
+    @ViewInject(R.id.clothes_indicator)
+    private Button clothesIndicator;
     @ViewInject(R.id.decoration_btn)
     private Button decorationBtn; // 表情Tab
+    @ViewInject(R.id.decoration_indicator)
+    private Button decorationIndicator;
     @ViewInject(R.id.view_pager)
     private ViewPager viewPager;
     private String faceUrl; // 脸地址
     private int sex; // 性别
     private NetLogic netLogic;
-    // key 0：脸  1：衣服   2：装饰
+    // key 0：头发  1：衣服   2：装饰
     private Map<Integer, Drawable> drawableMap = new HashMap<Integer, Drawable>();
+
+    private GridView hairGrid;
+    private HairAdpater hairAdpater; // 头发
+    private int hairIndex;
+    private GridView clothesGrid;
+    private PictureAdpater clothesAdapter; // 衣服
+    private int clothesIndex;
+    private GridView decorationGrid;
+    private PictureAdpater decorationAdapter; // 装饰
+    private int decorationIndex;
+
+    private float scale = 160 / 212f; // GridView item宽高比
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,14 +102,6 @@ public class AssembleImageActivity extends BasicActivity{
         leftBtn.setText("返回");
         rightBtn.setVisibility(View.VISIBLE);
 
-//        faceBtn.post(new Runnable() {
-//            @Override
-//            public void run() {
-//                Drawable faceBottomDrawable =  faceBtn.getCompoundDrawables()[3];
-//                faceBottomDrawable.setBounds(0, 0, faceBtn.getMeasuredWidth(), faceBottomDrawable.getIntrinsicHeight());
-//            }
-//        });
-
         faceUrl = getIntent().getStringExtra("faceUrl");
         sex = getIntent().getIntExtra("sex", 0);
         netLogic = new NetLogic(this);
@@ -97,6 +112,41 @@ public class AssembleImageActivity extends BasicActivity{
         adjustWall();
         // 加载表情
         loadFace();
+
+        for(int i = 0; i < 3; i++)
+        {
+            GridView grid = new GridView(this);
+            grid.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            grid.setHorizontalSpacing(APKUtil.dip2px(this, 2));
+            grid.setVerticalSpacing(APKUtil.dip2px(this, 2));
+            grid.setNumColumns(3);
+            grid.setSelector(new ColorDrawable(Color.TRANSPARENT));
+            if (i == 0)
+            {
+                hairGrid = grid;
+            }
+            else if (i == 1)
+            {
+                clothesGrid = grid;
+            }
+            else
+            {
+                decorationGrid = grid;
+            }
+        }
+        viewPager.setAdapter(new ViewPagerAdapter(hairGrid, clothesGrid, decorationGrid));
+        viewPager.setOnPageChangeListener(this);
+
+        // 查询头发、衣服、装饰列表
+        netLogic.hairs(sex, hairIndex, 10);
+        netLogic.clothes(sex, clothesIndex, 10);
+        netLogic.decorations(sex, decorationIndex, 10);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterAll(netLogic);
     }
 
     /**
@@ -205,6 +255,47 @@ public class AssembleImageActivity extends BasicActivity{
     }
 
     @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        switch (position)
+        {
+            case 0:
+                faceBtn.setEnabled(false);
+                faceIndicator.setEnabled(false);
+                clothesBtn.setEnabled(true);
+                clothesIndicator.setEnabled(true);
+                decorationBtn.setEnabled(true);
+                decorationIndicator.setEnabled(true);
+                break;
+            case 1:
+                faceBtn.setEnabled(true);
+                faceIndicator.setEnabled(true);
+                clothesBtn.setEnabled(false);
+                clothesIndicator.setEnabled(false);
+                decorationBtn.setEnabled(true);
+                decorationIndicator.setEnabled(true);
+                break;
+            case 2:
+                faceBtn.setEnabled(true);
+                faceIndicator.setEnabled(true);
+                clothesBtn.setEnabled(true);
+                clothesIndicator.setEnabled(true);
+                decorationBtn.setEnabled(false);
+                decorationIndicator.setEnabled(false);
+                break;
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
     public void onResponse(Message msg) {
         super.onResponse(msg);
         switch (msg.what)
@@ -216,6 +307,90 @@ public class AssembleImageActivity extends BasicActivity{
                     Drawable faceDrawable = new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath());
                     drawableMap.put(0, faceDrawable);
                     imageView.setImageDrawable(overlay());
+                }
+                break;
+            case R.id.hairs: // 头发
+                if (checkResponse(msg))
+                {
+                    InfoResult infoResult = (InfoResult)msg.obj;
+                    List<HairInfo> hairInfos = (List<HairInfo>)infoResult.getExtraObj();
+                    hairIndex++;
+
+                    if (hairAdpater == null)
+                    {
+                        int hairCount = Integer.parseInt(infoResult.getOtherObj().toString());
+                        hairAdpater = new HairAdpater(this, hairInfos, R.layout.layout_item_picture, hairCount);
+
+                        final int viewWidth = viewPager.getWidth();
+                        int numColumns = 3;
+                        int hoizontalSpacing = APKUtil.dip2px(this, 2);
+                        int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
+                        int columnHeight = (int)(columnWidth * scale);
+                        hairAdpater.setSize(columnWidth, columnHeight);
+
+                        hairGrid.setAdapter(hairAdpater);
+                    }
+                    else
+                    {
+                        hairAdpater.getDataSource().addAll(hairInfos);
+                    }
+                    hairAdpater.notifyDataSetChanged();
+                }
+                break;
+            case R.id.clothes: // 衣服
+                if (checkResponse(msg))
+                {
+                    InfoResult infoResult = (InfoResult)msg.obj;
+                    List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
+                    clothesIndex++;
+
+                    if (clothesAdapter == null)
+                    {
+                        int clothesCount = Integer.parseInt(infoResult.getOtherObj().toString());
+                        clothesAdapter = new PictureAdpater(this, pictureInfos, R.layout.layout_item_picture, clothesCount);
+
+                        final int viewWidth = viewPager.getWidth();
+                        int numColumns = 3;
+                        int hoizontalSpacing = APKUtil.dip2px(this, 2);
+                        int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
+                        int columnHeight = (int)(columnWidth * scale);
+                        clothesAdapter.setSize(columnWidth, columnHeight);
+
+                        clothesGrid.setAdapter(clothesAdapter);
+                    }
+                    else
+                    {
+                        clothesAdapter.getDataSource().addAll(pictureInfos);
+                    }
+                    clothesAdapter.notifyDataSetChanged();
+                }
+                break;
+            case R.id.decorations: // 装饰
+                if (checkResponse(msg))
+                {
+                    InfoResult infoResult = (InfoResult)msg.obj;
+                    List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
+                    decorationIndex++;
+
+                    if (decorationAdapter == null)
+                    {
+                        int decorationCount = Integer.parseInt(infoResult.getOtherObj().toString());
+                        decorationAdapter = new PictureAdpater(this, pictureInfos, R.layout.layout_item_picture, decorationCount);
+
+                        final int viewWidth = viewPager.getWidth();
+                        int numColumns = 3;
+                        int hoizontalSpacing = APKUtil.dip2px(this, 2);
+                        int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
+                        int columnHeight = (int)(columnWidth * scale);
+                        decorationAdapter.setSize(columnWidth, columnHeight);
+
+                        decorationGrid.setAdapter(decorationAdapter);
+                    }
+                    else
+                    {
+                        decorationAdapter.getDataSource().addAll(pictureInfos);
+                    }
+                    decorationAdapter.notifyDataSetChanged();
                 }
                 break;
         }
