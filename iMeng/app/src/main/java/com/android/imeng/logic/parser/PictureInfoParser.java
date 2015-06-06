@@ -33,6 +33,7 @@ public class PictureInfoParser extends JsonParser {
                     PictureInfo pictureInfo = new PictureInfo();
                     pictureInfo.setThumbnailUrl(smallObj.getString("url"));
                     pictureInfo.setOriginalUrl(bigObj.getString("url"));
+                    pictureInfo.setCategoryId(bigObj.getIntValue("categoryId"));
                     pictureInfos.add(pictureInfo);
                 }
                 infoResult.setExtraObj(pictureInfos);

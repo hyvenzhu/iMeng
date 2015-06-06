@@ -27,6 +27,6 @@ public class Constants {
     public static final String MOUTHS_URL = IP_PORT + "/mm/mouths"; // 嘴列表
 
     public static final String FACE_URL = IP_PORT + "/mm/face"; // 查询单个脸信息
-    public static final String CLOTHESANDEXPRESSION_URL = IP_PORT + "/mm/clothesAndExpression"; // 查询表情和衣服列表
-    public static final String BIGCLOTHES_URL = IP_PORT + "/mm/bigClothes"; // 根据性别、类别ID查询一套衣服的所有大图列表
+    public static final String CLOTHES_AND_EXPRESSION_URL = IP_PORT + "/mm/clothesAndExpression"; // 查询表情和衣服列表
+    public static final String BIG_CLOTHES_URL = IP_PORT + "/mm/bigClothes"; // 根据性别、类别ID查询一套衣服的所有大图列表
 }

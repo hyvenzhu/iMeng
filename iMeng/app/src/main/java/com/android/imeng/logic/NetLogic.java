@@ -7,6 +7,7 @@ import com.android.imeng.framework.logic.BaseLogic;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.InputStreamParser;
 import com.android.imeng.framework.volley.InfoResultRequest;
+import com.android.imeng.logic.parser.ClothesAndExpressionParser;
 import com.android.imeng.logic.parser.FaceInfoParser;
 import com.android.imeng.logic.parser.HairInfoParser;
 import com.android.imeng.logic.parser.PictureInfoParser;
@@ -16,6 +17,7 @@ import com.android.imeng.util.Constants;
 import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,7 +35,7 @@ public class NetLogic extends BaseLogic {
      * 下载单个脸
      * @param imageUrl
      */
-    public void downloadFace(final String imageUrl)
+    public void download(final String imageUrl)
     {
         InfoResultRequest request = new InfoResultRequest(R.id.downloadFace, imageUrl, new InputStreamParser()
         {
@@ -72,7 +74,7 @@ public class NetLogic extends BaseLogic {
      * 下载图片
      * @param imageInfo
      */
-    public void downloadImage(final PictureInfo imageInfo)
+    public void download(final PictureInfo imageInfo)
     {
         imageInfo.setmState(PictureInfo.State.DOWNLOADING);
         InfoResultRequest request = new InfoResultRequest(R.id.downloadOriginal, imageInfo.getOriginalUrl(), new InputStreamParser()
@@ -106,6 +108,16 @@ public class NetLogic extends BaseLogic {
         }, this);
         request.setNeedStream(true);
         sendRequest(request, R.id.downloadOriginal);
+    }
+
+    /**
+     * 下载衣服和表情
+     * @param clothesAndExpressions
+     */
+    public void download(List<ClothesAndExpression> clothesAndExpressions)
+    {
+        TaskExecutor.getInstance().execute(new ClothesAndExpressionDownloadTask(R.id.downClothesAndExpression,
+                this, clothesAndExpressions));
     }
 
     /**
@@ -261,11 +273,17 @@ public class NetLogic extends BaseLogic {
      * 查询表情和衣服列表
      * @param sex 性别，0：男  1：女
      * @param categoryId 衣服类别
-     * @param glasses 眼镜
+     * @param faceShape 脸型
      */
-    public void clothesAndExpression(int sex, int categoryId, int glasses)
+    public void clothesAndExpression(int sex, int categoryId, int faceShape)
     {
-
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("sex", sex);
+        params.put("categoryId", categoryId);
+        params.put("glasses", faceShape);
+        InfoResultRequest request = new InfoResultRequest(R.id.clothesAndExpression, Constants.CLOTHES_AND_EXPRESSION_URL, params,
+                new ClothesAndExpressionParser(), this);
+        sendRequest(request, R.id.clothesAndExpression);
     }
 
     /**

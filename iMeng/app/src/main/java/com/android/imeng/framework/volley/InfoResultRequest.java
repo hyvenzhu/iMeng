@@ -14,6 +14,7 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
@@ -55,7 +56,7 @@ public class InfoResultRequest extends Request<InfoResult> implements Listener<I
         this(requestId, url, Method.POST, params, parseListener, logic);
     }
 
-    public InfoResultRequest(final int requestId, String url, int method, Map<String, Object> params, final ResponseParserListener parseListener, final ILogic logic)
+    public InfoResultRequest(final int requestId, String url, int method, final Map<String, Object> params, final ResponseParserListener parseListener, final ILogic logic)
     {
         super(method, url, new ErrorListener()
         {
@@ -66,8 +67,28 @@ public class InfoResultRequest extends Request<InfoResult> implements Listener<I
                 try
                 {
                     // 错误
-                    InfoResult infoResult = parseListener.doParse("{\"success\": \"false\",\"code\": -100,\"desc\": \"\",\"data\": {}}");
-                    infoResult.setExtraObj(error);
+                    InfoResult infoResult = null;
+                    if (parseListener != null)
+                    {
+                        infoResult = parseListener.doParse("{\"success\": \"false\",\"code\": -100,\"desc\": \"\",\"data\": {}}");
+                        if (infoResult == null)
+                        {
+                            infoResult = parseListener.doParse(new InputStream() {
+                                @Override
+                                public int read() throws IOException {
+                                    throw new IOException("Nothing needs to be parsed");
+                                }
+                            });
+                        }
+                        if (infoResult == null)
+                        {
+                            infoResult = new InfoResult.Builder().success(false).build();
+                        }
+                    }
+                    else
+                    {
+                        infoResult = new InfoResult.Builder().success(false).build();
+                    }
                     logic.onResult(requestId, infoResult);
                 }
                 catch (Exception e)

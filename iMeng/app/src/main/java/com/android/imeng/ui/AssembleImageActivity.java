@@ -47,13 +47,15 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
      * 跳转
      * @param faceUrl 脸地址
      * @param sex 性别 0：女 1：男
+     * @param faceShape 脸型
      * @param context 上下文
      */
-    public static void actionStart(String faceUrl, int sex, Context context)
+    public static void actionStart(String faceUrl, int sex, int faceShape, Context context)
     {
         Intent intent = new Intent(context, AssembleImageActivity.class);
         intent.putExtra("faceUrl", faceUrl);
         intent.putExtra("sex", sex);
+        intent.putExtra("faceShape", faceShape);
         context.startActivity(intent);
     }
 
@@ -77,6 +79,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
     private ViewPager viewPager;
     private String faceUrl; // 脸地址
     private int sex; // 性别
+    private int faceShape; // 脸型
     private NetLogic netLogic;
     // key 0：后面的头发  1：衣服   2：脸   3：前面的头发   4：装饰
     private Map<Integer, Drawable> drawableMap = new HashMap<Integer, Drawable>();
@@ -107,6 +110,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
 
         faceUrl = getIntent().getStringExtra("faceUrl");
         sex = getIntent().getIntExtra("sex", 0);
+        faceShape = getIntent().getIntExtra("faceShape", 0);
         netLogic = new NetLogic(this);
 
         // 调整宽高
@@ -227,7 +231,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         }
         else
         {
-            netLogic.downloadFace(faceUrl);
+            netLogic.download(faceUrl);
         }
     }
 
@@ -291,27 +295,53 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         return drawable;
     }
 
-    @OnClick({R.id.hair_lay, R.id.clothes_lay, R.id.decoration_lay})
+    @OnClick({R.id.hair_lay, R.id.face_btn, R.id.clothes_lay, R.id.clothes_btn, R.id.decoration_lay, R.id.decoration_btn,
+              R.id.title_right_btn, R.id.title_left_btn})
     public void onViewClick(View view)
     {
         switch (view.getId())
         {
-            case R.id.hair_lay:
+            case R.id.hair_lay: // 头发
+            case R.id.face_btn:
                 viewPager.setCurrentItem(0);
                 break;
-            case R.id.clothes_lay:
+            case R.id.clothes_lay: // 衣服
+            case R.id.clothes_btn:
                 viewPager.setCurrentItem(1);
                 break;
-            case R.id.decoration_lay:
+            case R.id.decoration_lay: // 装饰
+            case R.id.decoration_btn:
                 viewPager.setCurrentItem(2);
+                break;
+            case R.id.title_left_btn:
+                finish();
+                break;
+            case R.id.title_right_btn:
+                if (!drawableMap.containsKey(3))
+                {
+                    showToast("请选择头发");
+                    return;
+                }
+                else if (!drawableMap.containsKey(1))
+                {
+                    showToast("请选择衣服");
+                    return;
+                }
+                // 制作界面
+                MakeAllImageActivity.actionStart(sex, choosedClothesCategroyId, faceShape,
+                        choosedHairBackground, choosedHairFont, choosedDecoration, faceUrl, this);
                 break;
         }
     }
 
+    private int choosedClothesCategroyId; // 选择的衣服类别Id
+    private String choosedHairBackground; // 选择的背后头发
+    private String choosedHairFont; // 选择的前面头发
+    private String choosedDecoration; // 选择的装饰
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
          BaseAdapter adapter = (BaseAdapter)parent.getAdapter();
-         if (adapter == hairAdpater)
+         if (adapter == hairAdpater) // 头发
          {
              if (hairAdpater.isMore(position)) // More
              {
@@ -327,7 +357,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                      {
                          if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
                          {
-                             netLogic.downloadImage(pictureInfo);
+                             netLogic.download(pictureInfo);
                          }
                          hairAdpater.notifyDataSetChanged();
                      }
@@ -343,19 +373,21 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                              if (pictureInfo.getNo() == 1) // 前面的头发
                              {
                                  index = 3;
+                                 choosedHairFont = pictureInfo.getOriginalLocalPath();
                              }
                              else if (pictureInfo.getNo() == 2) // 后面的头发
                              {
                                  index = 0;
+                                 choosedHairBackground = pictureInfo.getOriginalLocalPath();
                              }
-                             drawableMap.put(index, new BitmapDrawable(getResources(), hairInfos.get(i).getOriginalLocalPath()));
+                             drawableMap.put(index, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
                          }
                          imageView.setImageDrawable(overlay());
                      }
                  }
              }
          }
-         else if (adapter == clothesAdapter)
+         else if (adapter == clothesAdapter) // 衣服
          {
              if (clothesAdapter.isMore(position)) // More
              {
@@ -366,17 +398,18 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                  PictureInfo pictureInfo = clothesAdapter.getItem(position);
                  if (!clothesAdapter.hasDownload(position)) // 未下载
                  {
-                     netLogic.downloadImage(pictureInfo);
+                     netLogic.download(pictureInfo);
                      clothesAdapter.notifyDataSetChanged();
                  }
                  else
                  {
+                     choosedClothesCategroyId = pictureInfo.getCategoryId();
                      drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
                      imageView.setImageDrawable(overlay());
                  }
              }
          }
-         else if (adapter == decorationAdapter)
+         else if (adapter == decorationAdapter) // 装饰
          {
              if (decorationAdapter.isMore(position)) // More
              {
@@ -387,11 +420,12 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                  PictureInfo pictureInfo = decorationAdapter.getItem(position);
                  if (!decorationAdapter.hasDownload(position)) // 未下载
                  {
-                     netLogic.downloadImage(pictureInfo);
+                     netLogic.download(pictureInfo);
                      decorationAdapter.notifyDataSetChanged();
                  }
                  else
                  {
+                     choosedDecoration = pictureInfo.getOriginalLocalPath();
                      drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
                      imageView.setImageDrawable(overlay());
                  }

@@ -17,6 +17,7 @@ public class PictureInfo {
     private String thumbnailUrl; // 图片缩略图
     private String originalUrl; // 图片原图（大图）
     private int no; // 头发编号
+    private int categoryId; // 衣服类别
     private State mState = State.INIT;
 
     public String getThumbnailUrl() {
@@ -41,6 +42,14 @@ public class PictureInfo {
 
     public void setNo(int no) {
         this.no = no;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     /**

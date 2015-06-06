@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.text.TextUtils;
 
 import com.android.imeng.AppDroid;
 import com.android.imeng.util.APKUtil;
@@ -56,6 +57,10 @@ public class BitmapHelper {
      */
     public static String getLocalPath(String serverUrl)
     {
+        if (TextUtils.isEmpty(serverUrl))
+        {
+            return null;
+        }
         String localPath = APKUtil.stringToMD5(serverUrl);
         File dir = APKUtil.getDiskCacheDir(AppDroid.getInstance().getApplicationContext(), Constants.DOWNLOAD_DIR);
         File file = new File(dir, localPath);
