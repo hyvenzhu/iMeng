@@ -41,4 +41,17 @@ public class PictureAdpater extends BasePictureAdapter<PictureInfo> {
         PictureInfo pictureInfo = getItem(position);
         return !TextUtils.isEmpty(pictureInfo.getOriginalLocalPath());
     }
+
+    @Override
+    public PictureInfo.State getState(int position) {
+        if (hasDownload(position))
+        {
+            return PictureInfo.State.SUCCESS;
+        }
+        else
+        {
+            PictureInfo pictureInfo = getItem(position);
+            return pictureInfo.getmState();
+        }
+    }
 }

@@ -2,23 +2,26 @@ package com.android.imeng.ui;
 
 import android.content.Context;
 import android.net.Uri;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
-import com.android.imeng.logic.HairInfo;
+import com.android.imeng.logic.PictureInfo;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
+ * 缩略图适配器
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015-06-06 10:18]
  */
@@ -51,6 +54,7 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(size, size);
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         downloadView.setLayoutParams(layoutParams);
+
         if (position == mData.size()) // 加载更多图标
         {
             downloadView.setVisibility(View.GONE);
@@ -60,8 +64,9 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
                     .setImageRequest(request).build();
             picView.setController(controller);
         }
-        else // 缩略图
+        else
         {
+            // 缩略图
             picView.setImageURI(Uri.parse(getThumbnailUrl(position)));
 
             // 是否已下载
@@ -72,13 +77,46 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
             else
             {
                 downloadView.setVisibility(View.VISIBLE);
+
+                // 状态
+                TextView stateTxt = findViewById(convertView, R.id.state_txt);
+                PictureInfo.State mState = getState(position);
+                if (mState == PictureInfo.State.INIT)
+                {
+                    stateTxt.setText("未下载");
+                }
+                else if (mState == PictureInfo.State.DOWNLOADING)
+                {
+                    stateTxt.setText("下载中...");
+                }
+                else if (mState == PictureInfo.State.ERROR)
+                {
+                    stateTxt.setText("下载失败");
+                }
             }
         }
     }
 
+    /**
+     * 缩略图地址
+     * @param position
+     * @return
+     */
     public abstract String getThumbnailUrl(int position);
 
+    /**
+     * 大图是否已下载
+     * @param position
+     * @return
+     */
     public abstract boolean hasDownload(int position);
+
+    /**
+     * 下载状态
+     * @param position
+     * @return
+     */
+    public abstract PictureInfo.State getState(int position);
 
     @Override
     public int getCount() {

@@ -30,12 +30,12 @@ public class NetLogic extends BaseLogic {
     }
 
     /**
-     * 下载图片
+     * 下载单个脸
      * @param imageUrl
      */
-    public void downloadImage(final String imageUrl)
+    public void downloadFace(final String imageUrl)
     {
-        InfoResultRequest request = new InfoResultRequest(R.id.download, imageUrl, new InputStreamParser()
+        InfoResultRequest request = new InfoResultRequest(R.id.downloadFace, imageUrl, new InputStreamParser()
         {
             public InfoResult doParse(final InputStream response)
             {
@@ -65,7 +65,7 @@ public class NetLogic extends BaseLogic {
             }
         }, this);
         request.setNeedStream(true);
-        sendRequest(request, R.id.download);
+        sendRequest(request, R.id.downloadFace);
     }
 
     /**
@@ -74,7 +74,8 @@ public class NetLogic extends BaseLogic {
      */
     public void downloadImage(final PictureInfo imageInfo)
     {
-        InfoResultRequest request = new InfoResultRequest(R.id.download, imageInfo.getOriginalUrl(), new InputStreamParser()
+        imageInfo.setmState(PictureInfo.State.DOWNLOADING);
+        InfoResultRequest request = new InfoResultRequest(R.id.downloadOriginal, imageInfo.getOriginalUrl(), new InputStreamParser()
         {
             public InfoResult doParse(final InputStream response)
             {
@@ -90,19 +91,21 @@ public class NetLogic extends BaseLogic {
                     APKUtil.save2File(response, file.getAbsolutePath());
 
                     // 下载成功
+                    imageInfo.setmState(PictureInfo.State.SUCCESS);
                     infoResult = new InfoResult.Builder().success(true).extraObj(imageInfo).build();
                 }
                 catch (Exception e)
                 {
                     e.printStackTrace();
                     // 下载失败
+                    imageInfo.setmState(PictureInfo.State.ERROR);
                     infoResult = new InfoResult.Builder().success(false).extraObj(imageInfo).build();
                 }
                 return infoResult;
             }
         }, this);
         request.setNeedStream(true);
-        sendRequest(request, R.id.download);
+        sendRequest(request, R.id.downloadOriginal);
     }
 
     /**

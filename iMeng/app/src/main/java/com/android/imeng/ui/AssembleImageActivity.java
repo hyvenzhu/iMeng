@@ -25,7 +25,6 @@ import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
-import com.android.imeng.framework.ui.base.annotations.event.OnItemClick;
 import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.HairInfo;
 import com.android.imeng.logic.NetLogic;
@@ -79,7 +78,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
     private String faceUrl; // 脸地址
     private int sex; // 性别
     private NetLogic netLogic;
-    // key 0：脸  1：头发   2：衣服   3：装饰
+    // key 0：后面的头发  1：衣服   2：脸   3：前面的头发   4：装饰
     private Map<Integer, Drawable> drawableMap = new HashMap<Integer, Drawable>();
 
     private GridView hairGrid;
@@ -116,7 +115,26 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         adjustWall();
         // 加载表情
         loadFace();
+        // 初始化GridView
+        loadGridView();
 
+        // 查询头发、衣服、装饰列表
+        netLogic.hairs(sex, hairIndex, 10);
+        netLogic.clothes(sex, clothesIndex, 10);
+        netLogic.decorations(sex, decorationIndex, 10);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterAll(netLogic);
+    }
+
+    /**
+     * 初始化GridView
+     */
+    private void loadGridView()
+    {
         for(int i = 0; i < 3; i++)
         {
             GridView grid = new GridView(this);
@@ -141,17 +159,6 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         }
         viewPager.setAdapter(new ViewPagerAdapter(hairGrid, clothesGrid, decorationGrid));
         viewPager.setOnPageChangeListener(this);
-
-        // 查询头发、衣服、装饰列表
-        netLogic.hairs(sex, hairIndex, 10);
-        netLogic.clothes(sex, clothesIndex, 10);
-        netLogic.decorations(sex, decorationIndex, 10);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterAll(netLogic);
     }
 
     /**
@@ -215,12 +222,12 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         if (!TextUtils.isEmpty(facePath))
         {
             Drawable faceDrawable = new BitmapDrawable(getResources(), facePath);
-            drawableMap.put(0, faceDrawable);
+            drawableMap.put(2, faceDrawable);
             imageView.setImageDrawable(overlay());
         }
         else
         {
-            netLogic.downloadImage(faceUrl);
+            netLogic.downloadFace(faceUrl);
         }
     }
 
@@ -230,25 +237,16 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
      */
     private Drawable overlay()
     {
-        Drawable faceDrawable = drawableMap.get(0);
-        Drawable hairDrawable = drawableMap.get(1);
-        Drawable clothesDrawable = drawableMap.get(2);
-        Drawable decorationDrawable = drawableMap.get(3);
+        Drawable hairBackgroundDrawable = drawableMap.get(0);
+        Drawable clothesDrawable = drawableMap.get(1);
+        Drawable faceDrawable = drawableMap.get(2);
+        Drawable hairFontDrawable = drawableMap.get(3);
+        Drawable decorationDrawable = drawableMap.get(4);
         Drawable drawable = null;
-        // 脸
-        if (faceDrawable != null)
+        // 背后的头发
+        if (hairBackgroundDrawable != null)
         {
-            drawable = BitmapHelper.overlayDrawable(faceDrawable);
-        }
-
-        // 头发
-        if (drawable != null && hairDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, hairDrawable);
-        }
-        else if (hairDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(hairDrawable);
+            drawable = BitmapHelper.overlayDrawable(hairBackgroundDrawable);
         }
 
         // 衣服
@@ -259,6 +257,26 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         else if (clothesDrawable != null)
         {
             drawable = BitmapHelper.overlayDrawable(clothesDrawable);
+        }
+
+        // 脸
+        if (drawable != null && faceDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(drawable, faceDrawable);
+        }
+        else if (faceDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(faceDrawable);
+        }
+
+        // 前面的头发
+        if (drawable != null && hairFontDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(drawable, hairFontDrawable);
+        }
+        else if (hairFontDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(hairFontDrawable);
         }
 
         // 装饰
@@ -301,22 +319,37 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
              }
              else
              {
+                 HairInfo hairInfo = hairAdpater.getItem(position);
+                 List<PictureInfo> hairInfos = hairInfo.getOriginalInfos();
                  if (!hairAdpater.hasDownload(position)) // 未下载
                  {
-
+                     for(PictureInfo pictureInfo : hairInfos)
+                     {
+                         if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
+                         {
+                             netLogic.downloadImage(pictureInfo);
+                         }
+                         hairAdpater.notifyDataSetChanged();
+                     }
                  }
                  else
                  {
-                     HairInfo hairInfo = hairAdpater.getItem(position);
-                     List<PictureInfo> hairInfos = hairInfo.getOriginalInfos();
                      if (hairInfos != null && hairInfos.size() > 0)
                      {
-                         Drawable[] hairDrawables = new Drawable[hairInfos.size()];
                          for(int i = 0; i < hairInfos.size(); i++)
                          {
-                             hairDrawables[i] = new BitmapDrawable(getResources(), hairInfos.get(i).getOriginalLocalPath());
+                             PictureInfo pictureInfo =  hairInfos.get(i);
+                             int index = 0;
+                             if (pictureInfo.getNo() == 1) // 前面的头发
+                             {
+                                 index = 3;
+                             }
+                             else if (pictureInfo.getNo() == 2) // 后面的头发
+                             {
+                                 index = 0;
+                             }
+                             drawableMap.put(index, new BitmapDrawable(getResources(), hairInfos.get(i).getOriginalLocalPath()));
                          }
-                         drawableMap.put(1, BitmapHelper.overlayDrawable(hairDrawables));
                          imageView.setImageDrawable(overlay());
                      }
                  }
@@ -330,14 +363,15 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
              }
              else
              {
+                 PictureInfo pictureInfo = clothesAdapter.getItem(position);
                  if (!clothesAdapter.hasDownload(position)) // 未下载
                  {
-
+                     netLogic.downloadImage(pictureInfo);
+                     clothesAdapter.notifyDataSetChanged();
                  }
                  else
                  {
-                     PictureInfo pictureInfo = clothesAdapter.getItem(position);
-                     drawableMap.put(2, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+                     drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
                      imageView.setImageDrawable(overlay());
                  }
              }
@@ -350,14 +384,15 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
              }
              else
              {
+                 PictureInfo pictureInfo = decorationAdapter.getItem(position);
                  if (!decorationAdapter.hasDownload(position)) // 未下载
                  {
-
+                     netLogic.downloadImage(pictureInfo);
+                     decorationAdapter.notifyDataSetChanged();
                  }
                  else
                  {
-                     PictureInfo pictureInfo = decorationAdapter.getItem(position);
-                     drawableMap.put(3, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+                     drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
                      imageView.setImageDrawable(overlay());
                  }
              }
@@ -410,13 +445,27 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         super.onResponse(msg);
         switch (msg.what)
         {
-            case R.id.download:
+            case R.id.downloadFace:
                 if (checkResponse(msg))
                 {
                     PictureInfo pictureInfo = (PictureInfo)(((InfoResult)msg.obj).getExtraObj());
                     Drawable faceDrawable = new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath());
-                    drawableMap.put(0, faceDrawable);
+                    drawableMap.put(2, faceDrawable);
                     imageView.setImageDrawable(overlay());
+                }
+                break;
+            case R.id.downloadOriginal:
+                if (hairAdpater != null)
+                {
+                    hairAdpater.notifyDataSetChanged();
+                }
+                if (clothesAdapter != null)
+                {
+                    clothesAdapter.notifyDataSetChanged();
+                }
+                if (decorationAdapter != null)
+                {
+                    decorationAdapter.notifyDataSetChanged();
                 }
                 break;
             case R.id.hairs: // 头发

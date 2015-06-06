@@ -47,6 +47,7 @@ public class HairInfoParser extends JsonParser {
                         JSONObject bigObj = bigArray.getJSONObject(j);
                         PictureInfo bigPictureInfo = new PictureInfo();
                         bigPictureInfo.setOriginalUrl(bigObj.getString("url"));
+                        bigPictureInfo.setNo(bigObj.getIntValue("no"));
                         originalInfos.add(bigPictureInfo);
                     }
 

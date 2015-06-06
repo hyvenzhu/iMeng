@@ -83,7 +83,7 @@ public class InfoResultRequest extends Request<InfoResult> implements Listener<I
         RetryPolicy retryPolicy = new DefaultRetryPolicy(20000, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         setRetryPolicy(retryPolicy);
     }
-    
+
     @Override
     protected Map<String, Object> getParams() throws AuthFailureError
     {

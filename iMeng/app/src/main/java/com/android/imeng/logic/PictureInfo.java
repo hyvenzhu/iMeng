@@ -1,6 +1,5 @@
 package com.android.imeng.logic;
 
-import android.net.Uri;
 import android.text.TextUtils;
 
 import com.android.imeng.AppDroid;
@@ -17,6 +16,8 @@ import java.io.File;
 public class PictureInfo {
     private String thumbnailUrl; // 图片缩略图
     private String originalUrl; // 图片原图（大图）
+    private int no; // 头发编号
+    private State mState = State.INIT;
 
     public String getThumbnailUrl() {
         return thumbnailUrl;
@@ -32,6 +33,14 @@ public class PictureInfo {
 
     public void setOriginalUrl(String originalUrl) {
         this.originalUrl = originalUrl;
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
     }
 
     /**
@@ -56,5 +65,21 @@ public class PictureInfo {
         {
             return file.getAbsolutePath();
         }
+    }
+
+    public State getmState() {
+        return mState;
+    }
+
+    public void setmState(State mState) {
+        this.mState = mState;
+    }
+
+    public enum State
+    {
+        INIT, // 未下载
+        DOWNLOADING,// 下载中
+        ERROR,// 下载失败
+        SUCCESS, // 下载成功
     }
 }

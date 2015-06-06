@@ -2,7 +2,7 @@
 <!-- 定义请求的标示符 -->
 <resources>
     <item type="id" name="onLoading"/>
-    <item type="id" name="download"/>
+    <item type="id" name="downloadFace"/>
     <item type="id" name="clothes"/>
     <item type="id" name="hairs"/>
     <item type="id" name="decorations"/>
@@ -12,4 +12,5 @@
     <item type="id" name="mouths"/>
     <item type="id" name="detect"/>
     <item name="face" type="id"/>
+    <item type="id" name="downloadOriginal"/>
 </resources>

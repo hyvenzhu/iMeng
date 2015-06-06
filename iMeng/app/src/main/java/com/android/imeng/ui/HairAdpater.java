@@ -53,4 +53,42 @@ public class HairAdpater extends BasePictureAdapter<HairInfo> {
         }
         return true;
     }
+
+    @Override
+    public PictureInfo.State getState(int position) {
+        if (hasDownload(position))
+        {
+            return PictureInfo.State.SUCCESS;
+        }
+        else
+        {
+            HairInfo hairInfo = getItem(position);
+            List<PictureInfo> originalHairs = hairInfo.getOriginalInfos();
+            boolean hasDownloading = false;
+            boolean hasError = false;
+            for(PictureInfo pictureInfo : originalHairs)
+            {
+                if (pictureInfo.getmState() == PictureInfo.State.DOWNLOADING)
+                {
+                    hasDownloading = true;
+                }
+                else if (pictureInfo.getmState() == PictureInfo.State.ERROR)
+                {
+                    hasError = true;
+                }
+            }
+            if (hasDownloading) // 有一个在下载
+            {
+                return PictureInfo.State.DOWNLOADING;
+            }
+            else if (hasError) // 没有在下载，但有至少一个下载错误
+            {
+                return PictureInfo.State.ERROR;
+            }
+            else
+            {
+                return PictureInfo.State.INIT;
+            }
+        }
+    }
 }
