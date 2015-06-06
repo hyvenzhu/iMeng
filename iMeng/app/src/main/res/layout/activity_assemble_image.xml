@@ -29,6 +29,8 @@
             android:orientation="horizontal"
             android:layout_marginTop="5dp">
             <LinearLayout
+                android:id="@+id/hair_lay"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -50,6 +52,8 @@
                     android:background="@drawable/btn_indicator_bg"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/clothes_lay"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -69,6 +73,8 @@
                     android:background="@drawable/btn_indicator_bg"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/decoration_lay"
+                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

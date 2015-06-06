@@ -2,12 +2,18 @@ package com.android.imeng.ui;
 
 import android.content.Context;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
 import com.android.imeng.logic.HairInfo;
+import com.android.imeng.logic.PictureInfo;
+import com.android.imeng.util.Constants;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -22,49 +28,29 @@ import java.util.List;
  * @version [iMeng, 2015/06/05 12:48]
  * @copyright Copyright 2010 RD information technology Co.,ltd.. All Rights Reserved.
  */
-public class HairAdpater extends BasicAdapter<HairInfo> {
-    private int columnWidth; // 列宽
-    private int columnHeight; // 列高
-    private int totalSize; // 图片总共数量
+public class HairAdpater extends BasePictureAdapter<HairInfo> {
 
     public HairAdpater(Context context, List<HairInfo> data, int resourceId, int totalSize) {
-        super(context, data, resourceId);
-        this.totalSize = totalSize;
-    }
-
-    public void setSize(int columnWidth, int columnHeight)
-    {
-        this.columnWidth = columnWidth;
-        this.columnHeight = columnHeight;
+        super(context, data, resourceId, totalSize);
     }
 
     @Override
-    protected void getView(int position, View convertView) {
-        // 调整宽高
-        convertView.setLayoutParams(new AbsListView.LayoutParams(columnWidth, columnHeight));
-        SimpleDraweeView picView = findViewById(convertView, R.id.pic_view);
-        picView.setAspectRatio((columnWidth * 1.0f) / columnHeight);
-        if (position == mData.size()) // 加载更多图标
-        {
-            ImageRequest request = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.more).build();
-            DraweeController controller = Fresco.newDraweeControllerBuilder()
-                .setImageRequest(request).build();
-            picView.setController(controller);
-        }
-        else // 缩略图
-        {
-            HairInfo hairInfo = getItem(position);
-
-            picView.setImageURI(Uri.parse(hairInfo.getThumbnailInfo().getThumbnailUrl()));
-        }
+    public String getThumbnailUrl(int position) {
+        HairInfo hairInfo = getItem(position);
+        return hairInfo.getThumbnailInfo().getThumbnailUrl();
     }
 
     @Override
-    public int getCount() {
-        if (mData != null && mData.size() < totalSize)
+    public boolean hasDownload(int position) {
+        HairInfo hairInfo = getItem(position);
+        List<PictureInfo> originalHairs = hairInfo.getOriginalInfos();
+        for(PictureInfo pictureInfo : originalHairs)
         {
-            return mData.size() + 1;
+            if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
+            {
+                return false;
+            }
         }
-        return super.getCount();
+        return true;
     }
 }

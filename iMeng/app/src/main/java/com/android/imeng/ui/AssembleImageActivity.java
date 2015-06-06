@@ -13,6 +13,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -22,6 +24,8 @@ import com.android.imeng.R;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
+import com.android.imeng.framework.ui.base.annotations.event.OnClick;
+import com.android.imeng.framework.ui.base.annotations.event.OnItemClick;
 import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.HairInfo;
 import com.android.imeng.logic.NetLogic;
@@ -38,7 +42,7 @@ import java.util.Map;
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015/06/04 17:09]
  */
-public class AssembleImageActivity extends BasicActivity implements ViewPager.OnPageChangeListener{
+public class AssembleImageActivity extends BasicActivity implements ViewPager.OnPageChangeListener, AdapterView.OnItemClickListener{
 
     /**
      * 跳转
@@ -75,7 +79,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
     private String faceUrl; // 脸地址
     private int sex; // 性别
     private NetLogic netLogic;
-    // key 0：头发  1：衣服   2：装饰
+    // key 0：脸  1：头发   2：衣服   3：装饰
     private Map<Integer, Drawable> drawableMap = new HashMap<Integer, Drawable>();
 
     private GridView hairGrid;
@@ -88,7 +92,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
     private PictureAdpater decorationAdapter; // 装饰
     private int decorationIndex;
 
-    private float scale = 160 / 212f; // GridView item宽高比
+    private float scale = Constants.PIC_THUMBNAIL_WIDTH / (Constants.PIC_THUMBNAIL_HEIGHT * 1.0f); // GridView item宽高比
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +125,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
             grid.setVerticalSpacing(APKUtil.dip2px(this, 2));
             grid.setNumColumns(3);
             grid.setSelector(new ColorDrawable(Color.TRANSPARENT));
+            grid.setOnItemClickListener(this);
             if (i == 0)
             {
                 hairGrid = grid;
@@ -226,14 +231,27 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
     private Drawable overlay()
     {
         Drawable faceDrawable = drawableMap.get(0);
-        Drawable clothesDrawable = drawableMap.get(1);
-        Drawable decorationDrawable = drawableMap.get(2);
+        Drawable hairDrawable = drawableMap.get(1);
+        Drawable clothesDrawable = drawableMap.get(2);
+        Drawable decorationDrawable = drawableMap.get(3);
         Drawable drawable = null;
+        // 脸
         if (faceDrawable != null)
         {
             drawable = BitmapHelper.overlayDrawable(faceDrawable);
         }
 
+        // 头发
+        if (drawable != null && hairDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(drawable, hairDrawable);
+        }
+        else if (hairDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(hairDrawable);
+        }
+
+        // 衣服
         if (drawable != null && clothesDrawable != null)
         {
             drawable = BitmapHelper.overlayDrawable(drawable, clothesDrawable);
@@ -243,6 +261,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
             drawable = BitmapHelper.overlayDrawable(clothesDrawable);
         }
 
+        // 装饰
         if (drawable != null && decorationDrawable != null)
         {
             drawable = BitmapHelper.overlayDrawable(drawable, decorationDrawable);
@@ -252,6 +271,97 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
             drawable = BitmapHelper.overlayDrawable(decorationDrawable);
         }
         return drawable;
+    }
+
+    @OnClick({R.id.hair_lay, R.id.clothes_lay, R.id.decoration_lay})
+    public void onViewClick(View view)
+    {
+        switch (view.getId())
+        {
+            case R.id.hair_lay:
+                viewPager.setCurrentItem(0);
+                break;
+            case R.id.clothes_lay:
+                viewPager.setCurrentItem(1);
+                break;
+            case R.id.decoration_lay:
+                viewPager.setCurrentItem(2);
+                break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+         BaseAdapter adapter = (BaseAdapter)parent.getAdapter();
+         if (adapter == hairAdpater)
+         {
+             if (hairAdpater.isMore(position)) // More
+             {
+                 netLogic.hairs(sex, hairIndex, 10);
+             }
+             else
+             {
+                 if (!hairAdpater.hasDownload(position)) // 未下载
+                 {
+
+                 }
+                 else
+                 {
+                     HairInfo hairInfo = hairAdpater.getItem(position);
+                     List<PictureInfo> hairInfos = hairInfo.getOriginalInfos();
+                     if (hairInfos != null && hairInfos.size() > 0)
+                     {
+                         Drawable[] hairDrawables = new Drawable[hairInfos.size()];
+                         for(int i = 0; i < hairInfos.size(); i++)
+                         {
+                             hairDrawables[i] = new BitmapDrawable(getResources(), hairInfos.get(i).getOriginalLocalPath());
+                         }
+                         drawableMap.put(1, BitmapHelper.overlayDrawable(hairDrawables));
+                         imageView.setImageDrawable(overlay());
+                     }
+                 }
+             }
+         }
+         else if (adapter == clothesAdapter)
+         {
+             if (clothesAdapter.isMore(position)) // More
+             {
+                 netLogic.clothes(sex, hairIndex, 10);
+             }
+             else
+             {
+                 if (!clothesAdapter.hasDownload(position)) // 未下载
+                 {
+
+                 }
+                 else
+                 {
+                     PictureInfo pictureInfo = clothesAdapter.getItem(position);
+                     drawableMap.put(2, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+                     imageView.setImageDrawable(overlay());
+                 }
+             }
+         }
+         else if (adapter == decorationAdapter)
+         {
+             if (decorationAdapter.isMore(position)) // More
+             {
+                 netLogic.decorations(sex, hairIndex, 10);
+             }
+             else
+             {
+                 if (!decorationAdapter.hasDownload(position)) // 未下载
+                 {
+
+                 }
+                 else
+                 {
+                     PictureInfo pictureInfo = decorationAdapter.getItem(position);
+                     drawableMap.put(3, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+                     imageView.setImageDrawable(overlay());
+                 }
+             }
+         }
     }
 
     @Override
@@ -327,7 +437,6 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                         int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
                         int columnHeight = (int)(columnWidth * scale);
                         hairAdpater.setSize(columnWidth, columnHeight);
-
                         hairGrid.setAdapter(hairAdpater);
                     }
                     else
@@ -355,7 +464,6 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                         int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
                         int columnHeight = (int)(columnWidth * scale);
                         clothesAdapter.setSize(columnWidth, columnHeight);
-
                         clothesGrid.setAdapter(clothesAdapter);
                     }
                     else
@@ -383,7 +491,6 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                         int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
                         int columnHeight = (int)(columnWidth * scale);
                         decorationAdapter.setSize(columnWidth, columnHeight);
-
                         decorationGrid.setAdapter(decorationAdapter);
                     }
                     else

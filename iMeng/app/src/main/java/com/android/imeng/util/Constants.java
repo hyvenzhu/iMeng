@@ -9,6 +9,8 @@ public class Constants {
     public static final String DOWNLOAD_DIR = "download";
     public static final String TEMP_DIR = "temp";
     public static final int IMAGE_WIDTH_HEIGHT = 500; // 形象宽高
+    public static final int PIC_THUMBNAIL_WIDTH = 160; // 修饰小图宽度
+    public static final int PIC_THUMBNAIL_HEIGHT = 212; // 修饰小图高度
 
     // face++
     public static final String API_KEY = "88c06ced7ef99158cda408abee1adc45";
