@@ -1,87 +1,42 @@
 package com.android.imeng.ui;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.net.Uri;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
-import com.android.imeng.logic.ImageInfo;
+import com.facebook.drawee.view.SimpleDraweeView;
 
-import java.util.ArrayList;
+import java.io.File;
 import java.util.List;
 
 /**
  * 表情相册适配器
  * @author hiphonezhu@gmail.com
- * @version [iMeng, 2015-06-06 23:13]
+ * @version [iMeng, 2015-06-07 21:20]
  */
-public class GalleryAdpater extends BasicAdapter<ImageInfo> {
-    private int size; // 宽高
-    private List<ImageInfo> choosedImageInfos = new ArrayList<ImageInfo>(); // 选择的形象
-    public GalleryAdpater(Context context, List<ImageInfo> data, int resourceId) {
+public class GalleryAdpater extends BasicAdapter<String> {
+    private int width; // 宽
+    private int height; // 高
+    public GalleryAdpater(Context context, List<String> data, int resourceId) {
         super(context, data, resourceId);
     }
 
-    public void setSize(int size)
+    public void setSize(int width, int height)
     {
-        this.size = size;
-    }
-
-    public List<ImageInfo> getChoosedImageInfos()
-    {
-        return choosedImageInfos;
-    }
-
-    /**
-     * 选中状态切换
-     * @param position
-     */
-    public void toggleState(int position)
-    {
-        ImageInfo imageInfo = getItem(position);
-        if (choosedImageInfos.contains(imageInfo))
-        {
-            choosedImageInfos.remove(imageInfo);
-        }
-        else
-        {
-            choosedImageInfos.add(imageInfo);
-        }
-        notifyDataSetChanged();
+        this.width = width;
+        this.height = height;
     }
 
     @Override
     protected void getView(int position, View convertView) {
         // 调整宽高
-        convertView.setLayoutParams(new AbsListView.LayoutParams(size, size));
-        ImageView imagView = findViewById(convertView, R.id.image_view);
-        RadioButton chooseBtn = findViewById(convertView, R.id.image_choose);
+        convertView.setLayoutParams(new AbsListView.LayoutParams(width, height));
+        SimpleDraweeView coverView = findViewById(convertView, R.id.cover_view);
 
-        final ImageInfo imageInfo = getItem(position);
-        imagView.setImageDrawable(imageInfo.getOverlayDrawable(mContext.getResources()));
-
-        // 男女背景色
-        if (imageInfo.getSex() == 0)
-        {
-            convertView.setBackgroundColor(Color.parseColor("#CAE4F3"));
-        }
-        else
-        {
-            convertView.setBackgroundColor(Color.parseColor("#f3bec4"));
-        }
-
-        // 是否选中
-        if (choosedImageInfos.contains(imageInfo))
-        {
-            chooseBtn.setChecked(true);
-        }
-        else
-        {
-            chooseBtn.setChecked(false);
-        }
+        final String localPath = getItem(position);
+        coverView.setImageURI(Uri.fromFile(new File(localPath)));
     }
 }
