@@ -118,17 +118,13 @@ public class HomeActivity extends BasicActivity {
         }
     }
 
-    Bitmap blurBitmap; // 毛玻璃图片
     /**
      * 高斯模糊整个界面
      */
     private void applyBlur() {
+        blurView.setBackground(null);
         blurView.setVisibility(View.VISIBLE);
-        if (blurBitmap != null)
-        {
-            blurView.setBackground(new BitmapDrawable(getResources(), blurBitmap));
-            return;
-        }
+
         View view = getWindow().getDecorView();
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache(true);
@@ -149,7 +145,7 @@ public class HomeActivity extends BasicActivity {
         float scaleFactor = 8;//图片缩放比例；
         float radius = 20;//模糊程度
 
-        blurBitmap = Bitmap.createBitmap(
+        Bitmap blurBitmap = Bitmap.createBitmap(
                 (int) (view.getMeasuredWidth() / scaleFactor),
                 (int) (view.getMeasuredHeight() / scaleFactor),
                 Bitmap.Config.ARGB_8888);
