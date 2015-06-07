@@ -2,6 +2,7 @@ package com.android.imeng.util;
 
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
@@ -221,5 +222,18 @@ public class APKUtil {
             }
         }
         return null;
+    }
+
+    /**
+     * 根据图片名称加载图片id
+     * @param context
+     * @param drawableName
+     * @return
+     */
+    public static int getDrawableByIdentify(Context context, String drawableName)
+    {
+        Resources resources = context.getApplicationContext().getResources();
+        int indentify = resources.getIdentifier(context.getPackageName() + ":drawable/" + drawableName, null, null);
+        return indentify;
     }
 }

@@ -17,6 +17,7 @@ public class ImageInfo {
     private String face; // 脸
     private String hairFont; // 前面头发
     private String decoration; // 装饰
+    private int sayDrawableId; // 文字资源
 
     public String getHairBackground() {
         return hairBackground;
@@ -64,6 +65,14 @@ public class ImageInfo {
 
     public void setSex(int sex) {
         this.sex = sex;
+    }
+
+    public int getSayDrawableId() {
+        return sayDrawableId;
+    }
+
+    public void setSayDrawableId(int sayDrawableId) {
+        this.sayDrawableId = sayDrawableId;
     }
 
     private Drawable overlayDrawable;
@@ -114,6 +123,12 @@ public class ImageInfo {
             decorationDrawable = new BitmapDrawable(res, decoration);
         }
 
+        Drawable sayDrawable = null;
+        if (sayDrawableId != -1)
+        {
+            sayDrawable = res.getDrawable(sayDrawableId);
+        }
+
         Drawable drawable = null;
         // 背后的头发
         if (hairBackgroundDrawable != null)
@@ -159,6 +174,16 @@ public class ImageInfo {
         else if (decorationDrawable != null)
         {
             drawable = BitmapHelper.overlayDrawable(decorationDrawable);
+        }
+
+        // 文字
+        if (drawable != null && sayDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(drawable, sayDrawable);
+        }
+        else if (sayDrawable != null)
+        {
+            drawable = BitmapHelper.overlayDrawable(sayDrawable);
         }
         return drawable;
     }

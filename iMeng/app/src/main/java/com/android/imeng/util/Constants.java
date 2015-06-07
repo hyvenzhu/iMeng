@@ -8,6 +8,7 @@ package com.android.imeng.util;
 public class Constants {
     public static final String DOWNLOAD_DIR = "download";
     public static final String TEMP_DIR = "temp";
+    public static final String IMAGE_DIR = "image"; // 形象存储文件夹
     public static final int IMAGE_WIDTH_HEIGHT = 500; // 形象宽高
     public static final int PIC_THUMBNAIL_WIDTH = 160; // 修饰小图宽度
     public static final int PIC_THUMBNAIL_HEIGHT = 212; // 修饰小图高度

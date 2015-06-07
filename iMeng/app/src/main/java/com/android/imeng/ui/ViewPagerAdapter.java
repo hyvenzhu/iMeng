@@ -26,6 +26,11 @@ public class ViewPagerAdapter extends PagerAdapter {
         return gridView;
     }
 
+    public GridView[] getViews()
+    {
+        return gridViews;
+    }
+
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView(gridViews[position]);

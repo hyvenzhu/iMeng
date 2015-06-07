@@ -26,5 +26,6 @@
         <activity android:name=".ui.FaceDetectiveActivity"/>
         <activity android:name=".ui.AssembleImageActivity"/>
         <activity android:name=".ui.MakeAllImageActivity"/>
+        <activity android:name=".ui.ImageGalleryActivity"/>
     </application>
 </manifest>

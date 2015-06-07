@@ -12,6 +12,9 @@ import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * 图像操作帮助类
@@ -48,6 +51,30 @@ public class BitmapHelper {
                 drawable.getIntrinsicHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    /**
+     * Bitmap存文件
+     * @param bitmap
+     * @param filePath
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public static void bitmap2File(Bitmap bitmap, String filePath) throws FileNotFoundException, IOException
+    {
+        File f = new File(filePath);
+        FileOutputStream out = null;
+        try {
+            out = new FileOutputStream(f);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+            out.flush();
+            out.close();
+        } finally {
+            if (out != null)
+            {
+                out.close();
+            }
+        }
     }
 
     /**

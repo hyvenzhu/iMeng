@@ -4,17 +4,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAE4F3">
+    android:background="#CAE4F3"
+    android:descendantFocusability= "blocksDescendants">
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:scaleType="fitCenter"/>
-    <ImageView
-        android:id="@+id/select_img"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+    <RadioButton
+        android:id="@+id/image_choose"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/image_choose_bg"
+        android:button="@null"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentLeft="true"
