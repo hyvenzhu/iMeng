@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 
+import com.android.imeng.AppDroid;
 import com.android.imeng.R;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
@@ -27,12 +29,14 @@ import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.ClothesAndExpression;
+import com.android.imeng.logic.ImageChooseListener;
 import com.android.imeng.logic.ImageInfo;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +47,7 @@ import java.util.List;
  * @version [iMeng, 2015-06-06 21:16]
  */
 public class MakeAllImageActivity extends BasicActivity implements AdapterView.OnItemClickListener,
-        ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener{
+        ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener, ImageChooseListener{
     /**
      * 跳转
      * @param sex 性别 0：女 1：男
@@ -91,6 +95,7 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
     private NetLogic netLogic;
     // 图片合成文件夹
     File imageDir;
+    private List<ImageInfo> choosedImageInfos = new ArrayList<ImageInfo>(); // 选择的形象
 
     AnimationDrawable animationDrawable;
     @Override
@@ -155,40 +160,8 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
             grid.setOnItemClickListener(this);
             gridViews[i] = grid;
 
-            List<ImageInfo> imageInfos = new ArrayList<ImageInfo>();
-            List<ClothesAndExpression> smallClothesAndExpressions = clothesAndExpressions.subList(i * 4, i * 4 + 4);
-            for (int j = 0; j < smallClothesAndExpressions.size(); j++)
-            {
-                ClothesAndExpression clothesAndExpression = smallClothesAndExpressions.get(j);
-                ImageInfo imageInfo = new ImageInfo();
-                imageInfo.setSex(sex);
-                imageInfo.setHairBackground(hairBackground);
-                imageInfo.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
-                imageInfo.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
-                String drawableName = null;
-                switch (sex)
-                {
-                    case 0:
-                        drawableName = "male_say";
-                        break;
-                    case 1:
-                        drawableName = "female_say";
-                        break;
-                }
-                drawableName += i * 4 + (j + 1);
-                imageInfo.setSayDrawableId(APKUtil.getDrawableByIdentify(this, drawableName));
-                if (TextUtils.isEmpty(imageInfo.getFace())) // 为空使用上个页面传递的脸地址
-                {
-                    imageInfo.setFace(faceUrl);
-                }
-                imageInfo.setHairFont(hairFont);
-                if (i == 0 && j == 0) // 第一个表情有装饰, 其他不要
-                {
-                    imageInfo.setDecoration(decoration);
-                }
-                imageInfos.add(imageInfo);
-            }
-            ImageAdpater imageAdpater = new ImageAdpater(this, imageInfos, R.layout.layout_item_image);
+            ImageAdpater imageAdpater = new ImageAdpater(this, localPaths.subList(i * 4, i * 4 + 4),
+                    R.layout.layout_item_image, this, i);
             imageAdpater.setSize(itemSize);
             grid.setAdapter(imageAdpater);
         }
@@ -208,54 +181,17 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
         switch (v.getId())
         {
             case R.id.title_left_btn:
+                startActivity(new Intent(this, ImageGalleryActivity.class));
                 finish();
                 break;
             case R.id.save_btn:
-                if (imageDir == null)
-                {
-                    imageDir = APKUtil.getDiskCacheDir(this, Constants.IMAGE_DIR + File.separator + System.currentTimeMillis());
-                }
-                File[] files = imageDir.listFiles();
-                for (File file : files)
-                {
-                    file.delete();
-                }
-
-                ViewPagerAdapter pagerAdapter = (ViewPagerAdapter)viewPager.getAdapter();
-                GridView[] gridViews = pagerAdapter.getViews();
-                List<ImageInfo> imageInfos = new ArrayList<ImageInfo>();
-                for(GridView gridView : gridViews)
-                {
-                    ImageAdpater imageAdpater = (ImageAdpater)gridView.getAdapter();
-                    List<ImageInfo> choosedImageInfos = imageAdpater.getChoosedImageInfos();
-                    imageInfos.addAll(choosedImageInfos);
-                }
-
-                if (imageInfos.size() == 0)
+                if (choosedImageInfos.size() == 0)
                 {
                     showToast("至少选择一个");
                     return;
                 }
-
-                // 保存到形象文件夹
-                for(int i = 0; i < imageInfos.size(); i++)
-                {
-                    ImageInfo imageInfo = imageInfos.get(i);
-                    Bitmap bitmap = BitmapHelper.drawable2Bitmap(imageInfo.getOverlayDrawable(getResources()));
-                    try {
-                        BitmapHelper.bitmap2File(bitmap, imageDir.getAbsolutePath() + File.separator + (i + 1) + ".png");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        if (bitmap != null)
-                        {
-                            bitmap.recycle();
-                        }
-                    }
-                }
-
-                // 表情相册
-                startActivity(new Intent(this, ImageGalleryActivity.class));
+                showProgress("保存中...");
+                netLogic.save2Gallery(choosedImageInfos, APKUtil.getDiskCacheDir(this, Constants.IMAGE_DIR  + File.separator + System.currentTimeMillis()).getAbsolutePath());
                 break;
         }
     }
@@ -324,6 +260,23 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
     }
 
     @Override
+    public boolean isChoosed(ImageInfo imageInfo) {
+        return choosedImageInfos.contains(imageInfo);
+    }
+
+    @Override
+    public void choose(ImageInfo imageInfo) {
+        if (!choosedImageInfos.contains(imageInfo))
+        {
+            choosedImageInfos.add(imageInfo);
+        }
+        else
+        {
+            choosedImageInfos.remove(imageInfo);
+        }
+    }
+
+    @Override
     public void onResponse(Message msg) {
         super.onResponse(msg);
         switch (msg.what)
@@ -343,14 +296,101 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
                 }
                 break;
             case R.id.downClothesAndExpression:
-                drawView.setVisibility(View.GONE);
-                animationDrawable.stop();
                 if (checkResponse(msg))
                 {
-                    drawLay.setVisibility(View.VISIBLE);
-                    loadGridView();
+                    new Thread(encodeRunnable).start();
+                }
+                else
+                {
+                    drawView.setVisibility(View.GONE);
+                    animationDrawable.stop();
+                }
+                break;
+            case R.id.save2Gallery:
+                if(checkResponse(msg))
+                {
+                    // 表情相册
+                    startActivity(new Intent(this, ImageGalleryActivity.class));
+                    finish();
                 }
                 break;
         }
     }
+
+    // 存储图片信息
+    private List<ImageInfo> localPaths = new ArrayList<ImageInfo>();
+    /**
+     * 生成Bitmap
+     */
+    private Runnable encodeRunnable = new Runnable() {
+        @Override
+        public void run() {
+            localPaths.clear();
+            if (imageDir == null)
+            {
+                imageDir = APKUtil.getDiskCacheDir(MakeAllImageActivity.this, Constants.TEMP_DIR);
+            }
+            for (int j = 0; j < clothesAndExpressions.size(); j++)
+            {
+                ClothesAndExpression clothesAndExpression = clothesAndExpressions.get(j);
+                ImageInfo imageInfo = new ImageInfo();
+                imageInfo.setSex(sex);
+                imageInfo.setHairBackground(hairBackground);
+                imageInfo.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                imageInfo.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                String drawableName = null;
+                switch (sex)
+                {
+                    case 0:
+                        drawableName = "male_say";
+                        break;
+                    case 1:
+                        drawableName = "female_say";
+                        break;
+                }
+                drawableName += j + 1;
+                imageInfo.setSayDrawableId(APKUtil.getDrawableByIdentify(MakeAllImageActivity.this, drawableName));
+                if (TextUtils.isEmpty(imageInfo.getFace())) // 为空使用上个页面传递的脸地址
+                {
+                    imageInfo.setFace(faceUrl);
+                }
+                imageInfo.setHairFont(hairFont);
+                if (j == 0) // 第一个表情有装饰, 其他不要
+                {
+                    imageInfo.setDecoration(decoration);
+                }
+                // Drawable 2 Bitmap
+                String fileName = APKUtil.stringToMD5(imageInfo.toString());
+                File file = new File(imageDir, fileName);
+                String localPath = null;
+                if (file.exists())
+                {
+                    localPath = file.getAbsolutePath();
+                }
+                else
+                {
+                    localPath = imageDir.getAbsolutePath() + File.separator + fileName;
+                    final Drawable drawable = imageInfo.getOverlayDrawable(getResources());
+                    try {
+                        Bitmap bitmap = BitmapHelper.drawable2Bitmap(drawable);
+                        BitmapHelper.bitmap2File(bitmap, localPath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                imageInfo.setIndex(j);
+                imageInfo.setLocalPath(localPath);
+                localPaths.add(imageInfo);
+            }
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    drawView.setVisibility(View.GONE);
+                    animationDrawable.stop();
+                    drawLay.setVisibility(View.VISIBLE);
+                    loadGridView();
+                }
+            });
+        }
+    };
 }

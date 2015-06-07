@@ -19,6 +19,25 @@ public class ImageInfo {
     private String decoration; // 装饰
     private int sayDrawableId; // 文字资源
 
+    private int index; // 下标
+    private String localPath; // 组装好的本地图片路径
+
+    public String getLocalPath() {
+        return localPath;
+    }
+
+    public void setLocalPath(String localPath) {
+        this.localPath = localPath;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     public String getHairBackground() {
         return hairBackground;
     }
@@ -75,14 +94,43 @@ public class ImageInfo {
         this.sayDrawableId = sayDrawableId;
     }
 
-    private Drawable overlayDrawable;
+    private Drawable overlayDrawable; // 不包含文字
+    private Drawable overlayDrawableIncludeSay; // 包含文字
 
     public Drawable getOverlayDrawable(Resources res) {
+        return getOverlayDrawable(res, true);
+    }
+
+    public Drawable getOverlayDrawable(Resources res, boolean includeSay) {
         if (overlayDrawable == null)
         {
             overlayDrawable = overlay(res);
         }
-        return overlayDrawable;
+        if (includeSay)
+        {
+            if (overlayDrawableIncludeSay == null)
+            {
+                // 文字
+                Drawable sayDrawable = null;
+                if (sayDrawableId != -1)
+                {
+                    sayDrawable = res.getDrawable(sayDrawableId);
+                }
+                if (overlayDrawable != null && sayDrawable != null)
+                {
+                    overlayDrawableIncludeSay = BitmapHelper.overlayDrawable(overlayDrawable, sayDrawable);
+                }
+                else if (sayDrawable != null)
+                {
+                    overlayDrawableIncludeSay = BitmapHelper.overlayDrawable(sayDrawable);
+                }
+            }
+            return overlayDrawableIncludeSay;
+        }
+        else
+        {
+            return overlayDrawable;
+        }
     }
 
     /**
@@ -121,12 +169,6 @@ public class ImageInfo {
         if (!TextUtils.isEmpty(decoration))
         {
             decorationDrawable = new BitmapDrawable(res, decoration);
-        }
-
-        Drawable sayDrawable = null;
-        if (sayDrawableId != -1)
-        {
-            sayDrawable = res.getDrawable(sayDrawableId);
         }
 
         Drawable drawable = null;
@@ -176,15 +218,19 @@ public class ImageInfo {
             drawable = BitmapHelper.overlayDrawable(decorationDrawable);
         }
 
-        // 文字
-        if (drawable != null && sayDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, sayDrawable);
-        }
-        else if (sayDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(sayDrawable);
-        }
         return drawable;
+    }
+
+    @Override
+    public String toString() {
+        return "ImageInfo{" +
+                "sex=" + sex +
+                ", hairBackground='" + hairBackground + '\'' +
+                ", clothes='" + clothes + '\'' +
+                ", face='" + face + '\'' +
+                ", hairFont='" + hairFont + '\'' +
+                ", decoration='" + decoration + '\'' +
+                ", sayDrawableId=" + sayDrawableId +
+                '}';
     }
 }

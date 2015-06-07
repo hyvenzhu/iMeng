@@ -146,6 +146,7 @@ public class FaceDetectiveActivity extends BasicActivity {
                         int sex = maleBtn.isEnabled()? 1 : 0;
                         // 形象拼装界面
                         AssembleImageActivity.actionStart(faceUrl, sex, faceInfo.getShape(), this);
+                        finish();
                     }
                     else
                     {

@@ -1,5 +1,7 @@
 package com.android.imeng.logic;
 
+import android.content.res.Resources;
+
 import com.android.imeng.AppDroid;
 import com.android.imeng.R;
 import com.android.imeng.framework.asyncquery.TaskExecutor;
@@ -118,6 +120,16 @@ public class NetLogic extends BaseLogic {
     {
         TaskExecutor.getInstance().execute(new ClothesAndExpressionDownloadTask(R.id.downClothesAndExpression,
                 this, clothesAndExpressions));
+    }
+
+    /**
+     * 保存到表情相册
+     * @param imageInfos
+     * @param destDir
+     */
+    public void save2Gallery(List<ImageInfo> imageInfos, String destDir)
+    {
+        TaskExecutor.getInstance().execute(new Save2GalleryTask(R.id.save2Gallery, this, imageInfos, destDir));
     }
 
     /**

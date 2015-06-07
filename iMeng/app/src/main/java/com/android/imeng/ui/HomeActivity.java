@@ -69,7 +69,7 @@ public class HomeActivity extends BasicActivity {
                 startActivityForResult(intent, REQUEST_CODE_PICK);
                 break;
             case R.id.photo_album_view: // 表情相册
-
+                startActivity(new Intent(this, ImageGalleryActivity.class));
                 break;
             case R.id.me_favorite_view: // 我的收藏
 

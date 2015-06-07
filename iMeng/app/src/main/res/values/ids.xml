@@ -15,4 +15,5 @@
     <item type="id" name="downloadOriginal"/>
     <item name="clothesAndExpression" type="id"/>
     <item type="id" name="downClothesAndExpression"/>
+    <item name="save2Gallery" type="id"/>
 </resources>
