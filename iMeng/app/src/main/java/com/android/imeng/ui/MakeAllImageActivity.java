@@ -371,11 +371,19 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
                 {
                     localPath = imageDir.getAbsolutePath() + File.separator + fileName;
                     final Drawable drawable = imageInfo.getOverlayDrawable(getResources());
+                    Bitmap bitmap = null;
                     try {
-                        Bitmap bitmap = BitmapHelper.drawable2Bitmap(drawable);
+                        bitmap = BitmapHelper.drawable2Bitmap(drawable);
                         BitmapHelper.bitmap2File(bitmap, localPath);
                     } catch (Exception e) {
                         e.printStackTrace();
+                    } finally {
+                        if (bitmap != null && !bitmap.isRecycled())
+                        {
+                            bitmap.recycle();
+                        }
+                        // 清除引用, 释放内存
+                        imageInfo.clearDrawable();
                     }
                 }
                 imageInfo.setIndex(j);

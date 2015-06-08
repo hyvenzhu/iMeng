@@ -97,6 +97,15 @@ public class ImageInfo {
     private Drawable overlayDrawable; // 不包含文字
     private Drawable overlayDrawableIncludeSay; // 包含文字
 
+    /**
+     * 清除引用，释放内存
+     */
+    public void clearDrawable()
+    {
+        overlayDrawable = null;
+        overlayDrawableIncludeSay = null;
+    }
+
     public Drawable getOverlayDrawable(Resources res) {
         return getOverlayDrawable(res, true);
     }

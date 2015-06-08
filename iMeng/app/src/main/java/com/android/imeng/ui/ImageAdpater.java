@@ -50,7 +50,10 @@ public class ImageAdpater extends BasicAdapter<ImageInfo> {
     @Override
     protected void getView(int position, View convertView) {
         // 调整宽高
-        convertView.setLayoutParams(new AbsListView.LayoutParams(size, size));
+        if (convertView.getTag() == null) // convertView刚创建
+        {
+            convertView.setLayoutParams(new AbsListView.LayoutParams(size, size));
+        }
         SimpleDraweeView imagView = findViewById(convertView, R.id.image_view);
         RadioButton chooseBtn = findViewById(convertView, R.id.image_choose);
 

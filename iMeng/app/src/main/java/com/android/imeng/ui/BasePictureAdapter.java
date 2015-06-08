@@ -44,7 +44,10 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
     @Override
     protected void getView(int position, View convertView) {
         // 调整宽高
-        convertView.setLayoutParams(new AbsListView.LayoutParams(columnWidth, columnHeight));
+        if (convertView.getTag() == null) // convertView刚创建
+        {
+            convertView.setLayoutParams(new AbsListView.LayoutParams(columnWidth, columnHeight));
+        }
         final SimpleDraweeView picView = (SimpleDraweeView)findViewById(convertView, R.id.pic_view);
         picView.setAspectRatio((columnWidth * 1.0f) / columnHeight);
 

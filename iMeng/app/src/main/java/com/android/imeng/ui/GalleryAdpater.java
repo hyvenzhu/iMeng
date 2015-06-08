@@ -4,9 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
+import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;
@@ -20,8 +23,11 @@ import java.util.List;
 public class GalleryAdpater extends BasicAdapter<String> {
     private int width; // 宽
     private int height; // 高
-    public GalleryAdpater(Context context, List<String> data, int resourceId) {
+    private Mode mode = Mode.NORMAL;
+    GalleryDeleteListener galleryDeleteListener;
+    public GalleryAdpater(Context context, List<String> data, int resourceId, GalleryDeleteListener galleryDeleteListener) {
         super(context, data, resourceId);
+        this.galleryDeleteListener = galleryDeleteListener;
     }
 
     public void setSize(int width, int height)
@@ -30,13 +36,43 @@ public class GalleryAdpater extends BasicAdapter<String> {
         this.height = height;
     }
 
+    public void setMode(Mode mode)
+    {
+        this.mode = mode;
+        notifyDataSetChanged();
+    }
+
     @Override
-    protected void getView(int position, View convertView) {
+    protected void getView(final int position, View convertView) {
         // 调整宽高
-        convertView.setLayoutParams(new AbsListView.LayoutParams(width, height));
+        if (convertView.getTag() == null) // convertView刚创建
+        {
+            convertView.setLayoutParams(new AbsListView.LayoutParams(width, height));
+        }
         SimpleDraweeView coverView = findViewById(convertView, R.id.cover_view);
+        Button deleteBtn = findViewById(convertView, R.id.delete_btn);
 
         final String localPath = getItem(position);
         coverView.setImageURI(Uri.fromFile(new File(localPath)));
+        if (mode == Mode.NORMAL)
+        {
+            deleteBtn.setVisibility(View.GONE);
+        }
+        else
+        {
+            deleteBtn.setVisibility(View.VISIBLE);
+        }
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                galleryDeleteListener.onDelete(localPath);
+            }
+        });
+    }
+
+    public enum Mode
+    {
+        NORMAL, // 正常模式
+        DELETE, // 删除模式
     }
 }

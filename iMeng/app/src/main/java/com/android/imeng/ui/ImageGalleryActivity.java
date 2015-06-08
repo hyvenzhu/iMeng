@@ -25,10 +25,12 @@ import java.util.List;
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015-06-07 14:01]
  */
-public class ImageGalleryActivity extends BasicActivity implements AdapterView.OnItemClickListener{
+public class ImageGalleryActivity extends BasicActivity implements AdapterView.OnItemClickListener,
+        GalleryDeleteListener {
 
     @ViewInject(R.id.image_grid)
     private GridView coverGrid;
+    private GalleryAdpater.Mode mMode = GalleryAdpater.Mode.NORMAL;
 
     List<String> coverPaths = null;
     private GalleryAdpater galleryAdpater;
@@ -80,15 +82,7 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
      */
     private void loadGridView()
     {
-        if (coverPaths == null || coverPaths.size() == 0)
-        {
-            ImageView emptyView = new ImageView(this);
-            emptyView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            emptyView.setBackgroundResource(R.drawable.gallery_empty);
-            ((ViewGroup)coverGrid.getParent()).addView(emptyView);
-            coverGrid.setEmptyView(emptyView);
-        }
-        else
+        if (!adjustEmpty())
         {
             coverGrid.post(new Runnable() {
                 @Override
@@ -99,7 +93,8 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
                     int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
                     int columnHeight = (int)(columnWidth / scale) - APKUtil.dip2px(ImageGalleryActivity.this, 50);
 
-                    galleryAdpater = new GalleryAdpater(ImageGalleryActivity.this, coverPaths, R.layout.layout_item_gallery);
+                    galleryAdpater = new GalleryAdpater(ImageGalleryActivity.this, coverPaths,
+                            R.layout.layout_item_gallery, ImageGalleryActivity.this);
                     galleryAdpater.setSize(columnWidth, columnHeight);
                     coverGrid.setAdapter(galleryAdpater);
                     coverGrid.setOnItemClickListener(ImageGalleryActivity.this);
@@ -118,13 +113,60 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
                 finish();
                 break;
             case R.id.title_right_btn: // 编辑
-
+                if (mMode == GalleryAdpater.Mode.NORMAL)
+                {
+                    mMode = GalleryAdpater.Mode.DELETE;
+                    rightBtn.setText("完成");
+                }
+                else
+                {
+                    mMode = GalleryAdpater.Mode.NORMAL;
+                    rightBtn.setText("编辑");
+                }
+                galleryAdpater.setMode(mMode);
                 break;
         }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // 相册详细界面
+    }
 
+    @Override
+    public void onDelete(String coverPath) {
+        // 删除相册文件夹
+        File[] files = new File(coverPath).getParentFile().listFiles();
+        for(File file : files)
+        {
+            file.delete();
+        }
+        coverPaths.remove(coverPath);
+        galleryAdpater.notifyDataSetChanged();
+
+        if (adjustEmpty())
+        {
+            // 隐藏右侧按钮
+            rightBtn.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    /**
+     * 无数据
+     * @return 是否有数据
+     */
+    private boolean adjustEmpty()
+    {
+        if (coverPaths == null || coverPaths.size() == 0)
+        {
+            // 设置空视图
+            ImageView emptyView = new ImageView(this);
+            emptyView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            emptyView.setBackgroundResource(R.drawable.gallery_empty);
+            ((ViewGroup)coverGrid.getParent()).addView(emptyView);
+            coverGrid.setEmptyView(emptyView);
+            return true;
+        }
+        return false;
     }
 }

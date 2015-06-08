@@ -27,5 +27,6 @@
         <activity android:name=".ui.AssembleImageActivity"/>
         <activity android:name=".ui.MakeAllImageActivity"/>
         <activity android:name=".ui.ImageGalleryActivity"/>
+        <activity android:name=".ui.GalleryDetailActivity"/>
     </application>
 </manifest>
