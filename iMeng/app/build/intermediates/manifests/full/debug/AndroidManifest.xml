@@ -30,6 +30,7 @@
             android:name="com.android.imeng.ui.SelectSexActivity"
             android:theme="@style/translucent" />
         <activity android:name="com.android.imeng.ui.FaceDetectiveActivity" />
+        <activity android:name="com.android.imeng.ui.AssembleImageActivity" />
 
         <service
             android:name="com.squareup.leakcanary.internal.HeapAnalyzerService"

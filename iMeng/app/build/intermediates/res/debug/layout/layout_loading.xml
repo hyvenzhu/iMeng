@@ -24,4 +24,4 @@
         android:textSize="18sp" 
         android:gravity="center_vertical"
         android:drawablePadding="5dp"/>
-</com.android.imeng.framework.ui.view.LoadingView><!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/layout/layout_loading.xml -->
+</com.android.imeng.framework.ui.view.LoadingView><!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/layout/layout_loading.xml -->

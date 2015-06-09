@@ -91,6 +91,10 @@ activity#com.android.imeng.ui.FaceDetectiveActivity
 ADDED from AndroidManifest.xml:26:9
 	android:name
 		ADDED from AndroidManifest.xml:26:19
+activity#com.android.imeng.ui.AssembleImageActivity
+ADDED from AndroidManifest.xml:27:9
+	android:name
+		ADDED from AndroidManifest.xml:27:19
 service#com.squareup.leakcanary.internal.HeapAnalyzerService
 ADDED from com.squareup.leakcanary:leakcanary-android:1.3:25:9
 	android:process

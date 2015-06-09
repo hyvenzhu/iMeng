@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/values/color.xml -->
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="translucent_background">#F0000000</color>
     <declare-styleable name="GenericDraweeView"><attr format="integer" name="fadeDuration"/><attr format="float" name="viewAspectRatio"/><attr format="reference" name="placeholderImage"/><attr format="string" name="placeholderImageScaleType"/><attr format="reference" name="retryImage"/><attr format="string" name="retryImageScaleType"/><attr format="reference" name="failureImage"/><attr format="string" name="failureImageScaleType"/><attr format="reference" name="progressBarImage"/><attr format="string" name="progressBarImageScaleType"/><attr format="integer" name="progressBarAutoRotateInterval"/><attr format="string" name="actualImageScaleType"/><attr format="reference" name="backgroundImage"/><attr format="reference" name="overlayImage"/><attr format="reference" name="pressedStateOverlayImage"/><attr format="boolean" name="roundAsCircle"/><attr format="dimension" name="roundedCornerRadius"/><attr format="boolean" name="roundTopLeft"/><attr format="boolean" name="roundTopRight"/><attr format="boolean" name="roundBottomRight"/><attr format="boolean" name="roundBottomLeft"/><attr format="color" name="roundWithOverlayColor"/><attr format="dimension" name="roundingBorderWidth"/><attr format="color" name="roundingBorderColor"/></declare-styleable>
-    <!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/values/ids.xml -->
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/ids.xml -->
     <eat-comment/>
     <item name="clothes" type="id"/>
     <item name="decorations" type="id"/>
@@ -17,7 +17,7 @@
     <item name="hairs" type="id"/>
     <item name="mouths" type="id"/>
     <item name="onLoading" type="id"/>
-    <!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
     <eat-comment/>
     <integer name="__leak_canary_max_stored_leaks">7</integer>
     <string name="__leak_canary_class_has_leaked">%s has leaked</string>
@@ -27,22 +27,22 @@
     <string name="__leak_canary_share_heap_dump">Share heap dump</string>
     <string name="__leak_canary_share_leak">Share leak</string>
     <string name="__leak_canary_share_with">Share with…</string>
-    <!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">爱萌</string>
     <string name="loading_failure">点击屏幕 , 重新加载</string>
     <string name="loading_text">正在加载, 请稍候...</string>
     <string name="requesting_failure">请求失败, 请稍后重试</string>
-    <!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
     </style>
-    <!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
     <eat-comment/>
     <style name="__LeakCanary.Base" parent="android:Theme">
   </style>
-    <!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="loading_dialog" parent="@android:style/Theme.Dialog">
 		<item name="android:windowFrame">@null</item>

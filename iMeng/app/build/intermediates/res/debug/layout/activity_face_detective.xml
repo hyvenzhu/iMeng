@@ -65,4 +65,4 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/btn_detective_next_bg"/>
-</LinearLayout><!-- From: file:/D:/Project/爱萌/iMeng/iMeng/app/src/main/res/layout/activity_face_detective.xml -->
+</LinearLayout><!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/layout/activity_face_detective.xml -->
