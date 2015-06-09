@@ -130,17 +130,16 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        // 相册详细界面
+        String coverPath = galleryAdpater.getItem(position);
+        // 相册文件夹
+        String galleryDir = new File(coverPath).getParent();
+        GalleryDetailActivity.actionStart(galleryDir, this);
     }
 
     @Override
     public void onDelete(String coverPath) {
         // 删除相册文件夹
-        File[] files = new File(coverPath).getParentFile().listFiles();
-        for(File file : files)
-        {
-            file.delete();
-        }
+        APKUtil.deleteFile(new File(coverPath).getParentFile().getAbsolutePath());
         coverPaths.remove(coverPath);
         galleryAdpater.notifyDataSetChanged();
 

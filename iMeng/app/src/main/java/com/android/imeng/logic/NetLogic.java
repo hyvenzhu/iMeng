@@ -1,7 +1,5 @@
 package com.android.imeng.logic;
 
-import android.content.res.Resources;
-
 import com.android.imeng.AppDroid;
 import com.android.imeng.R;
 import com.android.imeng.framework.asyncquery.TaskExecutor;
@@ -124,12 +122,13 @@ public class NetLogic extends BaseLogic {
 
     /**
      * 保存到表情相册
-     * @param imageInfos
+     * @param imageInfos 用户选择的
+     * @param dailyImageInfos 日常形象
      * @param destDir
      */
-    public void save2Gallery(List<ImageInfo> imageInfos, String destDir)
+    public void save2Gallery(List<ImageInfo> imageInfos, List<ImageInfo> dailyImageInfos, String destDir)
     {
-        TaskExecutor.getInstance().execute(new Save2GalleryTask(R.id.save2Gallery, this, imageInfos, destDir));
+        TaskExecutor.getInstance().execute(new Save2GalleryTask(R.id.save2Gallery, this, imageInfos, dailyImageInfos, destDir));
     }
 
     /**

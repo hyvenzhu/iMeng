@@ -17,7 +17,7 @@ public class ImageInfo {
     private String face; // 脸
     private String hairFont; // 前面头发
     private String decoration; // 装饰
-    private int sayDrawableId; // 文字资源
+    private int sayDrawableId = -1; // 文字资源
 
     private int index; // 下标
     private String localPath; // 组装好的本地图片路径
@@ -134,7 +134,7 @@ public class ImageInfo {
                     overlayDrawableIncludeSay = BitmapHelper.overlayDrawable(sayDrawable);
                 }
             }
-            return overlayDrawableIncludeSay;
+            return overlayDrawableIncludeSay != null? overlayDrawableIncludeSay : overlayDrawable;
         }
         else
         {
