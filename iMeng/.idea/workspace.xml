@@ -48,408 +48,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d8c78a3-f064-499f-aa31-12a0ad286f6a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/clothes_selected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/clothes_unselected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/decoration_selected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/decoration_unselected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/face_selected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/face_unselected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/more.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/right_ok.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HairAdpater.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/HairInfo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/HairInfoParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/PictureAdpater.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ViewPagerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_item_picture.xml" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi\clothes_selected.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi\clothes_unselected.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi\decoration_selected.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi\decoration_unselected.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi\face_selected.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi\face_unselected.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi\right_ok.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\icon\120.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\icon\180.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\icon\58.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\icon\87.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\icon\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\icon\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\0.1启动页.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\1首页.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\2选择性别.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\2选择性别_loding.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\4.0捏人.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\4.1绘画中页.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\5生成表情.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\6.0删除.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\6.0表情相册 空状态 .jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\6.0表情相册.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\6.1表情详情.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\6.2 查看.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\7.1我的收藏.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\7.2我的收藏 空状态.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\8.0自定义表情-选男女.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\8.1自定义表情 - 换装.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\8.3自定义表情 - 捏人.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\8.4右滑捏动作.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\8.5文字框.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\8.6文字框 手输键盘.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\8.7自定义表情 - 生成表情.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\9.0选择形象.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌jpg\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\4.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\女.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\女@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\女@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\换肤.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\换肤@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\换肤@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\照片变身.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\照片变身@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\照片变身@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\男.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\男@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\男@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\背景.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\背景@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\背景@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\自定义表情.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\自定义表情@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\自定义表情@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\魔法相机.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\魔法相机@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\1首页\魔法相机@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\女.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\女@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\女@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\女灰色.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\女灰色@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\女灰色@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\男-灰色.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\男-灰色@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\男-灰色@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\男.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\男@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\2选择性别\男@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\更多@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\更多@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\蓝色条.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\蓝色条@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\蓝色条@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选发型-拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选发型-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选发型-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选发型.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选发型@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选发型@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选服装-灰色.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选服装-灰色@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选服装-灰色@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选服装.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选服装@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选服装@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选饰品-拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选饰品-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选饰品-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选饰品.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选饰品@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\4捏人\选饰品@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\已选择-2@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\已选择-@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\未选择-2@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\未选择-@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\框@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\5生成表情\框@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\框@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\框@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\背景.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\背景@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\背景@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\表情相册-空@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.0表情相册\表情相册-空@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\下载到本地@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\下载到本地@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\卡片女@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\卡片女@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\卡片男@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\卡片男@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\取消收藏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\取消收藏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\头像@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\头像@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\添加到我的收藏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\添加到我的收藏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\表情详情@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\6.1表情详情\表情详情@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\收藏表情-空@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\收藏表情-空@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\收藏表情@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\收藏表情@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\框.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\框@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\框@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\背景.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\背景@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\7.1收藏表情\背景@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.1自定义表情 - 换装\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.1自定义表情 - 换装\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.1自定义表情 - 换装\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.1自定义表情 - 换装\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\5@2x.psd" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\5@3x 拷贝.psd" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女16@2x.psd" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女10@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女11@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女12@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女13@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女14@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女15@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女16@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女17@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女18@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女19@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女1@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女20@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女2@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女3@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女4@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女5@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女6@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女7@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女8@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女\女9@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\10@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\11@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\12@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\13@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\14@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\15@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\16@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\17@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\18@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\19@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\1@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\20@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\2@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\3@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\4@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\5@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\6@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\7@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\8@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\女下\9@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\文字框空白@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男10@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男11@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男12@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男13@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男14@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男15@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男16@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男17@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男18@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男19@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男1@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男20@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男2@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男3@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男4@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男5@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男6@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男7@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男8@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男\男9@2x 拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\10@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\11@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\12@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\13@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\14@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\15@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\16@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\17@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\18@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\19@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\1@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\20@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\2@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\3@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\4@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\5@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\6@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\7@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\8@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\9@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\40个默认文字\男下\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\下@2x.psd" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\加文字框-拷贝.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\加文字框-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\加文字框-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\加文字框.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\加文字框@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\加文字框@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\叉@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\叉@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\嘻嘻@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\嘻嘻@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\导航栏.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\导航栏@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\导航栏@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\笔@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\笔@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选动作-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选动作-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选动作@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选动作@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选发型-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选发型-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选发型@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选发型@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选嘴巴-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选嘴巴-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选嘴巴@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选嘴巴@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眉毛-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眉毛-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眉毛@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眉毛@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眼睛-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眼睛-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眼睛@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选眼睛@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选脸型-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选脸型-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选脸型@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选脸型@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选饰品-拷贝@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选饰品-拷贝@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选饰品@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\8.3自定义表情 - 捏人\选饰品@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\home_small_default_self_image.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\home_small_image_wapper.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\已选择.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\已选择@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\换肤@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\换肤@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\未选择.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\未选择@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\背景@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\背景@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\9.0选择形象\默认形象@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\10-00-6-00@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\11-30-12-30@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\12-30-2-00@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\2-00-6-00@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\6-00-10-00@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\6-00-8-00@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\8-00-11-30@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\home_default_head1.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\home_default_head2.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\home_default_head3.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\home_default_head4.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\home_default_head5.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\home_default_head6.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@2x\home_default_head7.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\1.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\2.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\3.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\4.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\5.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\6.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\7.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\@3x\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\home_head_wallpaper06-00-08-00.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\home_head_wallpaper08-00-11-30.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\home_head_wallpaper11-30-12-30.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\home_head_wallpaper12-30-14-00.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\home_head_wallpaper14-00-18-00.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\home_head_wallpaper18-00-22-00.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\home_head_wallpaper22-00-06-00.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\墙纸\墙纸.psd" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\1@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\1@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\2@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\2@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\3@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\3@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\4@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\4@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\5@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\5@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\6@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\6@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\7@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\7@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\文字框首页\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\loding.psd" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\动作@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\动作@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\努力绘画中1.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\努力绘画中2.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\发型@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\发型@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\嘴巴@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\嘴巴@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\我的收藏-空.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\文字框@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\文字框@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\正在检测脸部信息1.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\正在检测脸部信息2.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\正在检测脸部信息3.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\眉毛@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\眉毛@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\眼睛@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\眼睛@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\脸型@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\脸型@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\表情相册-空.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\预加载.psd" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\饰品@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Project\爱萌\iMeng\资料\UI设计\爱萌切图\预加载图\饰品@3x.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/female_zoomout_circle.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/male_zoomout_circle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HomeActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/android/imeng/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/android/imeng/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_image.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_image.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/squareup/leakcanary/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/squareup/leakcanary/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SelectSexActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SelectSexActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_sex.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_sex.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/drawee_0_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/drawee_0_5_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/fresco_0_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/fresco_0_5_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -474,68 +83,7 @@
     <favorites_list name="Android-BaseLine" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AssembleImageActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4769" max-vertical-offset="7770">
-              <caret line="282" column="41" selection-start-line="282" selection-start-column="41" selection-end-line="282" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/parser/JsonParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="1071">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HairAdpater.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HairAdpater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.005449591" vertical-offset="565" max-vertical-offset="1302">
-              <caret line="41" column="54" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PictureAdpater.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/PictureAdpater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="1302">
-              <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetLogic.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3129" max-vertical-offset="5943">
-              <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PictureInfoParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/PictureInfoParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="924">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -1722,8 +1270,8 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/imagepipeline/0.5.0/33873e8668586e22d8fd829f5208022e44e46fa6/imagepipeline-0.5.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar" />
-                            <option value="D:/Android/software/android-sdk/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3.aar" />
-                            <option value="D:/Android/software/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar" />
+                            <option value="$PROJECT_DIR$/../../../software/android-sdk/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3.aar" />
+                            <option value="$PROJECT_DIR$/../../../software/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar" />
                             <option value="$MODULE_DIR$/libs/activation.jar" />
                             <option value="$MODULE_DIR$/libs/additionnal.jar" />
                             <option value="$MODULE_DIR$/libs/eventbus.jar" />
@@ -1755,18 +1303,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_select_sex.xml" />
-        <option value="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SelectSexActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/color.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/LayerDrawable.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/LayerDrawableHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/ImageHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/ImageInfo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/parser/JsonParser.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/InfoResult.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/ClothesParser.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/PictureInfoParser.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/anim/dectective_animation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/anim/fade_int.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/dectective_animation.xml" />
@@ -1774,13 +1310,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_dectective_female_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_detective_female_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_detective_next_bg.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_face_detective.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/APKUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/DetectTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/DetectParser.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_iamge.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/BitmapHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/FaceInfoParser.java" />
@@ -1806,14 +1340,28 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/FaceDetectiveActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HairAdpater.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/PictureAdpater.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/radio_button.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_item_gallery_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailAdpater.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/small_cover_wall.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_gallery_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/anim/select_sex_zoom_out.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/female_zoomout_circle.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/male_zoomout_circle.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_select_sex.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SelectSexActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="54" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="width" value="1320" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1841,16 +1389,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android-BaseLine" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1927,32 +1465,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iMeng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iMeng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1995,44 +1507,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iMeng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iMeng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imeng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-BaseLine" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2047,8 +1535,8 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="323052d653d121ed" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_6_API_14" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.241.101:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="FullScreen" value="false" />
     <property name="DEBUGGABLE_DEVICE" value="samsung-sm_t311-323052d653d121ed" />
@@ -2059,18 +1547,18 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="617" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="false" />
-    <property name="last_opened_file_path" value="D:/Android/workspace-studio/ECenter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../workspace-studio/ECenter" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.android.imeng.ui" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi" />
       <recent name="D:\Android\source\iMeng\iMeng\app\src\main\res\drawable" />
-      <recent name="D:\Android\source\iMeng\iMeng\app\src\main\res\drawable-hdpi" />
-      <recent name="D:\Android\source\iMeng\iMeng\app\libs" />
       <recent name="D:\Android\source\iMeng\iMeng\app\src\main\res\anim" />
+      <recent name="D:\Android\source\iMeng\iMeng\app\src\main\res\layout" />
+      <recent name="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi" />
+      <recent name="D:\Android\source\iMeng\iMeng\app\src\main\res\drawable-hdpi" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\爱萌\iMeng\iMeng\app\src\main\res\drawable-hdpi" />
@@ -2288,12 +1776,16 @@
       <created>1433430606110</created>
       <updated>1433430606110</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="相册详情界面">
+      <created>1433860834964</created>
+      <updated>1433860834964</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2306,17 +1798,17 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5764376" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819074" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44179523" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258786" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32428116" sideWeight="0.24126984" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2564433" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32398316" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23492064" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32108626" sideWeight="0.24126984" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44089457" sideWeight="0.7587302" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2350,7 +1842,8 @@
     <MESSAGE value="增加脸部识别接口" />
     <MESSAGE value="增加形象拼装界面" />
     <MESSAGE value="形象拼装界面" />
-    <option name="LAST_COMMIT_MESSAGE" value="形象拼装界面" />
+    <MESSAGE value="相册详情界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="相册详情界面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2405,250 +1898,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_detective_male_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34673366" vertical-offset="0" max-vertical-offset="597">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_detective_female_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26968175" vertical-offset="0" max-vertical-offset="597">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_detective_next_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38525963" vertical-offset="0" max-vertical-offset="597">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20210896" vertical-offset="161" max-vertical-offset="4278">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_face_detective.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46653143" vertical-offset="161" max-vertical-offset="1679">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/APKUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6920821" vertical-offset="3413" max-vertical-offset="4515">
-          <caret line="201" column="52" selection-start-line="201" selection-start-column="52" selection-end-line="201" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/volley-plus.jar!/com/android/volley/plus/multipart/MultiPartRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3462733" vertical-offset="71" max-vertical-offset="882">
-          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/InfoResultMultiPartRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="438" max-vertical-offset="2461">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/BaseLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.37671232" vertical-offset="910" max-vertical-offset="5612">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/DetectParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58504397" vertical-offset="0" max-vertical-offset="693">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38116592" vertical-offset="711" max-vertical-offset="2016">
-          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/img_back.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2680067" vertical-offset="1" max-vertical-offset="736">
-          <caret line="12" column="37" selection-start-line="11" selection-start-column="3" selection-end-line="12" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/DetectTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1495">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/FaceInfoParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="690">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/FaceInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0016750419" vertical-offset="346" max-vertical-offset="943">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/parser/InputStreamParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38525963" vertical-offset="0" max-vertical-offset="597">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/volley-plus.jar!/com/android/volley/NetworkResponse.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20572451" vertical-offset="0" max-vertical-offset="575">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321918" vertical-offset="36" max-vertical-offset="828">
-          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/ResponseParserListenerAdpater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="31" max-vertical-offset="736">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_face_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11815068" vertical-offset="0" max-vertical-offset="584">
-          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/unselected_indicator.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_indicator_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07705192" vertical-offset="0" max-vertical-offset="597">
-          <caret line="2" column="87" selection-start-line="2" selection-start-column="87" selection-end-line="2" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_decoration_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07876712" vertical-offset="0" max-vertical-offset="584">
-          <caret line="2" column="80" selection-start-line="2" selection-start-column="80" selection-end-line="2" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_clothes_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="230">
-          <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/ui/BasicActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4708" max-vertical-offset="7833">
-          <caret line="267" column="22" selection-start-line="267" selection-start-column="22" selection-end-line="267" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Android/software/android-sdk/sources/android-21/android/widget/GridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328446" vertical-offset="235" max-vertical-offset="48909">
-          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Android/software/android-sdk/sources/android-21/android/graphics/drawable/LayerDrawable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="970" max-vertical-offset="22092">
-          <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ViewPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="945">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25570777" vertical-offset="0" max-vertical-offset="819">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19178082" vertical-offset="0" max-vertical-offset="714">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/InfoResultRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3170" max-vertical-offset="4263">
-          <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/PictureInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/HairInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36950147" vertical-offset="0" max-vertical-offset="682">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/HairInfoParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="788" max-vertical-offset="1470">
@@ -2663,14 +1912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/ids.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2477" max-vertical-offset="5397">
@@ -2679,7 +1920,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Android/software/android-sdk/sources/android-21/java/lang/Integer.java">
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3462733" vertical-offset="6014" max-vertical-offset="14784">
           <caret line="332" column="22" selection-start-line="332" selection-start-column="22" selection-end-line="332" selection-end-column="22" />
@@ -2687,33 +1928,33 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/right_ok.9.png">
-      <provider selected="true" editor-type-id="ninepatcheditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_common_title.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61403507" vertical-offset="518" max-vertical-offset="1176">
           <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_image.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_image.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6457055" vertical-offset="1364" max-vertical-offset="2100">
           <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/parser/JsonParser.java">
@@ -2724,23 +1965,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4769" max-vertical-offset="7770">
-          <caret line="282" column="41" selection-start-line="282" selection-start-column="41" selection-end-line="282" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_item_picture.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41871166" vertical-offset="0" max-vertical-offset="652">
           <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/PictureInfoParser.java">
@@ -2773,7 +2006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16304348" vertical-offset="0" max-vertical-offset="1722">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2787,8 +2019,327 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HairAdpater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.005449591" vertical-offset="565" max-vertical-offset="1302">
-          <caret line="41" column="54" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1840">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_item_image.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="713">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/ids.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57788944" vertical-offset="0" max-vertical-offset="597">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/widget/RadioButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1243" max-vertical-offset="1840">
+          <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/view/LayoutInflater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7161" max-vertical-offset="22563">
+          <caret line="363" column="16" selection-start-line="363" selection-start-column="16" selection-end-line="363" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/widget/LinearLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.5576324" vertical-offset="39131" max-vertical-offset="42711">
+          <caret line="1826" column="24" selection-start-line="1826" selection-start-column="24" selection-end-line="1826" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/view/ViewGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="146452" max-vertical-offset="164588">
+          <caret line="6495" column="19" selection-start-line="6495" selection-start-column="19" selection-end-line="6495" selection-end-column="19" />
+          <folding>
+            <element signature="e#141213#141214#0" expanded="true" />
+            <element signature="e#141255#141256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/widget/RadioGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0941782" vertical-offset="7281" max-vertical-offset="8602">
+          <caret line="264" column="24" selection-start-line="264" selection-start-column="24" selection-end-line="264" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_make_all_image.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.678572" vertical-offset="420" max-vertical-offset="2300">
+          <caret line="41" column="66" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/widget/CompoundButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3619" max-vertical-offset="10764">
+          <caret line="203" column="16" selection-start-line="203" selection-start-column="16" selection-end-line="203" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/platforms/android-21/data/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="652" max-vertical-offset="3864">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ImageGalleryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="151" max-vertical-offset="3519">
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_item_gallery.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321617" vertical-offset="133" max-vertical-offset="782">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryAdpater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="565" max-vertical-offset="1564">
+          <caret line="51" column="73" selection-start-line="51" selection-start-column="73" selection-end-line="51" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_item_gallery_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5659051" vertical-offset="0" max-vertical-offset="569">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ImageAdpater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="451" max-vertical-offset="1656">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/MakeAllImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.878425" vertical-offset="9352" max-vertical-offset="11523">
+          <caret line="141" column="20" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="9.6489725" vertical-offset="0" max-vertical-offset="12880">
+          <caret line="282" column="41" selection-start-line="282" selection-start-column="41" selection-end-line="282" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/small_cover_wall.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="230">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="4784">
+          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5094#5102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_gallery_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57644993" vertical-offset="316" max-vertical-offset="1863">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/fade_int.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="597">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circle_indicator.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="597">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/color.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07705192" vertical-offset="0" max-vertical-offset="597">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57621443" vertical-offset="47" max-vertical-offset="644">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailAdpater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46063653" vertical-offset="507" max-vertical-offset="1104">
+          <caret line="48" column="68" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="254" max-vertical-offset="851">
+          <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48972604" vertical-offset="2428" max-vertical-offset="3588">
+          <caret line="144" column="39" selection-start-line="144" selection-start-column="39" selection-end-line="144" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/animation/AnimatorSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.3096447" vertical-offset="4860" max-vertical-offset="27393">
+          <caret line="289" column="19" selection-start-line="289" selection-start-column="19" selection-end-line="289" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_male_normal.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_male_bg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17512691" vertical-offset="0" max-vertical-offset="394">
+          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_female_normal.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_female_bg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11557789" vertical-offset="0" max-vertical-offset="597">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/male_zoomout_circle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17512691" vertical-offset="0" max-vertical-offset="394">
+          <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/female_zoomout_circle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17512691" vertical-offset="0" max-vertical-offset="394">
+          <caret line="3" column="54" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SelectSexActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5667808" vertical-offset="1118" max-vertical-offset="4991">
+          <caret line="85" column="33" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
+          <folding>
+            <element signature="e#2905#3204#0" expanded="true" />
+            <element signature="e#3185#3186#0" expanded="true" />
+            <element signature="e#3977#4276#0" expanded="true" />
+            <element signature="e#4257#4258#0" expanded="true" />
+            <element signature="e#5555#5784#0" expanded="true" />
+            <element signature="e#5773#5774#0" expanded="true" />
+            <element signature="e#6749#6980#0" expanded="true" />
+            <element signature="e#6969#6970#0" expanded="true" />
+            <element signature="e#8025#8259#0" expanded="true" />
+            <element signature="e#8248#8249#0" expanded="true" />
+            <element signature="e#8924#8925#0" expanded="true" />
+            <element signature="e#8964#8965#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_select_sex.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5957821" vertical-offset="351" max-vertical-offset="1633">
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding />
         </state>
       </provider>

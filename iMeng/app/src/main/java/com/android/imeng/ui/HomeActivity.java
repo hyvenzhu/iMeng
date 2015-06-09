@@ -143,7 +143,7 @@ public class HomeActivity extends BasicActivity {
     @SuppressLint("NewApi")
     private void blur(Bitmap bkg, View view) {
         float scaleFactor = 8;//图片缩放比例；
-        float radius = 20;//模糊程度
+        float radius = 10;//模糊程度
 
         Bitmap blurBitmap = Bitmap.createBitmap(
                 (int) (view.getMeasuredWidth() / scaleFactor),

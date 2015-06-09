@@ -17,6 +17,7 @@
             android:id="@+id/male_btn"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:enabled="false"
             android:background="@drawable/btn_male_bg"/>
         <TextView
             android:layout_width="wrap_content"
@@ -39,6 +40,7 @@
             android:id="@+id/female_btn"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:enabled="false"
             android:background="@drawable/btn_female_bg"/>
         <TextView
             android:layout_width="wrap_content"
@@ -48,4 +50,17 @@
             android:textColor="@android:color/white"
             android:text="软妹子"/>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/male_zoom"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="invisible"
+        android:background="@drawable/male_zoomout_circle"/>
+    <ImageView
+        android:id="@+id/female_zoom"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="invisible"
+        android:background="@drawable/female_zoomout_circle"/>
 </RelativeLayout>
