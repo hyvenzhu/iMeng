@@ -11,9 +11,9 @@
     <item type="id" name="eyebrows"/>
     <item type="id" name="mouths"/>
     <item type="id" name="detect"/>
-    <item name="face" type="id"/>
+    <item type="id" name="face"/>
     <item type="id" name="downloadOriginal"/>
-    <item name="clothesAndExpression" type="id"/>
+    <item type="id" name="clothesAndExpression"/>
     <item type="id" name="downClothesAndExpression"/>
-    <item name="save2Gallery" type="id"/>
+    <item type="id" name="save2Gallery"/>
 </resources>
