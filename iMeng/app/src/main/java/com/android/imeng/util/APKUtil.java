@@ -236,4 +236,35 @@ public class APKUtil {
         int indentify = resources.getIdentifier(context.getPackageName() + ":drawable/" + drawableName, null, null);
         return indentify;
     }
+
+    /**
+     * 删除文件、文件夹
+     * @param path
+     * @return
+     */
+    public static boolean deleteFile(String path)
+    {
+        if (TextUtils.isEmpty(path))
+        {
+            return false;
+        }
+        File file = new File(path);
+        if (!file.isDirectory() && file.exists())
+        {
+            return file.delete();
+        }
+        else
+        {
+            File[] files = file.listFiles();
+            if (files == null)
+            {
+                return false;
+            }
+            for(File fileIn : files)
+            {
+                deleteFile(fileIn.getAbsolutePath());
+            }
+            return file.delete();
+        }
+    }
 }

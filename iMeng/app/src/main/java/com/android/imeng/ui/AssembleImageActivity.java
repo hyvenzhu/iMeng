@@ -367,6 +367,8 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                  {
                      if (hairInfos != null && hairInfos.size() > 0)
                      {
+                         drawableMap.remove(0);
+                         drawableMap.remove(3);
                          for(int i = 0; i < hairInfos.size(); i++)
                          {
                              PictureInfo pictureInfo =  hairInfos.get(i);
@@ -519,7 +521,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                         int numColumns = 3;
                         int hoizontalSpacing = APKUtil.dip2px(this, 2);
                         int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
-                        int columnHeight = (int)(columnWidth / scale);
+                        int columnHeight = (int)(columnWidth * scale);
                         hairAdpater.setSize(columnWidth, columnHeight);
                         hairGrid.setAdapter(hairAdpater);
                     }
@@ -546,7 +548,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                         int numColumns = 3;
                         int hoizontalSpacing = APKUtil.dip2px(this, 2);
                         int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
-                        int columnHeight = (int)(columnWidth / scale);
+                        int columnHeight = (int)(columnWidth * scale);
                         clothesAdapter.setSize(columnWidth, columnHeight);
                         clothesGrid.setAdapter(clothesAdapter);
                     }
@@ -573,7 +575,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                         int numColumns = 3;
                         int hoizontalSpacing = APKUtil.dip2px(this, 2);
                         int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
-                        int columnHeight = (int)(columnWidth / scale);
+                        int columnHeight = (int)(columnWidth * scale);
                         decorationAdapter.setSize(columnWidth, columnHeight);
                         decorationGrid.setAdapter(decorationAdapter);
                     }

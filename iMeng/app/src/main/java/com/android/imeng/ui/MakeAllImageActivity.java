@@ -21,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 
-import com.android.imeng.AppDroid;
 import com.android.imeng.R;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
@@ -36,8 +35,6 @@ import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 
 import java.io.File;
-import java.io.FileFilter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,6 +93,7 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
     // 图片合成文件夹
     File imageDir;
     private List<ImageInfo> choosedImageInfos = new ArrayList<ImageInfo>(); // 选择的形象
+    private List<ImageInfo> dailyImageInfos = new ArrayList<>(); // 每天的7张形象
 
     AnimationDrawable animationDrawable;
     @Override
@@ -191,7 +189,7 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
                     return;
                 }
                 showProgress("保存中...");
-                netLogic.save2Gallery(choosedImageInfos, APKUtil.getDiskCacheDir(this, Constants.IMAGE_DIR  + File.separator + System.currentTimeMillis()).getAbsolutePath());
+                netLogic.save2Gallery(choosedImageInfos, dailyImageInfos, APKUtil.getDiskCacheDir(this, Constants.IMAGE_DIR  + File.separator + System.currentTimeMillis()).getAbsolutePath());
                 break;
         }
     }
@@ -330,6 +328,47 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
             {
                 imageDir = APKUtil.getDiskCacheDir(MakeAllImageActivity.this, Constants.TEMP_DIR);
             }
+
+            // 存储7个形象(04衣服-019脸、05衣服-017脸、019衣服-019脸、09衣服-09脸、018衣服-014脸、020衣服-015脸、04衣服-09脸)
+            ImageInfo imageInfo1 = null;
+            ImageInfo imageInfo2 = null;
+            ImageInfo imageInfo3 = null;
+            ImageInfo imageInfo4 = null;
+            ImageInfo imageInfo5 = null;
+            ImageInfo imageInfo6 = null;
+            ImageInfo imageInfo7 = null;
+            for (int i = 0; i < 7; i++)
+            {
+                ImageInfo imageInfo = new ImageInfo();
+                imageInfo.setHairBackground(hairBackground);
+                imageInfo.setHairFont(hairFont);
+                switch (i)
+                {
+                    case 0:
+                        imageInfo1 = imageInfo;
+                        break;
+                    case 1:
+                        imageInfo2 = imageInfo;
+                        break;
+                    case 2:
+                        imageInfo3 = imageInfo;
+                        break;
+                    case 3:
+                        imageInfo4 = imageInfo;
+                        break;
+                    case 4:
+                        imageInfo5 = imageInfo;
+                        break;
+                    case 5:
+                        imageInfo6 = imageInfo;
+                        break;
+                    case 6:
+                        imageInfo7 = imageInfo;
+                        break;
+                }
+                dailyImageInfos.add(imageInfo);
+            }
+
             for (int j = 0; j < clothesAndExpressions.size(); j++)
             {
                 ClothesAndExpression clothesAndExpression = clothesAndExpressions.get(j);
@@ -389,6 +428,102 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
                 imageInfo.setIndex(j);
                 imageInfo.setLocalPath(localPath);
                 localPaths.add(imageInfo);
+
+                // 7个形象衣服和脸
+                switch (sex)
+                {
+                    case 0:
+                        {
+                            if (j == 3)
+                            {
+                                imageInfo1.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                                imageInfo7.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                            }
+                            else if (j == 4)
+                            {
+                                imageInfo2.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                            }
+                            else if (j == 18)
+                            {
+                                imageInfo3.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                                imageInfo1.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                                imageInfo3.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 8)
+                            {
+                                imageInfo4.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                                imageInfo4.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                                imageInfo7.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 17)
+                            {
+                                imageInfo5.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                            }
+                            else if (j == 19)
+                            {
+                                imageInfo6.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                            }
+                            else if (j == 16)
+                            {
+                                imageInfo2.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 13)
+                            {
+                                imageInfo5.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 14)
+                            {
+                                imageInfo6.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            break;
+                        }
+                    case 1:
+                        {
+                            if (j == 2)
+                            {
+                                imageInfo1.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                            }
+                            else if (j == 13)
+                            {
+                                imageInfo1.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                                imageInfo4.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                                imageInfo4.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 3)
+                            {
+                                imageInfo2.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                            }
+                            else if (j == 11)
+                            {
+                                imageInfo2.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 8)
+                            {
+                                imageInfo3.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                                imageInfo3.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 9)
+                            {
+                                imageInfo5.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                            }
+                            else if (j == 18)
+                            {
+                                imageInfo5.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 6)
+                            {
+                                imageInfo6.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                                imageInfo6.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            else if (j == 4)
+                            {
+                                imageInfo7.setClothes(clothesAndExpression.getClothesInfo().getOriginalUrl());
+                                imageInfo7.setFace(clothesAndExpression.getExpressionInfo().getOriginalUrl());
+                            }
+                            break;
+                        }
+                }
+
             }
             runOnUiThread(new Runnable() {
                 @Override
