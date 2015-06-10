@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HomeActivity"/>
+        <activity android:name=".ui.home.HomeActivity"/>
         <activity android:name=".ui.decorate.cartoon.SelectSexActivity" android:theme="@style/translucent"/>
         <activity android:name=".ui.decorate.photo.FaceDetectiveActivity"/>
         <activity android:name=".ui.decorate.photo.AssembleImageActivity"/>
@@ -29,5 +29,6 @@
         <activity android:name=".ui.gallery.ImageGalleryActivity"/>
         <activity android:name=".ui.gallery.GalleryDetailActivity"/>
         <activity android:name=".ui.decorate.cartoon.SelectClothesActivity"/>
+        <activity android:name=".ui.home.WallpaperActivity" android:theme="@style/translucent"/>
     </application>
 </manifest>

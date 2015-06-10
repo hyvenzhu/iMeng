@@ -5,10 +5,11 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
-import com.android.imeng.ui.gallery.GalleryDeleteListener;
+import com.android.imeng.ui.gallery.GalleryListener;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;
@@ -23,8 +24,8 @@ public class GalleryAdpater extends BasicAdapter<String> {
     private int width; // 宽
     private int height; // 高
     private Mode mode = Mode.NORMAL;
-    GalleryDeleteListener galleryDeleteListener;
-    public GalleryAdpater(Context context, List<String> data, int resourceId, GalleryDeleteListener galleryDeleteListener) {
+    GalleryListener galleryDeleteListener;
+    public GalleryAdpater(Context context, List<String> data, int resourceId, GalleryListener galleryDeleteListener) {
         super(context, data, resourceId);
         this.galleryDeleteListener = galleryDeleteListener;
     }
@@ -57,7 +58,7 @@ public class GalleryAdpater extends BasicAdapter<String> {
         {
             deleteBtn.setVisibility(View.GONE);
         }
-        else
+        else if (mode == Mode.DELETE)
         {
             deleteBtn.setVisibility(View.VISIBLE);
         }

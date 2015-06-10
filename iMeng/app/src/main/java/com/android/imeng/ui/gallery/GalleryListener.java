@@ -1,10 +1,10 @@
 package com.android.imeng.ui.gallery;
 
 /**
- * 相册删除
+ * 相册事件
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015-06-08 22:17]
  */
-public interface GalleryDeleteListener {
+public interface GalleryListener {
     void onDelete(String coverPath);
 }

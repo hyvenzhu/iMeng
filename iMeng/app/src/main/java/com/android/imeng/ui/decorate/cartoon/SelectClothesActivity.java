@@ -254,8 +254,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
         return drawable;
     }
 
-    @OnClick({R.id.hair_lay, R.id.face_btn, R.id.clothes_lay, R.id.clothes_btn, R.id.decoration_lay, R.id.decoration_btn,
-              R.id.title_right_btn, R.id.title_left_btn})
+    @OnClick({R.id.title_right_btn, R.id.title_left_btn})
     public void onViewClick(View view)
     {
         switch (view.getId())

@@ -6,6 +6,7 @@ import android.view.View;
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
+import com.android.imeng.ui.home.HomeActivity;
 
 /**
  * 闪屏页面

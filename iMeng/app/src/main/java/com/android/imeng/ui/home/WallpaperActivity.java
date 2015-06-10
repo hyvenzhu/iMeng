@@ -1,4 +1,4 @@
-package com.android.imeng.ui.gallery;
+package com.android.imeng.ui.home;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +11,11 @@ import android.widget.ImageView;
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
-import com.android.imeng.framework.ui.base.annotations.event.OnClick;
-import com.android.imeng.ui.gallery.adapter.GalleryAdpater;
+import com.android.imeng.ui.base.OptListener;
+import com.android.imeng.ui.home.adapter.WallpaperAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
+import com.android.imeng.util.SPDBHelper;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -22,33 +23,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 表情相册
+ * 选择墙纸
  * @author hiphonezhu@gmail.com
- * @version [iMeng, 2015-06-07 14:01]
+ * @version [iMeng, 2015-06-10 21:29]
  */
-public class ImageGalleryActivity extends BasicActivity implements AdapterView.OnItemClickListener,
-        GalleryListener {
-
+public class WallpaperActivity extends BasicActivity implements AdapterView.OnItemClickListener,
+        OptListener{
     @ViewInject(R.id.image_grid)
     private GridView coverGrid;
-    private GalleryAdpater.Mode mMode = GalleryAdpater.Mode.NORMAL;
 
     List<String> coverPaths = null;
-    private GalleryAdpater galleryAdpater;
+    private WallpaperAdpater wallpaperAdpater;
     private float scale = (1.0f * Constants.IMAGE_WIDTH_HEIGHT_WITHOUT_LEFT_EREA) / Constants.IMAGE_WIDTH_HEIGHT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_gallery);
+        setContentView(R.layout.activity_wallpaper);
     }
 
     @Override
     protected void init() {
         super.init();
-        setTitleBar(true, "表情相册", false);
-        leftBtn.setText("返回");
-        rightBtn.setText("编辑");
-
         // 加载封面
         loadGalleryCover();
 
@@ -76,6 +71,7 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
                 coverPaths.add(files[0].getAbsolutePath());
             }
         }
+        coverPaths.add(0, String.valueOf(R.drawable.default_wallpaper));
     }
 
     /**
@@ -91,64 +87,25 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
                     final int viewWidth = coverGrid.getWidth();
                     int numColumns = coverGrid.getNumColumns();
                     int hoizontalSpacing = coverGrid.getHorizontalSpacing();
-                    int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
-                    int columnHeight = (int)(columnWidth / scale) - APKUtil.dip2px(ImageGalleryActivity.this, 50);
+                    int columnWidth = (int) ((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
+                    int columnHeight = (int) (columnWidth / scale) - APKUtil.dip2px(WallpaperActivity.this, 50);
 
-                    galleryAdpater = new GalleryAdpater(ImageGalleryActivity.this, coverPaths,
-                            R.layout.layout_item_gallery, ImageGalleryActivity.this);
-                    galleryAdpater.setSize(columnWidth, columnHeight);
-                    coverGrid.setAdapter(galleryAdpater);
-                    coverGrid.setOnItemClickListener(ImageGalleryActivity.this);
+                    wallpaperAdpater = new WallpaperAdpater(WallpaperActivity.this, coverPaths,
+                            R.layout.layout_item_wallpaper, WallpaperActivity.this);
+                    wallpaperAdpater.setSize(columnWidth, columnHeight);
+                    String wallpaper = new SPDBHelper().getString("wallpaper", String.valueOf(R.drawable.default_wallpaper));
+                    wallpaperAdpater.select(wallpaper);
+                    coverGrid.setAdapter(wallpaperAdpater);
+                    coverGrid.setOnItemClickListener(WallpaperActivity.this);
                 }
             });
-            rightBtn.setVisibility(View.VISIBLE);
-        }
-    }
-
-    @OnClick({R.id.title_left_btn, R.id.title_right_btn})
-    public void onViewClick(View v)
-    {
-        switch (v.getId())
-        {
-            case R.id.title_left_btn:
-                finish();
-                break;
-            case R.id.title_right_btn: // 编辑
-                if (mMode == GalleryAdpater.Mode.NORMAL)
-                {
-                    mMode = GalleryAdpater.Mode.DELETE;
-                    rightBtn.setText("完成");
-                }
-                else
-                {
-                    mMode = GalleryAdpater.Mode.NORMAL;
-                    rightBtn.setText("编辑");
-                }
-                galleryAdpater.setMode(mMode);
-                break;
         }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String coverPath = galleryAdpater.getItem(position);
-        // 相册文件夹
-        String galleryDir = new File(coverPath).getParent();
-        GalleryDetailActivity.actionStart(galleryDir, this);
-    }
-
-    @Override
-    public void onDelete(String coverPath) {
-        // 删除相册文件夹
-        APKUtil.deleteFile(new File(coverPath).getParentFile().getAbsolutePath());
-        coverPaths.remove(coverPath);
-        galleryAdpater.notifyDataSetChanged();
-
-        if (adjustEmpty())
-        {
-            // 隐藏右侧按钮
-            rightBtn.setVisibility(View.INVISIBLE);
-        }
+        wallpaperAdpater.select(wallpaperAdpater.getItem(position));
+        onBackPressed();
     }
 
     /**
@@ -168,5 +125,26 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
             return true;
         }
         return false;
+    }
+
+    public void onViewClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.cancel_btn:
+                onBackPressed();
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(0, R.anim.top_out);
+    }
+
+    @Override
+    public void onOpt(Object tag, Object value) {
+        onBackPressed();
     }
 }

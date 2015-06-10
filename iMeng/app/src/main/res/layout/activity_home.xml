@@ -20,7 +20,7 @@
                 android:layout_alignParentBottom="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/home_default_head1"/>
-            <FrameLayout
+            <FrameLayout android:id="@+id/small_lay"
                 android:layout_width="40dp"
                 android:layout_height="60dp"
                 android:layout_alignParentTop="true"

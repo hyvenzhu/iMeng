@@ -75,7 +75,7 @@ public class SelectSexActivity extends BasicActivity{
                 ObjectAnimator maleAlphaYAnimator = ObjectAnimator.ofFloat(maleZoomView, "alpha", 1, 0);
                 AnimatorSet maleZoomAnimSet = new AnimatorSet();
                 maleZoomAnimSet.play(maleZoomXAnimator).with(maleZoomYAnimator).with(maleAlphaYAnimator);
-                maleZoomAnimSet.setDuration(1000);
+                maleZoomAnimSet.setDuration(500);
                 maleZoomAnimSet.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator animation) {
@@ -101,7 +101,7 @@ public class SelectSexActivity extends BasicActivity{
                 ObjectAnimator femaleAlphaYAnimator = ObjectAnimator.ofFloat(femaleZoomView, "alpha", 1, 0);
                 AnimatorSet femaleZoomAnimSet = new AnimatorSet();
                 femaleZoomAnimSet.play(femaleZoomXAnimator).with(femaleZoomYAnimator).with(femaleAlphaYAnimator);
-                femaleZoomAnimSet.setDuration(1000);
+                femaleZoomAnimSet.setDuration(500);
                 femaleZoomAnimSet.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator animation) {
@@ -227,6 +227,7 @@ public class SelectSexActivity extends BasicActivity{
             @Override
             public void onAnimationEnd(Animator animation) {
                 finish();
+                overridePendingTransition(0, R.anim.fade_out);
             }
 
             @Override
@@ -237,12 +238,6 @@ public class SelectSexActivity extends BasicActivity{
             }
         });
         femaleAnimSet.start();
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.fade_int, R.anim.fade_out);
     }
 
     @Override

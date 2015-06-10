@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
 import com.android.imeng.R;
@@ -48,7 +49,7 @@ public class ImageAdpater extends BasicAdapter<ImageInfo> {
     }
 
     @Override
-    protected void getView(int position, View convertView) {
+    protected void getView(final int position, View convertView) {
         // 调整宽高
         if (convertView.getTag() == null) // convertView刚创建
         {
@@ -71,6 +72,7 @@ public class ImageAdpater extends BasicAdapter<ImageInfo> {
         }
 
         // 是否选中
+        chooseBtn.setOnCheckedChangeListener(null);
         if (chooseListener.isChoosed(imageInfo))
         {
             chooseBtn.setChecked(true);
@@ -79,5 +81,11 @@ public class ImageAdpater extends BasicAdapter<ImageInfo> {
         {
             chooseBtn.setChecked(false);
         }
+        chooseBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                toggleState(position);
+            }
+        });
     }
 }

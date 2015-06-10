@@ -1,4 +1,4 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -60,16 +60,17 @@ public class HomeActivity extends BasicActivity {
         // TODO 设置个人形象
     }
 
-    @OnClick({R.id.emoji_btn, R.id.camera_btn, R.id.choose_pic_btn, R.id.photo_album_view, R.id.me_favorite_view})
+    @OnClick({R.id.emoji_btn, R.id.camera_btn, R.id.choose_pic_btn, R.id.photo_album_view,
+            R.id.me_favorite_view, R.id.small_lay})
     public void onViewClick(View v)
     {
         switch (v.getId())
         {
             case R.id.emoji_btn: // 自定义表情
+                startActivity(new Intent(this, SelectSexActivity.class));
+                overridePendingTransition(R.anim.fade_int, 0);
                 // 高斯模糊
                 applyBlur();
-                startActivity(new Intent(this, SelectSexActivity.class));
-                overridePendingTransition(R.anim.fade_int, R.anim.fade_out);
                 break;
             case R.id.camera_btn: // 魔法相机
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -88,6 +89,12 @@ public class HomeActivity extends BasicActivity {
                 break;
             case R.id.me_favorite_view: // 我的收藏
 
+                break;
+            case R.id.small_lay: // 设置背景墙
+                // 高斯模糊
+                applyBlur();
+                startActivity(new Intent(this, WallpaperActivity.class));
+                overridePendingTransition(R.anim.top_int, 0);
                 break;
         }
     }
