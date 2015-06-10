@@ -48,6 +48,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d8c78a3-f064-499f-aa31-12a0ad286f6a" name="Default" comment="">
+<<<<<<< Updated upstream
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/female_zoomout_circle.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/male_zoomout_circle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
@@ -61,6 +62,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/fresco_0_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/fresco_0_5_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/android/imeng/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/android/imeng/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/squareup/leakcanary/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/squareup/leakcanary/R.java" />
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Android-BaseLine.iws" />
@@ -1303,6 +1309,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+<<<<<<< Updated upstream
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/LayerDrawableHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/ImageHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/parser/JsonParser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/logic/InfoResult.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/ClothesParser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/PictureInfoParser.java" />
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/app/src/main/res/anim/dectective_animation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/anim/fade_int.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/dectective_animation.xml" />
@@ -1312,7 +1327,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_detective_next_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_face_detective.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/APKUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/DetectTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/DetectParser.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_iamge.xml" />
@@ -1321,7 +1335,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/FaceInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/InfoResultRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/PictureInfo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_face_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_indicator_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_clothes_bg.xml" />
@@ -1332,14 +1345,12 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/HairInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/HairInfoParser.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_common_title.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_image.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_item_picture.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/FaceDetectiveActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HairAdpater.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/PictureAdpater.java" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/radio_button.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
@@ -1354,6 +1365,19 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/male_zoomout_circle.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_select_sex.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SelectSexActivity.java" />
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HairAdpater.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/MakeAllImageActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/ImageInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/Constants.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/APKUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/Save2GalleryTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ImageGalleryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_gallery_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailActivity.java" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -1389,6 +1413,21 @@
       <sortByType />
     </navigator>
     <panes>
+<<<<<<< Updated upstream
+=======
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-BaseLine" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> Stashed changes
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1465,6 +1504,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< Updated upstream
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1495,6 +1535,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+=======
+>>>>>>> Stashed changes
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1502,6 +1544,7 @@
               <option name="myItemId" value="imeng" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< Updated upstream
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -1518,6 +1561,8 @@
               <option name="myItemId" value="Android-BaseLine" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+=======
+>>>>>>> Stashed changes
           </PATH>
         </subPane>
       </pane>
@@ -1547,7 +1592,12 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="617" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="false" />
+<<<<<<< Updated upstream
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../workspace-studio/ECenter" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="LayoutCode.rearrangeEntriesXML" value="true" />
+>>>>>>> Stashed changes
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -1776,6 +1826,7 @@
       <created>1433430606110</created>
       <updated>1433430606110</updated>
     </task>
+<<<<<<< Updated upstream
     <task id="LOCAL-00012" summary="相册详情界面">
       <created>1433860834964</created>
       <updated>1433860834964</updated>
@@ -1785,35 +1836,61 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+=======
+    <task id="LOCAL-00012" summary="形象拼装界面">
+      <created>1433498786910</created>
+      <updated>1433498786910</updated>
+    </task>
+    <task id="LOCAL-00013" summary="1、生成每日形象">
+      <created>1433844201669</created>
+      <updated>1433844201669</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+>>>>>>> Stashed changes
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28492063" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48948106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36886394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819074" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5764376" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258786" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32428116" sideWeight="0.24126984" order="14" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42496493" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23492064" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32108626" sideWeight="0.24126984" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44089457" sideWeight="0.7587302" order="12" side_tool="true" content_ui="tabs" />
+=======
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26159793" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49509117" sideWeight="0.4974227" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40112203" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28479382" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819074" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1842,45 +1919,50 @@
     <MESSAGE value="增加脸部识别接口" />
     <MESSAGE value="增加形象拼装界面" />
     <MESSAGE value="形象拼装界面" />
+<<<<<<< Updated upstream
     <MESSAGE value="相册详情界面" />
     <option name="LAST_COMMIT_MESSAGE" value="相册详情界面" />
+=======
+    <MESSAGE value="1、生成每日形象" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、生成每日形象" />
+>>>>>>> Stashed changes
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java</url>
-          <line>37</line>
+          <line>39</line>
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java</url>
-          <line>41</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/InfoResultRequest.java</url>
-          <line>68</line>
+          <line>89</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/InfoResultRequest.java</url>
-          <line>172</line>
+          <line>193</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java</url>
-          <line>45</line>
+          <line>47</line>
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java</url>
-          <line>318</line>
+          <line>513</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
@@ -1890,14 +1972,57 @@
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/Save2GalleryTask.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/Save2GalleryTask.java</url>
+          <line>92</line>
+          <properties />
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/Save2GalleryTask.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailActivity.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailActivity.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/ui/BasicActivity.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailActivity.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="51" />
+      <option name="time" value="64" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/parser/HairInfoParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="788" max-vertical-offset="1470">
@@ -2018,6 +2143,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/HairAdpater.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/DetectTask.java">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1840">
           <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
@@ -2060,6 +2188,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/widget/LinearLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.5576324" vertical-offset="39131" max-vertical-offset="42711">
@@ -2069,6 +2198,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../software/android-sdk/sources/android-21/android/view/ViewGroup.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/ResponseParserListenerAdpater.java">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="146452" max-vertical-offset="164588">
           <caret line="6495" column="19" selection-start-line="6495" selection-start-column="19" selection-end-line="6495" selection-end-column="19" />
@@ -2114,6 +2246,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ImageGalleryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="151" max-vertical-offset="3519">
@@ -2130,6 +2263,12 @@
         <state vertical-scroll-proportion="0.3321617" vertical-offset="133" max-vertical-offset="782">
           <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding />
+=======
+    <entry file="file://D:/Android/software/android-sdk/sources/android-21/android/widget/GridView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328446" vertical-offset="235" max-vertical-offset="48909">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -2152,6 +2291,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ImageAdpater.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="451" max-vertical-offset="1656">
@@ -2161,6 +2301,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/MakeAllImageActivity.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/volley/InfoResultRequest.java">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.878425" vertical-offset="9352" max-vertical-offset="11523">
           <caret line="141" column="20" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
@@ -2195,6 +2338,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_gallery_detail.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2219,6 +2363,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="597">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/ids.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -2230,6 +2380,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.57621443" vertical-offset="47" max-vertical-offset="644">
@@ -2243,11 +2394,29 @@
         <state vertical-scroll-proportion="0.46063653" vertical-offset="507" max-vertical-offset="1104">
           <caret line="48" column="68" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="68" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/right_ok.9.png">
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_assemble_image.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6457055" vertical-offset="1364" max-vertical-offset="2100">
+          <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.0" vertical-offset="254" max-vertical-offset="851">
           <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
           <folding />
@@ -2274,12 +2443,33 @@
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="309" max-vertical-offset="1071">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_item_picture.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41871166" vertical-offset="0" max-vertical-offset="652">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        </state>
+      </provider>
+>>>>>>> Stashed changes
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_male_bg.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.17512691" vertical-offset="0" max-vertical-offset="394">
           <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
           <folding />
+=======
+        <state vertical-scroll-proportion="0.59970677" vertical-offset="410" max-vertical-offset="1092">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -2290,30 +2480,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_female_bg.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.11557789" vertical-offset="0" max-vertical-offset="597">
           <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
           <folding />
+=======
+        <state vertical-scroll-proportion="0.12855007" vertical-offset="796" max-vertical-offset="1995">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/male_zoomout_circle.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.17512691" vertical-offset="0" max-vertical-offset="394">
           <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
           <folding />
+=======
+        <state vertical-scroll-proportion="0.3841642" vertical-offset="1523" max-vertical-offset="3024">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/female_zoomout_circle.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.17512691" vertical-offset="0" max-vertical-offset="394">
           <caret line="3" column="54" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="54" />
           <folding />
+=======
+        <state vertical-scroll-proportion="0.16304348" vertical-offset="0" max-vertical-offset="1722">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/SelectSexActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.5667808" vertical-offset="1118" max-vertical-offset="4991">
           <caret line="85" column="33" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
           <folding>
@@ -2330,6 +2536,10 @@
             <element signature="e#8924#8925#0" expanded="true" />
             <element signature="e#8964#8965#0" expanded="true" />
           </folding>
+=======
+        <state vertical-scroll-proportion="0.23020528" vertical-offset="641" max-vertical-offset="1323">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -2338,9 +2548,172 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.5957821" vertical-offset="351" max-vertical-offset="1633">
           <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+=======
+        <state vertical-scroll-proportion="1.016129" vertical-offset="0" max-vertical-offset="1680">
+          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/MailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33870968" vertical-offset="126" max-vertical-offset="1953">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/MakeAllImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2922" max-vertical-offset="10647">
+          <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/NetLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3961136" vertical-offset="1877" max-vertical-offset="6027">
+          <caret line="130" column="57" selection-start-line="130" selection-start-column="57" selection-end-line="130" selection-end-column="57" />
+>>>>>>> Stashed changes
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/BitmapHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="890" max-vertical-offset="2709">
+          <caret line="69" column="60" selection-start-line="69" selection-start-column="60" selection-end-line="69" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/ImageInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39442816" vertical-offset="1096" max-vertical-offset="4410">
+          <caret line="104" column="14" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/logic/Save2GalleryTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.089686096" vertical-offset="1200" max-vertical-offset="2121">
+          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/APKUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.064275034" vertical-offset="1196" max-vertical-offset="5439">
+          <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/AssembleImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5829597" vertical-offset="9516" max-vertical-offset="11760">
+          <caret line="376" column="30" selection-start-line="376" selection-start-column="30" selection-end-line="376" selection-end-column="30" />
+          <folding>
+            <element signature="e#2886#2905#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryAdpater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2825112" vertical-offset="0" max-vertical-offset="1428">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09237537" vertical-offset="63" max-vertical-offset="777">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_common_title.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51687115" vertical-offset="566" max-vertical-offset="1218">
+          <caret line="43" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/img_back.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_make_all_image.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16257669" vertical-offset="1448" max-vertical-offset="2100">
+          <caret line="74" column="25" selection-start-line="29" selection-start-column="12" selection-end-line="74" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="8" max-vertical-offset="882">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/software/android-sdk/sources/android-21/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7858" max-vertical-offset="23205">
+          <caret line="448" column="18" selection-start-line="448" selection-start-column="18" selection-end-line="448" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/ImageGalleryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40358743" vertical-offset="2040" max-vertical-offset="3213">
+          <caret line="134" column="51" selection-start-line="134" selection-start-column="51" selection-end-line="134" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/ui/BasicActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="848" max-vertical-offset="7833">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/framework/ui/base/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="2352">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_gallery_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19325154" vertical-offset="504" max-vertical-offset="1470">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/imeng/ui/GalleryDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8504399" vertical-offset="638" max-vertical-offset="1554">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="e#1977#2233#0" expanded="true" />
+            <element signature="e#2222#2223#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
