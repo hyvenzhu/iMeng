@@ -187,7 +187,7 @@ public class SelectSexActivity extends BasicActivity{
 
         // 移动缩放布局
         ObjectAnimator femaleZoomXAnimator = ObjectAnimator.ofFloat(femaleZoomView, "x", femaleDestX);
-        ObjectAnimator femaleZoomYAnimator = ObjectAnimator.ofFloat(femaleZoomView, "y", femaleDestX);
+        ObjectAnimator femaleZoomYAnimator = ObjectAnimator.ofFloat(femaleZoomView, "y", femaleDestY);
         AnimatorSet femaleZoomAnimSet = new AnimatorSet();
         femaleZoomAnimSet.play(femaleZoomXAnimator).with(femaleZoomYAnimator);
         femaleZoomAnimSet.setDuration(400);
