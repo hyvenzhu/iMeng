@@ -1,15 +1,12 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.decorate.cartoon;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -81,6 +78,13 @@ public class SelectSexActivity extends BasicActivity{
                 maleZoomAnimSet.setDuration(1000);
                 maleZoomAnimSet.addListener(new AnimatorListenerAdapter() {
                     @Override
+                    public void onAnimationStart(Animator animation) {
+                        super.onAnimationStart(animation);
+                        maleBtn.setEnabled(false);
+                        femaleBtn.setEnabled(false);
+                    }
+
+                    @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         finish();
@@ -98,6 +102,13 @@ public class SelectSexActivity extends BasicActivity{
                 femaleZoomAnimSet.play(femaleZoomXAnimator).with(femaleZoomYAnimator).with(femaleAlphaYAnimator);
                 femaleZoomAnimSet.setDuration(1000);
                 femaleZoomAnimSet.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                        super.onAnimationStart(animation);
+                        maleBtn.setEnabled(false);
+                        femaleBtn.setEnabled(false);
+                    }
+
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
@@ -145,6 +156,7 @@ public class SelectSexActivity extends BasicActivity{
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 maleBtn.setEnabled(true);
+                femaleBtn.setEnabled(true);
             }
         });
         maleAnimSet.start();
@@ -167,6 +179,7 @@ public class SelectSexActivity extends BasicActivity{
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
+                maleBtn.setEnabled(true);
                 femaleBtn.setEnabled(true);
             }
         });
@@ -197,6 +210,7 @@ public class SelectSexActivity extends BasicActivity{
             public void onAnimationStart(Animator animation) {
                 super.onAnimationStart(animation);
                 maleBtn.setEnabled(false);
+                femaleBtn.setEnabled(false);
             }
         });
         maleAnimSet.start();
@@ -216,6 +230,7 @@ public class SelectSexActivity extends BasicActivity{
             @Override
             public void onAnimationStart(Animator animation) {
                 super.onAnimationStart(animation);
+                maleBtn.setEnabled(false);
                 femaleBtn.setEnabled(false);
             }
         });

@@ -1,4 +1,4 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.decorate.photo;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +29,9 @@ import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.HairInfo;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.logic.PictureInfo;
+import com.android.imeng.ui.base.HairAdpater;
+import com.android.imeng.ui.base.PictureAdpater;
+import com.android.imeng.ui.base.ViewPagerAdapter;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 
@@ -329,7 +332,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                 }
                 // 制作界面
                 MakeAllImageActivity.actionStart(sex, choosedClothesCategroyId, faceShape,
-                        choosedHairBackground, choosedHairFont, choosedDecoration, faceUrl, this);
+                    choosedHairBackground, choosedHairFont, choosedDecoration, faceUrl, this);
                 finish();
                 break;
         }

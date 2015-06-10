@@ -1,4 +1,4 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.gallery;
 
 /**
  * 相册删除

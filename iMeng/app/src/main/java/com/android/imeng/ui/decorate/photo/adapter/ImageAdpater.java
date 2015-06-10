@@ -1,4 +1,4 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.decorate.photo.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

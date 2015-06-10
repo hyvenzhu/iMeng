@@ -1,21 +1,10 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.base;
 
 import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.RelativeLayout;
 
-import com.android.imeng.R;
-import com.android.imeng.framework.ui.BasicAdapter;
-import com.android.imeng.logic.HairInfo;
 import com.android.imeng.logic.PictureInfo;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.interfaces.DraweeController;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.android.imeng.ui.base.BasePictureAdapter;
 
 import java.util.List;
 

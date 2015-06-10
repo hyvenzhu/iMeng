@@ -1,4 +1,4 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.gallery;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +12,7 @@ import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
+import com.android.imeng.ui.gallery.adapter.GalleryAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 

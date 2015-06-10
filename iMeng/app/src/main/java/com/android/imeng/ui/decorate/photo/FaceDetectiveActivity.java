@@ -1,4 +1,4 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.decorate.photo;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;

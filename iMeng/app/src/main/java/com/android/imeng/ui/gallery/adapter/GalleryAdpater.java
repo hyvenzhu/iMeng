@@ -1,15 +1,14 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.gallery.adapter;
 
 import android.content.Context;
 import android.net.Uri;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
-import com.android.imeng.framework.ui.base.annotations.ViewInject;
+import com.android.imeng.ui.gallery.GalleryDeleteListener;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;

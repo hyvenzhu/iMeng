@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.HomeActivity"/>
-        <activity android:name=".ui.SelectSexActivity" android:theme="@style/translucent"/>
-        <activity android:name=".ui.FaceDetectiveActivity"/>
-        <activity android:name=".ui.AssembleImageActivity"/>
-        <activity android:name=".ui.MakeAllImageActivity"/>
-        <activity android:name=".ui.ImageGalleryActivity"/>
-        <activity android:name=".ui.GalleryDetailActivity"/>
+        <activity android:name=".ui.decorate.cartoon.SelectSexActivity" android:theme="@style/translucent"/>
+        <activity android:name=".ui.decorate.photo.FaceDetectiveActivity"/>
+        <activity android:name=".ui.decorate.photo.AssembleImageActivity"/>
+        <activity android:name=".ui.decorate.photo.MakeAllImageActivity"/>
+        <activity android:name=".ui.gallery.ImageGalleryActivity"/>
+        <activity android:name=".ui.gallery.GalleryDetailActivity"/>
     </application>
 </manifest>

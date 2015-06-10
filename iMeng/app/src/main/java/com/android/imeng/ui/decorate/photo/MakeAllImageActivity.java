@@ -1,4 +1,4 @@
-package com.android.imeng.ui;
+package com.android.imeng.ui.decorate.photo;
 
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +31,9 @@ import com.android.imeng.logic.ClothesAndExpression;
 import com.android.imeng.logic.ImageChooseListener;
 import com.android.imeng.logic.ImageInfo;
 import com.android.imeng.logic.NetLogic;
+import com.android.imeng.ui.decorate.photo.adapter.ImageAdpater;
+import com.android.imeng.ui.base.ViewPagerAdapter;
+import com.android.imeng.ui.gallery.ImageGalleryActivity;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 
