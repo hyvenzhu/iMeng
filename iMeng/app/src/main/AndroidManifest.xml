@@ -28,5 +28,6 @@
         <activity android:name=".ui.decorate.photo.MakeAllImageActivity"/>
         <activity android:name=".ui.gallery.ImageGalleryActivity"/>
         <activity android:name=".ui.gallery.GalleryDetailActivity"/>
+        <activity android:name=".ui.decorate.cartoon.SelectClothesActivity"/>
     </application>
 </manifest>

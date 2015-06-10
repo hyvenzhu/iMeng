@@ -13,7 +13,7 @@ import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
-import com.android.imeng.logic.FaceInfo;
+import com.android.imeng.logic.model.FaceInfo;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.util.APKUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;

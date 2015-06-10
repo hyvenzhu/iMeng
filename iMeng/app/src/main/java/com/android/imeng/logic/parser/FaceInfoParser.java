@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.JsonParser;
-import com.android.imeng.logic.FaceInfo;
+import com.android.imeng.logic.model.FaceInfo;
 
 /**
  * 单个脸解析

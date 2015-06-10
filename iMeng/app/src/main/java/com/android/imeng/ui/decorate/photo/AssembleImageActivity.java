@@ -26,9 +26,9 @@ import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.BitmapHelper;
-import com.android.imeng.logic.HairInfo;
+import com.android.imeng.logic.model.HairInfo;
 import com.android.imeng.logic.NetLogic;
-import com.android.imeng.logic.PictureInfo;
+import com.android.imeng.logic.model.PictureInfo;
 import com.android.imeng.ui.base.HairAdpater;
 import com.android.imeng.ui.base.PictureAdpater;
 import com.android.imeng.ui.base.ViewPagerAdapter;
@@ -126,9 +126,9 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
         loadGridView();
 
         // 查询头发、衣服、装饰列表
-        netLogic.hairs(sex, hairIndex, 10);
-        netLogic.clothes(sex, clothesIndex, 10);
-        netLogic.decorations(sex, decorationIndex, 10);
+        netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+        netLogic.clothes(sex, clothesIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+        netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
     }
 
     @Override
@@ -349,7 +349,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
          {
              if (hairAdpater.isMore(position)) // More
              {
-                 netLogic.hairs(sex, hairIndex, 10);
+                 netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
              else
              {
@@ -397,7 +397,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
          {
              if (clothesAdapter.isMore(position)) // More
              {
-                 netLogic.clothes(sex, hairIndex, 10);
+                 netLogic.clothes(sex, clothesIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
              else
              {
@@ -419,7 +419,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
          {
              if (decorationAdapter.isMore(position)) // More
              {
-                 netLogic.decorations(sex, hairIndex, 10);
+                 netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
              else
              {

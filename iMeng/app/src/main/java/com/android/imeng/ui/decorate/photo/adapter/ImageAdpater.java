@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
 import com.android.imeng.logic.ImageChooseListener;
-import com.android.imeng.logic.ImageInfo;
+import com.android.imeng.logic.model.ImageInfo;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;

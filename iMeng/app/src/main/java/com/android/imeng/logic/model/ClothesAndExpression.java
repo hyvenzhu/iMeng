@@ -1,4 +1,4 @@
-package com.android.imeng.logic;
+package com.android.imeng.logic.model;
 
 /**
  * 衣服和表情

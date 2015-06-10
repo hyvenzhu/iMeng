@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import com.android.imeng.AppDroid;
 import com.android.imeng.framework.asyncquery.Task;
 import com.android.imeng.framework.logic.InfoResult;
+import com.android.imeng.logic.model.ImageInfo;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 

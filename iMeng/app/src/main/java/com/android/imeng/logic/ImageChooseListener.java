@@ -1,5 +1,7 @@
 package com.android.imeng.logic;
 
+import com.android.imeng.logic.model.ImageInfo;
+
 /**
  * 选择形象监听器
  * @author hiphonezhu@gmail.com

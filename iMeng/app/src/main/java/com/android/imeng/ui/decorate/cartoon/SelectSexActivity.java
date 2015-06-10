@@ -70,8 +70,8 @@ public class SelectSexActivity extends BasicActivity{
         {
             case R.id.male_btn: // 男
                 maleZoomView.setVisibility(View.VISIBLE);
-                ObjectAnimator maleZoomXAnimator = ObjectAnimator.ofFloat(maleZoomView, "scaleX", 0, 3);
-                ObjectAnimator maleZoomYAnimator = ObjectAnimator.ofFloat(maleZoomView, "scaleY", 0, 3);
+                ObjectAnimator maleZoomXAnimator = ObjectAnimator.ofFloat(maleZoomView, "scaleX", 0, 5);
+                ObjectAnimator maleZoomYAnimator = ObjectAnimator.ofFloat(maleZoomView, "scaleY", 0, 5);
                 ObjectAnimator maleAlphaYAnimator = ObjectAnimator.ofFloat(maleZoomView, "alpha", 1, 0);
                 AnimatorSet maleZoomAnimSet = new AnimatorSet();
                 maleZoomAnimSet.play(maleZoomXAnimator).with(maleZoomYAnimator).with(maleAlphaYAnimator);
@@ -89,14 +89,15 @@ public class SelectSexActivity extends BasicActivity{
                         super.onAnimationEnd(animation);
                         finish();
                         // 跳转到自定义表情界面
+                        SelectClothesActivity.actionStart(0, SelectSexActivity.this);
                     }
                 });
                 maleZoomAnimSet.start();
                 break;
             case R.id.female_btn: // 女
                 femaleZoomView.setVisibility(View.VISIBLE);
-                ObjectAnimator femaleZoomXAnimator = ObjectAnimator.ofFloat(femaleZoomView, "scaleX", 0, 3);
-                ObjectAnimator femaleZoomYAnimator = ObjectAnimator.ofFloat(femaleZoomView, "scaleY", 0, 3);
+                ObjectAnimator femaleZoomXAnimator = ObjectAnimator.ofFloat(femaleZoomView, "scaleX", 0, 5);
+                ObjectAnimator femaleZoomYAnimator = ObjectAnimator.ofFloat(femaleZoomView, "scaleY", 0, 5);
                 ObjectAnimator femaleAlphaYAnimator = ObjectAnimator.ofFloat(femaleZoomView, "alpha", 1, 0);
                 AnimatorSet femaleZoomAnimSet = new AnimatorSet();
                 femaleZoomAnimSet.play(femaleZoomXAnimator).with(femaleZoomYAnimator).with(femaleAlphaYAnimator);
@@ -114,6 +115,7 @@ public class SelectSexActivity extends BasicActivity{
                         super.onAnimationEnd(animation);
                         finish();
                         // 跳转到自定义表情界面
+                        SelectClothesActivity.actionStart(1, SelectSexActivity.this);
                     }
                 });
                 femaleZoomAnimSet.start();

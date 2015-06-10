@@ -9,14 +9,12 @@ import android.widget.TextView;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
-import com.android.imeng.logic.PictureInfo;
+import com.android.imeng.logic.model.PictureInfo;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

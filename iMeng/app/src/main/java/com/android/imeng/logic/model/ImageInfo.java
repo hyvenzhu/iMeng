@@ -1,9 +1,11 @@
-package com.android.imeng.logic;
+package com.android.imeng.logic.model;
 
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+
+import com.android.imeng.logic.BitmapHelper;
 
 /**
  * 个人形象

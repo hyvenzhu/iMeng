@@ -3,9 +3,8 @@ package com.android.imeng.ui.base;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.android.imeng.logic.HairInfo;
-import com.android.imeng.logic.PictureInfo;
-import com.android.imeng.ui.base.BasePictureAdapter;
+import com.android.imeng.logic.model.HairInfo;
+import com.android.imeng.logic.model.PictureInfo;
 
 import java.util.List;
 

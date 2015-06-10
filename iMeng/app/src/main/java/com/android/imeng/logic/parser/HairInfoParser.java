@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.JsonParser;
-import com.android.imeng.logic.HairInfo;
-import com.android.imeng.logic.PictureInfo;
+import com.android.imeng.logic.model.HairInfo;
+import com.android.imeng.logic.model.PictureInfo;
 
 import java.util.ArrayList;
 import java.util.List;

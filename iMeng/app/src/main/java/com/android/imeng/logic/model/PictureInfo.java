@@ -1,4 +1,4 @@
-package com.android.imeng.logic;
+package com.android.imeng.logic.model;
 
 import android.text.TextUtils;
 
