@@ -71,10 +71,11 @@ public class Save2GalleryTask extends Task
         }
 
         // 生成7张形象
-        for (ImageInfo dailyInfo : dailyImageInfos)
+        for (int i = 0; i < dailyImageInfos.size(); i++)
         {
             // Drawable 2 Bitmap
-            String fileName = APKUtil.stringToMD5(dailyInfo.toString());
+            ImageInfo dailyInfo = dailyImageInfos.get(i);
+            String fileName = APKUtil.stringToMD5(dailyInfo.toString()) + "_wallpaper" + (i + 1);
             File dailyDir = new File(destDir + File.separator + Constants.DAILY_DIR);
             if (!dailyDir.exists())
             {

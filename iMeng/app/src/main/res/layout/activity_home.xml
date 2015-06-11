@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/home_head_wallpaper22_00_06_00">
+            android:background="@drawable/home_head_wallpaper7">
             <ImageView
                 android:id="@+id/self_image_view"
                 android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/home_default_head1"/>
+                android:src="@drawable/default_wallpaper1"/>
             <FrameLayout android:id="@+id/small_lay"
                 android:layout_width="40dp"
                 android:layout_height="60dp"

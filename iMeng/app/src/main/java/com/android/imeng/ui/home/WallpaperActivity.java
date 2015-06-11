@@ -94,6 +94,11 @@ public class WallpaperActivity extends BasicActivity implements AdapterView.OnIt
                             R.layout.layout_item_wallpaper, WallpaperActivity.this);
                     wallpaperAdpater.setSize(columnWidth, columnHeight);
                     String wallpaper = new SPDBHelper().getString("wallpaper", String.valueOf(R.drawable.default_wallpaper));
+                    if (!String.valueOf(R.drawable.default_wallpaper).equals(wallpaper)
+                            && !new File(wallpaper).exists())
+                    {
+                        wallpaper = String.valueOf(R.drawable.default_wallpaper);
+                    }
                     wallpaperAdpater.select(wallpaper);
                     coverGrid.setAdapter(wallpaperAdpater);
                     coverGrid.setOnItemClickListener(WallpaperActivity.this);

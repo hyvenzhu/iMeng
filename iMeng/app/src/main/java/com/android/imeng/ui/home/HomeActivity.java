@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,15 +19,20 @@ import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
+import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.ui.decorate.cartoon.SelectSexActivity;
 import com.android.imeng.ui.decorate.photo.FaceDetectiveActivity;
 import com.android.imeng.ui.gallery.ImageGalleryActivity;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 import com.android.imeng.util.FastBlur;
+import com.android.imeng.util.SPDBHelper;
+import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;
+import java.io.FileFilter;
+import java.io.FilenameFilter;
 
 /**
  * 首页
@@ -57,7 +63,97 @@ public class HomeActivity extends BasicActivity {
     protected void onResume() {
         super.onResume();
         blurView.setVisibility(View.INVISIBLE);
-        // TODO 设置个人形象
+        setWallpaper();
+    }
+
+    String wallpaperIdentifier = null;
+    /**
+     * 设置背景墙
+     */
+    private void setWallpaper()
+    {
+        String wallpaper = new SPDBHelper().getString("wallpaper", String.valueOf(R.drawable.default_wallpaper));
+        int timeSlot = APKUtil.getTimeSlot();
+        String bgWallIdentifier = "home_head_wallpaper" + timeSlot; // 背景
+        wallpaperIdentifier = null; // 形象
+        boolean isDefault = false;
+        if (!new File(wallpaper).exists() || String.valueOf(R.drawable.default_wallpaper).equals(wallpaper)) // 默认
+        {
+            wallpaperIdentifier = "default_wallpaper" + timeSlot;
+            isDefault = true;
+        }
+        else // 每日形象文件夹
+        {
+            wallpaperIdentifier = "_wallpaper" + timeSlot;
+            isDefault = false;
+        }
+        if (isDefault)
+        {
+            selfImageView.setImageResource(APKUtil.getDrawableByIdentify(this, wallpaperIdentifier));
+
+            // 小形象
+            Uri uri = new Uri.Builder()
+                    .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
+                    .path(String.valueOf(R.drawable.home_small_default_self_image))
+                    .build();
+            smallSelfImageView.setImageURI(uri);
+        }
+        else
+        {
+            File[] dirs = new File(wallpaper).getParentFile().listFiles(new FileFilter() {
+                @Override
+                public boolean accept(File file) {
+                    return file.isDirectory() && file.getName().equals(Constants.DAILY_DIR);
+                }
+            });
+            if (dirs != null && dirs.length == 1)
+            {
+                File dailyDir = dirs[0];
+                File[] files =  dailyDir.listFiles(new FilenameFilter() {
+                    @Override
+                    public boolean accept(File dir, String filename) {
+                        return filename.endsWith(wallpaperIdentifier);
+                    }
+                });
+                if (files != null && files.length == 1)
+                {
+                    wallpaperIdentifier = files[0].getAbsolutePath();
+                    String wallpaperSay = "wallpaper_say" + timeSlot;
+                    Drawable imageDrawable = new BitmapDrawable(getResources(), wallpaperIdentifier);
+                    Drawable sayDrawable = getResources().getDrawable(APKUtil.getDrawableByIdentify(this, wallpaperSay));
+                    Drawable wallpaperDrawable = BitmapHelper.overlayDrawable(imageDrawable, sayDrawable);
+                    selfImageView.setImageDrawable(wallpaperDrawable);
+
+                    // 小形象
+                    smallSelfImageView.setImageURI(Uri.fromFile(new File(wallpaper)));
+                }
+                else
+                {
+                    wallpaperIdentifier = "default_wallpaper" + timeSlot;
+                    selfImageView.setImageResource(APKUtil.getDrawableByIdentify(this, wallpaperIdentifier));
+
+                    // 小形象
+                    Uri uri = new Uri.Builder()
+                            .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
+                            .path(String.valueOf(R.drawable.home_small_default_self_image))
+                            .build();
+                    smallSelfImageView.setImageURI(uri);
+                }
+            }
+            else
+            {
+                wallpaperIdentifier = "default_wallpaper" + timeSlot;
+                selfImageView.setImageResource(APKUtil.getDrawableByIdentify(this, wallpaperIdentifier));
+
+                // 小形象
+                Uri uri = new Uri.Builder()
+                        .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
+                        .path(String.valueOf(R.drawable.home_small_default_self_image))
+                        .build();
+                smallSelfImageView.setImageURI(uri);
+            }
+        }
+        imageWallpaperView.setBackgroundResource(APKUtil.getDrawableByIdentify(this, bgWallIdentifier));
     }
 
     @OnClick({R.id.emoji_btn, R.id.camera_btn, R.id.choose_pic_btn, R.id.photo_album_view,

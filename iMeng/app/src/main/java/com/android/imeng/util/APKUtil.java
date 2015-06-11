@@ -15,6 +15,9 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -266,5 +269,45 @@ public class APKUtil {
             }
             return file.delete();
         }
+    }
+
+    /**
+     * 返回当前时间段(左开右闭)
+     * @return 1：06:00-08:00  2：08:00-11:30  3：11:30-12:30  4：12:30-14:00  5：14:00-18:00
+     * 6：18:00-22:00  7：22:00-06:00
+     */
+    public static int getTimeSlot()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String hhmm =  sdf.format(new Date());
+        if (hhmm.compareTo("06:00") > 0 && hhmm.compareTo("08:00") <= 0)
+        {
+            return 1;
+        }
+        else if (hhmm.compareTo("08:00") > 0 && hhmm.compareTo("11:30") <= 0)
+        {
+            return 2;
+        }
+        else if (hhmm.compareTo("11:30") > 0 && hhmm.compareTo("12:30") <= 0)
+        {
+            return 3;
+        }
+        else if (hhmm.compareTo("12:30") > 0 && hhmm.compareTo("14:00") <= 0)
+        {
+            return 4;
+        }
+        else if (hhmm.compareTo("14:00") > 0 && hhmm.compareTo("18:00") <= 0)
+        {
+            return 5;
+        }
+        else if (hhmm.compareTo("18:00") > 0 && hhmm.compareTo("22:00") <= 0)
+        {
+            return 6;
+        }
+        else
+        {
+            return 7;
+        }
+
     }
 }
