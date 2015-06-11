@@ -22,6 +22,13 @@ public class Constants {
     public static final String API_SECRET = "IFY9pE1KXazxgTMHv58msCDWgtdlffCI";
     public static final String DETECT_URL = "http://apicn.faceplusplus.com/v2/detection/detect";
 
+    // sharesdk
+    public static final String ShareAppKey = "6e2f7bd20747";
+    public static final String ShareWxAppId = "wx775169d54b05c8d9";
+    public static final String ShareWxAppSecret = "2c291ffe154e1a340a2921977c878ea6";
+    public static final String ShareQQAppId = "1104563534";
+    public static final String ShareQQSecret = "FFgjXqVejuDmpQWO";
+
     public static final String IP_PORT = "http://121.41.114.48";
     public static final String CLOTHES_URL = IP_PORT + "/mm/clothes"; // 衣服列表
     public static final String HAIRS_URL = IP_PORT + "/mm/hairs"; // 头发列表

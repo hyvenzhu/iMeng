@@ -11,6 +11,8 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * App application
  * @author hiphonezhu@gmail.com
@@ -33,6 +35,8 @@ public class AppDroid extends Application
         refWatcher = LeakCanary.install(this);
         // fresco
         Fresco.initialize(getApplicationContext());
+        // share sdk 初始化
+        ShareSDK.initSDK(this);
     }
 
     public static AppDroid getInstance()
