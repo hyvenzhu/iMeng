@@ -1,4 +1,4 @@
-package com.android.imeng.logic.parser;
+package com.android.imeng.logic;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -19,30 +19,24 @@ public class ShareHelper {
      * @param imagePath 图片路径
      * @param actionListener 分享结果回调
      */
-    public void share(String platForm, String imagePath, PlatformActionListener actionListener)
+    public static void share(String platForm, String imagePath, PlatformActionListener actionListener)
     {
         Platform.ShareParams shareParams = null;
         if (Wechat.NAME.equals(platForm))
         {
             Wechat.ShareParams wechatParams = new Wechat.ShareParams();
-            wechatParams.setTitle("脸萌");
-            wechatParams.setComment("脸萌");
             wechatParams.setImagePath(imagePath);
             shareParams = wechatParams;
         }
         else if (WechatMoments.NAME.equals(platForm))
         {
             WechatMoments.ShareParams wechatMomentsParams = new WechatMoments.ShareParams();
-            wechatMomentsParams.setTitle("脸萌");
-            wechatMomentsParams.setComment("脸萌");
             wechatMomentsParams.setImagePath(imagePath);
             shareParams = wechatMomentsParams;
         }
         else if (QQ.NAME.equals(platForm))
         {
             QQ.ShareParams qqParams = new QQ.ShareParams();
-            qqParams.setTitle("脸萌");
-            qqParams.setComment("脸萌");
             qqParams.setImagePath(imagePath);
             shareParams = qqParams;
         }

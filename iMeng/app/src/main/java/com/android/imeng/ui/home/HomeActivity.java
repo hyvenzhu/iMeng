@@ -10,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
@@ -20,6 +21,7 @@ import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.BitmapHelper;
+import com.android.imeng.ui.base.ShareActivity;
 import com.android.imeng.ui.decorate.cartoon.SelectSexActivity;
 import com.android.imeng.ui.decorate.photo.FaceDetectiveActivity;
 import com.android.imeng.ui.gallery.ImageGalleryActivity;
@@ -184,7 +186,9 @@ public class HomeActivity extends BasicActivity {
                 startActivity(new Intent(this, ImageGalleryActivity.class));
                 break;
             case R.id.me_favorite_view: // 我的收藏
-
+                // TODO 测试分享
+                ShareActivity.actionStart(this,
+                        new File(Environment.getExternalStorageDirectory(), "share_share.png").getAbsolutePath(), 1);
                 break;
             case R.id.small_lay: // 设置背景墙
                 // 高斯模糊
@@ -225,7 +229,7 @@ public class HomeActivity extends BasicActivity {
      * 高斯模糊整个界面
      */
     private void applyBlur() {
-        blurView.setBackground(null);
+        blurView.setBackgroundDrawable(null);
         blurView.setVisibility(View.VISIBLE);
 
         View view = getWindow().getDecorView();

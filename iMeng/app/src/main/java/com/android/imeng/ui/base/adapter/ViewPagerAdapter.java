@@ -1,4 +1,4 @@
-package com.android.imeng.ui.base;
+package com.android.imeng.ui.base.adapter;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

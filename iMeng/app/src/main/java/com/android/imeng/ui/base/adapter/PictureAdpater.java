@@ -1,9 +1,10 @@
-package com.android.imeng.ui.base;
+package com.android.imeng.ui.base.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
 
 import com.android.imeng.logic.model.PictureInfo;
+import com.android.imeng.ui.base.adapter.BasePictureAdapter;
 
 import java.util.List;
 

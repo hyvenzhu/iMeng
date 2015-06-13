@@ -1,4 +1,4 @@
-package com.android.imeng.ui.base;
+package com.android.imeng.ui.base.adapter;
 
 import android.content.Context;
 import android.net.Uri;

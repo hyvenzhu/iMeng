@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="translucent_background">#cc000000</color>
+    <color name="male_color">#CAE4F3</color>
+    <color name="female_color">#f3bec4</color>
 </resources>

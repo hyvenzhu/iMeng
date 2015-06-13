@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CardView">
+        <attr name="direction" format="integer"/>
+        <attr name="color" format="reference"/>
+    </declare-styleable>
+</resources>

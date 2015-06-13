@@ -29,9 +29,9 @@ import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.model.HairInfo;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.logic.model.PictureInfo;
-import com.android.imeng.ui.base.HairAdpater;
-import com.android.imeng.ui.base.PictureAdpater;
-import com.android.imeng.ui.base.ViewPagerAdapter;
+import com.android.imeng.ui.base.adapter.HairAdpater;
+import com.android.imeng.ui.base.adapter.PictureAdpater;
+import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 

@@ -23,7 +23,7 @@ import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.logic.model.PictureInfo;
-import com.android.imeng.ui.base.PictureAdpater;
+import com.android.imeng.ui.base.adapter.PictureAdpater;
 import com.android.imeng.util.Constants;
 
 import java.util.HashMap;

@@ -32,7 +32,7 @@ import com.android.imeng.logic.ImageChooseListener;
 import com.android.imeng.logic.model.ImageInfo;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.ui.decorate.photo.adapter.ImageAdpater;
-import com.android.imeng.ui.base.ViewPagerAdapter;
+import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
 import com.android.imeng.ui.gallery.ImageGalleryActivity;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;

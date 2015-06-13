@@ -21,7 +21,7 @@ import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
-import com.android.imeng.ui.base.ViewPagerAdapter;
+import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
 import com.android.imeng.ui.gallery.adapter.GalleryDetailAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
