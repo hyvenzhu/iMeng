@@ -25,7 +25,8 @@ public class Save2GalleryTask extends Task
     private List<ImageInfo> imageInfos;
     private List<ImageInfo> dailyImageInfos;
     private String destDir;
-    public Save2GalleryTask(int taskId, Object subscriber, List<ImageInfo> imageInfos, List<ImageInfo> dailyImageInfos, String destDir) {
+    public Save2GalleryTask(int taskId, Object subscriber, List<ImageInfo> imageInfos,
+                            List<ImageInfo> dailyImageInfos, String destDir) {
         super(taskId, subscriber);
         this.imageInfos = imageInfos;
         this.dailyImageInfos = dailyImageInfos;

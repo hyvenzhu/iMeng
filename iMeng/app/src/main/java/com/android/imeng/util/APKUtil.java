@@ -93,6 +93,26 @@ public class APKUtil {
     }
 
     /**
+     * 获得SD卡缓存目录
+     * @param uniqueName
+     * @return
+     */
+    public static File getSDCardCacheDir(String uniqueName) {
+        String cachePath;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            cachePath = Environment.getExternalStorageDirectory().getPath();
+        } else {
+            return null;
+        }
+        File dir = new File(cachePath + File.separator + uniqueName);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        return dir;
+    }
+
+    /**
      * 组装参数
      *
      * @param parameters

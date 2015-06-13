@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,10 +14,15 @@ import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
+import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.ShareHelper;
 import com.android.imeng.ui.base.view.ShareCardView;
+import com.android.imeng.util.APKUtil;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 
 import cn.sharesdk.framework.Platform;
@@ -36,6 +42,12 @@ public class ShareActivity extends BasicActivity {
     @ViewInject(R.id.share_img)
     private ImageView shareImg; // 形象
 
+    /**
+     * 跳转
+     * @param activity
+     * @param path 图片路径
+     * @param sex 性别 0：男  1：女
+     */
     public static void actionStart(Context activity, String path, int sex)
     {
         Intent intent = new Intent(activity, ShareActivity.class);
@@ -92,37 +104,68 @@ public class ShareActivity extends BasicActivity {
 
                 break;
             case R.id.btn_qq: // qq分享
-                ShareHelper.share(QQ.NAME, path, new ShareActionListener());
+                ShareHelper.share(QQ.NAME, path, new ShareActionListener(new WeakReference<>(this)));
                 break;
             case R.id.btn_wechatmoments: // 微信朋友圈分享
-                ShareHelper.share(WechatMoments.NAME, path, new ShareActionListener());
+                ShareHelper.share(WechatMoments.NAME, path, new ShareActionListener(new WeakReference<>(this)));
                 break;
             case R.id.btn_wechat: // 微信分享
-                ShareHelper.share(Wechat.NAME, path, new ShareActionListener());
+                ShareHelper.share(Wechat.NAME, path, new ShareActionListener(new WeakReference<>(this)));
                 break;
             case R.id.btn_close: // 关闭
                 finish();
                 break;
-            case R.id.btn_download: // 下载
-
+            case R.id.btn_download: // 保存到指定目录(sdcard/爱萌相册)
+                if (!TextUtils.isEmpty(path))
+                {
+                    File sourceFile = new File(path);
+                    if (sourceFile.exists())
+                    {
+                        File dir = APKUtil.getSDCardCacheDir("爱萌相册");
+                        File saveFile = new File(dir, sourceFile.getName() + ".png");
+                        if (!saveFile.exists())
+                        {
+                            BitmapHelper.copyFile(sourceFile, saveFile);
+                        }
+                        showToast("已保存至:" + saveFile.getAbsolutePath());
+                    }
+                }
                 break;
         }
     }
 
+    /**
+     * 分享结果监听
+     */
     private class ShareActionListener implements PlatformActionListener {
+        WeakReference<ShareActivity> weakReference;
+        public ShareActionListener(WeakReference<ShareActivity> weakReference)
+        {
+            this.weakReference = weakReference;
+        }
+
         @Override
         public void onComplete(Platform platform, int i, HashMap<String, Object> stringObjectHashMap) {
-            showToast("分享成功");
+            if (weakReference.get() != null)
+            {
+                showToast("分享成功");
+            }
         }
 
         @Override
         public void onError(Platform platform, int i, Throwable throwable) {
-            showToast("分享失败：" + i);
+            if (weakReference.get() != null)
+            {
+                showToast("分享失败：" + i);
+            }
         }
 
         @Override
         public void onCancel(Platform platform, int i) {
-            showToast("已取消分享");
+            if (weakReference.get() != null)
+            {
+                showToast("已取消分享");
+            }
         }
     }
 }

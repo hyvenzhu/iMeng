@@ -192,7 +192,9 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
                     return;
                 }
                 showProgress("保存中...");
-                netLogic.save2Gallery(choosedImageInfos, dailyImageInfos, APKUtil.getDiskCacheDir(this, Constants.IMAGE_DIR  + File.separator + System.currentTimeMillis()).getAbsolutePath());
+                netLogic.save2Gallery(choosedImageInfos, dailyImageInfos, APKUtil.getDiskCacheDir(this,
+                        Constants.IMAGE_DIR  + File.separator +
+                        System.currentTimeMillis() + "_" + sex).getAbsolutePath());
                 break;
         }
     }

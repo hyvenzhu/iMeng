@@ -21,6 +21,7 @@ import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
+import com.android.imeng.ui.base.ShareActivity;
 import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
 import com.android.imeng.ui.gallery.adapter.GalleryDetailAdpater;
 import com.android.imeng.util.APKUtil;
@@ -63,6 +64,7 @@ public class GalleryDetailActivity extends BasicActivity implements RadioGroup.O
 
     private final int PAGE_SIZE = 4; // 每页数量
     int totalPage = 0; // 总页数
+    int sex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +90,9 @@ public class GalleryDetailActivity extends BasicActivity implements RadioGroup.O
                 return !pathname.isDirectory() && !pathname.getName().startsWith(Constants.GALLERY_COVER);
             }
         });
+
+        // 性别
+        sex = galleryDir.endsWith("_0")? 0 : 1;
 
         // 计算页数
         if (files != null && files.length > 0)
@@ -153,7 +158,7 @@ public class GalleryDetailActivity extends BasicActivity implements RadioGroup.O
                         gridViews[i] = grid;
 
                         GalleryDetailAdpater imageAdpater = new GalleryDetailAdpater(GalleryDetailActivity.this, onePage,
-                                R.layout.layout_item_gallery_detail, 0);
+                                R.layout.layout_item_gallery_detail, sex);
                         imageAdpater.setSize(itemSize);
                         grid.setAdapter(imageAdpater);
                     }
@@ -192,7 +197,8 @@ public class GalleryDetailActivity extends BasicActivity implements RadioGroup.O
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // 跳转到分享界面
-        
+        GalleryDetailAdpater imageAdpater = (GalleryDetailAdpater)parent.getAdapter();
+        ShareActivity.actionStart(this, imageAdpater.getItem(position), sex);
     }
 
     @Override
