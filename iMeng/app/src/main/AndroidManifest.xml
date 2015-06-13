@@ -39,6 +39,7 @@
         <activity android:name=".ui.decorate.cartoon.SelectClothesActivity"/>
         <activity android:name=".ui.home.WallpaperActivity" android:theme="@style/translucent"/>
         <activity android:name=".ui.base.ShareActivity" android:theme="@style/translucent"/>
+        <activity android:name=".ui.base.FavoriteActivity"/>
 
         <activity
             android:name="com.mob.tools.MobUIShell"

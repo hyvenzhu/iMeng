@@ -21,6 +21,7 @@ import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.BitmapHelper;
+import com.android.imeng.ui.base.FavoriteActivity;
 import com.android.imeng.ui.base.ShareActivity;
 import com.android.imeng.ui.decorate.cartoon.SelectSexActivity;
 import com.android.imeng.ui.decorate.photo.FaceDetectiveActivity;
@@ -186,6 +187,7 @@ public class HomeActivity extends BasicActivity {
                 startActivity(new Intent(this, ImageGalleryActivity.class));
                 break;
             case R.id.me_favorite_view: // 我的收藏
+                startActivity(new Intent(this, FavoriteActivity.class));
                 break;
             case R.id.small_lay: // 设置背景墙
                 // 高斯模糊

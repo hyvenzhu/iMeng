@@ -24,6 +24,7 @@ import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.logic.model.PictureInfo;
 import com.android.imeng.ui.base.adapter.PictureAdpater;
+import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 
 import java.util.HashMap;
@@ -339,7 +340,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
 
                         final int viewWidth = clothesGrid.getWidth();
                         int numColumns = clothesGrid.getNumColumns();
-                        int hoizontalSpacing = clothesGrid.getHorizontalSpacing();
+                        int hoizontalSpacing = APKUtil.dip2px(this, 2);
                         int columnWidth = (int)((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
                         int columnHeight = (int)(columnWidth * scale);
                         clothesAdapter.setSize(columnWidth, columnHeight);

@@ -86,7 +86,7 @@ public class WallpaperActivity extends BasicActivity implements AdapterView.OnIt
                 public void run() {
                     final int viewWidth = coverGrid.getWidth();
                     int numColumns = coverGrid.getNumColumns();
-                    int hoizontalSpacing = coverGrid.getHorizontalSpacing();
+                    int hoizontalSpacing = APKUtil.dip2px(WallpaperActivity.this, 15);
                     int columnWidth = (int) ((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
                     int columnHeight = (int) (columnWidth / scale) - APKUtil.dip2px(WallpaperActivity.this, 50);
 

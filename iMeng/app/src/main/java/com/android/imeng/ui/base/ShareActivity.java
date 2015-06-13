@@ -18,6 +18,7 @@ import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.ShareHelper;
 import com.android.imeng.ui.base.view.ShareCardView;
 import com.android.imeng.util.APKUtil;
+import com.android.imeng.util.Constants;
 
 import org.w3c.dom.Text;
 
@@ -101,7 +102,20 @@ public class ShareActivity extends BasicActivity {
         switch (v.getId())
         {
             case R.id.btn_favorite: // 收藏
-
+                if (!TextUtils.isEmpty(path))
+                {
+                    File sourceFile = new File(path);
+                    if (sourceFile.exists())
+                    {
+                        File dir = APKUtil.getDiskCacheDir(this, Constants.FAVORITE_DIR);
+                        File saveFile = new File(dir, sourceFile.getName() + "_" + sex);
+                        if (!saveFile.exists())
+                        {
+                            BitmapHelper.copyFile(sourceFile, saveFile);
+                        }
+                        showToast("收藏成功");
+                    }
+                }
                 break;
             case R.id.btn_qq: // qq分享
                 ShareHelper.share(QQ.NAME, path, new ShareActionListener(new WeakReference<>(this)));
