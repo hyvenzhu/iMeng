@@ -36,6 +36,8 @@ public class DetectTask extends Task {
             {
                 // 取出face_id
                 String faceId = faceArray.getJSONObject(0).optString("face_id");
+                // 微笑值0－100的实数
+                float smiling = faceArray.getJSONObject(0).optInt("smiling");
 
                 // 2、检测给定人脸(Face)相应的面部轮廓，五官等关键点的位置
                 result = httpRequests.detectionLandmark(new PostParameters()
@@ -45,7 +47,11 @@ public class DetectTask extends Task {
                 {
                     JSONObject faceObject = faceArray.getJSONObject(0);
                     JSONObject landmarkObject = faceObject.optJSONObject("landmark");
-                    return new DetectParser().doParse(landmarkObject.toString());
+                    return new DetectParser(smiling).doParse(landmarkObject.toString());
+                }
+                else
+                {
+                    return new InfoResult.Builder().success(false).errorCode("405").desc("未检测到关键点").build();
                 }
             }
         }
@@ -54,6 +60,6 @@ public class DetectTask extends Task {
             e.printStackTrace();
             return new InfoResult.Builder().success(false).errorCode("500").desc("服务器内部错误, 请稍后尝试").build();
         }
-        return new InfoResult.Builder().success(false).errorCode("404").desc("未检测到人脸信息").build();
+        return new InfoResult.Builder().success(false).errorCode("404").desc("未检测到人脸").build();
     }
 }
