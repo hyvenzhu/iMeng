@@ -68,7 +68,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_decorate);
+        setContentView(R.layout.activity_select_clothes);
     }
 
     @Override
@@ -170,89 +170,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                 drawableMap.put(5, getResources().getDrawable(R.drawable.default_girl_eyebrow));
                 break;
         }
-        imageView.setImageDrawable(overlay());
-    }
-
-    /**
-     * 图层叠加
-     * @return
-     */
-    private Drawable overlay()
-    {
-        Drawable hairBackgroundDrawable = drawableMap.get(0);
-        Drawable clothesDrawable = drawableMap.get(1);
-        Drawable faceDrawable = drawableMap.get(2);
-        Drawable hairFontDrawable = drawableMap.get(3);
-        Drawable eyeDrawable = drawableMap.get(4);
-        Drawable eyeBrowDrawable = drawableMap.get(5);
-        Drawable mouthDrawable = drawableMap.get(6);
-        Drawable drawable = null;
-        // 背后的头发
-        if (hairBackgroundDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(hairBackgroundDrawable);
-        }
-
-        // 衣服
-        if (drawable != null && clothesDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, clothesDrawable);
-        }
-        else if (clothesDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(clothesDrawable);
-        }
-
-        // 脸
-        if (drawable != null && faceDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, faceDrawable);
-        }
-        else if (faceDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(faceDrawable);
-        }
-
-        // 前面的头发
-        if (drawable != null && hairFontDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, hairFontDrawable);
-        }
-        else if (hairFontDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(hairFontDrawable);
-        }
-
-        // 眼睛
-        if (drawable != null && eyeDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, eyeDrawable);
-        }
-        else if (eyeDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(eyeDrawable);
-        }
-
-        // 眉毛
-        if (drawable != null && eyeBrowDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, eyeBrowDrawable);
-        }
-        else if (eyeBrowDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(eyeBrowDrawable);
-        }
-
-        // 嘴巴
-        if (drawable != null && mouthDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, mouthDrawable);
-        }
-        else if (mouthDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(mouthDrawable);
-        }
-        return drawable;
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap));
     }
 
     @OnClick({R.id.title_right_btn, R.id.title_left_btn})
@@ -270,15 +188,16 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                     return;
                 }
                 // 选择装饰界面
-
+                Intent intent = new Intent(this, DecorateActivity.class);
+                intent.putExtra("sex", sex);
+                intent.putExtra("clothesPath", clothesPath);
+                startActivity(intent);
                 finish();
                 break;
         }
     }
 
-    private int choosedClothesCategroyId; // 选择的衣服类别Id
-    private String choosedHairBackground; // 选择的背后头发
-    private String choosedHairFont; // 选择的前面头发
+    private String clothesPath; // 选择的衣服
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
          BaseAdapter adapter = (BaseAdapter)parent.getAdapter();
@@ -298,9 +217,9 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                  }
                  else
                  {
-                     choosedClothesCategroyId = pictureInfo.getCategoryId();
-                     drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                     imageView.setImageDrawable(overlay());
+                     clothesPath = pictureInfo.getOriginalLocalPath();
+                     drawableMap.put(1, new BitmapDrawable(getResources(), clothesPath));
+                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap));
                  }
              }
          }
@@ -311,15 +230,6 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
         super.onResponse(msg);
         switch (msg.what)
         {
-            case R.id.downloadFace:
-                if (checkResponse(msg))
-                {
-                    PictureInfo pictureInfo = (PictureInfo)(((InfoResult)msg.obj).getExtraObj());
-                    Drawable faceDrawable = new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath());
-                    drawableMap.put(2, faceDrawable);
-                    imageView.setImageDrawable(overlay());
-                }
-                break;
             case R.id.downloadOriginal:
                 if (clothesAdapter != null)
                 {

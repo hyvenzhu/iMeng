@@ -17,6 +17,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 图像操作帮助类
@@ -34,6 +36,36 @@ public class BitmapHelper {
     {
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
         return layerDrawable;
+    }
+
+    /**
+     * 按顺序叠加图片, 0在最下面, 以此类推
+     * @param drawableMap
+     * @return
+     */
+    public static Drawable overlay(Map<Integer, Drawable> drawableMap)
+    {
+        Drawable drawable = null;
+        for(int i = 0; i < drawableMap.size(); i++)
+        {
+            if (drawable == null)
+            {
+                if (drawableMap.get(i) == null)
+                {
+                    continue;
+                }
+                drawable = overlayDrawable(drawableMap.get(i));
+            }
+            else
+            {
+                if (drawableMap.get(i) == null)
+                {
+                    continue;
+                }
+                drawable = overlayDrawable(drawable, drawableMap.get(i));
+            }
+        }
+        return drawable;
     }
 
     /**
