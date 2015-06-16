@@ -10,6 +10,7 @@ import com.android.imeng.framework.volley.InfoResultRequest;
 import com.android.imeng.logic.model.ClothesAndExpression;
 import com.android.imeng.logic.model.ImageInfo;
 import com.android.imeng.logic.model.PictureInfo;
+import com.android.imeng.logic.parser.BigClothesParser;
 import com.android.imeng.logic.parser.ClothesAndExpressionParser;
 import com.android.imeng.logic.parser.FaceInfoParser;
 import com.android.imeng.logic.parser.HairInfoParser;
@@ -194,7 +195,7 @@ public class NetLogic extends BaseLogic {
     public void eyes(int sex, int index, int length)
     {
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("sex", sex);
+        params.put("sex", 2);
         params.put("index", index);
         params.put("length", length);
         InfoResultRequest request = new InfoResultRequest(R.id.eyes, Constants.EYES_URL, params,
@@ -211,7 +212,7 @@ public class NetLogic extends BaseLogic {
     public void faceShapes(int sex, int index, int length)
     {
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("sex", sex);
+        params.put("sex", 2);
         params.put("index", index);
         params.put("length", length);
         InfoResultRequest request = new InfoResultRequest(R.id.faceShapes, Constants.FACESHAPES_URL, params,
@@ -228,7 +229,7 @@ public class NetLogic extends BaseLogic {
     public void eyebrows(int sex, int index, int length)
     {
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("sex", sex);
+        params.put("sex", 2);
         params.put("index", index);
         params.put("length", length);
         InfoResultRequest request = new InfoResultRequest(R.id.eyebrows, Constants.EYEBROWS_URL, params,
@@ -245,7 +246,7 @@ public class NetLogic extends BaseLogic {
     public void mouths(int sex, int index, int length)
     {
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("sex", sex);
+        params.put("sex", 2);
         params.put("index", index);
         params.put("length", length);
         InfoResultRequest request = new InfoResultRequest(R.id.mouths, Constants.MOUTHS_URL, params,
@@ -307,6 +308,11 @@ public class NetLogic extends BaseLogic {
      */
     public void bigClothes(int sex, int categoryId)
     {
-
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("sex", sex);
+        params.put("categoryId", categoryId);
+        InfoResultRequest request = new InfoResultRequest(R.id.bigClothes, Constants.BIG_CLOTHES_URL, params,
+                new BigClothesParser(), this);
+        sendRequest(request, R.id.bigClothes);
     }
 }

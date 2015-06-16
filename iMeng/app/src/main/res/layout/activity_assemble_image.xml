@@ -41,8 +41,9 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"
                     android:enabled="false"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/btn_face_bg"/>
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/btn_hair_bg"/>
                 <Button
                     android:id="@+id/face_indicator"
                     android:layout_width="match_parent"
@@ -61,7 +62,7 @@
                 <Button
                     android:id="@+id/clothes_btn"
                     android:layout_width="35dp"
-                    android:layout_height="25dp"
+                    android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/btn_clothes_bg"/>
@@ -81,8 +82,8 @@
                 android:orientation="vertical">
                 <Button
                     android:id="@+id/decoration_btn"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/btn_decoration_bg"/>

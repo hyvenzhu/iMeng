@@ -60,6 +60,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
     private NetLogic netLogic;
     // key 0：后面的头发  1：衣服   2：脸   3：前面的头发    4：眼睛    5：眉毛    6：嘴
     private Map<Integer, Drawable> drawableMap = new HashMap<Integer, Drawable>();
+    private final int TOTAL_LAYER_COUNT = 7; // 总计图层数量
 
     private PictureAdpater clothesAdapter; // 衣服
     private int clothesIndex;
@@ -170,7 +171,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                 drawableMap.put(5, getResources().getDrawable(R.drawable.default_girl_eyebrow));
                 break;
         }
-        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
     }
 
     @OnClick({R.id.title_right_btn, R.id.title_left_btn})
@@ -191,6 +192,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                 Intent intent = new Intent(this, DecorateActivity.class);
                 intent.putExtra("sex", sex);
                 intent.putExtra("clothesPath", clothesPath);
+                intent.putExtra("clothesCategoryId", clothesCategoryId);
                 startActivity(intent);
                 finish();
                 break;
@@ -198,6 +200,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
     }
 
     private String clothesPath; // 选择的衣服
+    private int clothesCategoryId; // 选择的衣服类别id
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
          BaseAdapter adapter = (BaseAdapter)parent.getAdapter();
@@ -218,8 +221,9 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                  else
                  {
                      clothesPath = pictureInfo.getOriginalLocalPath();
+                     clothesCategoryId = pictureInfo.getCategoryId();
                      drawableMap.put(1, new BitmapDrawable(getResources(), clothesPath));
-                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap));
+                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                  }
              }
          }

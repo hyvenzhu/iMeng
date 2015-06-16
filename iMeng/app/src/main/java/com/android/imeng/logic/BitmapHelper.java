@@ -41,12 +41,13 @@ public class BitmapHelper {
     /**
      * 按顺序叠加图片, 0在最下面, 以此类推
      * @param drawableMap
+     * @param totalCount 总计多少层
      * @return
      */
-    public static Drawable overlay(Map<Integer, Drawable> drawableMap)
+    public static Drawable overlay(Map<Integer, Drawable> drawableMap, int totalCount)
     {
         Drawable drawable = null;
-        for(int i = 0; i < drawableMap.size(); i++)
+        for(int i = 0; i < totalCount; i++)
         {
             if (drawable == null)
             {
