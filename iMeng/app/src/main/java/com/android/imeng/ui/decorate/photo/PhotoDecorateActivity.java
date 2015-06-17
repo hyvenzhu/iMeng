@@ -87,6 +87,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
     private NetLogic netLogic;
     // key 0：后面的头发  1：衣服   2：脸   3：前面的头发   4：装饰
     private Map<Integer, Drawable> drawableMap = new HashMap<Integer, Drawable>();
+    private final int TOTAL_LAYER_COUNT = 5; // 总计图层数量
 
     private GridView hairGrid;
     private HairAdpater hairAdpater; // 头发
@@ -231,72 +232,12 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
         {
             Drawable faceDrawable = new BitmapDrawable(getResources(), facePath);
             drawableMap.put(2, faceDrawable);
-            imageView.setImageDrawable(overlay());
+            imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
         }
         else
         {
             netLogic.download(faceUrl);
         }
-    }
-
-    /**
-     * 图层叠加
-     * @return
-     */
-    private Drawable overlay()
-    {
-        Drawable hairBackgroundDrawable = drawableMap.get(0);
-        Drawable clothesDrawable = drawableMap.get(1);
-        Drawable faceDrawable = drawableMap.get(2);
-        Drawable hairFontDrawable = drawableMap.get(3);
-        Drawable decorationDrawable = drawableMap.get(4);
-        Drawable drawable = null;
-        // 背后的头发
-        if (hairBackgroundDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(hairBackgroundDrawable);
-        }
-
-        // 衣服
-        if (drawable != null && clothesDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, clothesDrawable);
-        }
-        else if (clothesDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(clothesDrawable);
-        }
-
-        // 脸
-        if (drawable != null && faceDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, faceDrawable);
-        }
-        else if (faceDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(faceDrawable);
-        }
-
-        // 前面的头发
-        if (drawable != null && hairFontDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, hairFontDrawable);
-        }
-        else if (hairFontDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(hairFontDrawable);
-        }
-
-        // 装饰
-        if (drawable != null && decorationDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(drawable, decorationDrawable);
-        }
-        else if (decorationDrawable != null)
-        {
-            drawable = BitmapHelper.overlayDrawable(decorationDrawable);
-        }
-        return drawable;
     }
 
     @OnClick({R.id.hair_lay, R.id.face_btn, R.id.clothes_lay, R.id.clothes_btn, R.id.decoration_lay, R.id.decoration_btn,
@@ -389,7 +330,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                              }
                              drawableMap.put(index, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
                          }
-                         imageView.setImageDrawable(overlay());
+                         imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                      }
                  }
              }
@@ -412,7 +353,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                  {
                      choosedClothesCategroyId = pictureInfo.getCategoryId();
                      drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                     imageView.setImageDrawable(overlay());
+                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                  }
              }
          }
@@ -428,7 +369,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                  {
                      choosedDecoration = null;
                      drawableMap.put(4, null);
-                     imageView.setImageDrawable(overlay());
+                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                  }
                  else
                  {
@@ -442,7 +383,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                      {
                          choosedDecoration = pictureInfo.getOriginalLocalPath();
                          drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                         imageView.setImageDrawable(overlay());
+                         imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                      }
                  }
              }
@@ -501,7 +442,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                     PictureInfo pictureInfo = (PictureInfo)(((InfoResult)msg.obj).getExtraObj());
                     Drawable faceDrawable = new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath());
                     drawableMap.put(2, faceDrawable);
-                    imageView.setImageDrawable(overlay());
+                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                 }
                 break;
             case R.id.downloadOriginal:
