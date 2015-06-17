@@ -35,7 +35,7 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
 
     List<String> coverPaths = null;
     private GalleryAdpater galleryAdpater;
-    private float scale = (1.0f * Constants.IMAGE_WIDTH_HEIGHT_WITHOUT_LEFT_EREA) / Constants.IMAGE_WIDTH_HEIGHT;
+    private float scale = (1.0f * Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA) / Constants.IMAGE_WIDTH_HEIGHT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

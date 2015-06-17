@@ -13,7 +13,7 @@ public class Constants {
     public static final String DAILY_DIR = "daily"; // 每日形象文件夹
     public static final String FAVORITE_DIR = "favorite"; // 收藏文件夹
     public static final int IMAGE_WIDTH_HEIGHT = 500; // 形象宽高
-    public static final int IMAGE_WIDTH_HEIGHT_WITHOUT_LEFT_EREA = 270; // 形象宽高(不包含左边透明区域)
+    public static final int IMAGE_WIDTH_WITHOUT_LEFT_EREA = 270; // 形象宽高(不包含左边透明区域)
     public static final int PIC_THUMBNAIL_WIDTH = 160; // 修饰小图宽度
     public static final int PIC_THUMBNAIL_HEIGHT = 212; // 修饰小图高度
     public static final int DEFAULT_PAGE_SIZE = 10; // 默认每页数据大小

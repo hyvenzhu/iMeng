@@ -54,8 +54,8 @@ public class Save2GalleryTask extends Task
         // 生成封面
         ImageInfo imageInfo = imageInfos.get(coverPosition);
         Bitmap sBitmap = BitmapFactory.decodeFile(imageInfo.getLocalPath());
-        Bitmap dBitmap = Bitmap.createBitmap(sBitmap, Constants.IMAGE_WIDTH_HEIGHT - Constants.IMAGE_WIDTH_HEIGHT_WITHOUT_LEFT_EREA, 0,
-                Constants.IMAGE_WIDTH_HEIGHT_WITHOUT_LEFT_EREA, Constants.IMAGE_WIDTH_HEIGHT);
+        Bitmap dBitmap = Bitmap.createBitmap(sBitmap, Constants.IMAGE_WIDTH_HEIGHT - Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA, 0,
+                Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA, Constants.IMAGE_WIDTH_HEIGHT);
         try {
             BitmapHelper.bitmap2File(dBitmap, new File(destDir, Constants.GALLERY_COVER).getAbsolutePath());
         } catch (IOException e) {

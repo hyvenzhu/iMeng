@@ -34,7 +34,7 @@ public class WallpaperActivity extends BasicActivity implements AdapterView.OnIt
 
     List<String> coverPaths = null;
     private WallpaperAdpater wallpaperAdpater;
-    private float scale = (1.0f * Constants.IMAGE_WIDTH_HEIGHT_WITHOUT_LEFT_EREA) / Constants.IMAGE_WIDTH_HEIGHT;
+    private float scale = (1.0f * Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA) / Constants.IMAGE_WIDTH_HEIGHT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

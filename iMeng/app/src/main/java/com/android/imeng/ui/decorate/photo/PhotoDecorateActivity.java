@@ -203,6 +203,11 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                 layoutParams.width = minSize;
                 layoutParams.height = minSize;
                 imageView.setLayoutParams(layoutParams);
+
+                // x轴往左平移
+                float xPercent = (Constants.IMAGE_WIDTH_HEIGHT - Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA
+                        + Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA / 2f - Constants.IMAGE_WIDTH_HEIGHT / 2f) / Constants.IMAGE_WIDTH_HEIGHT;
+                imageView.setTranslationX(-minSize * xPercent);
             }
         });
     }
