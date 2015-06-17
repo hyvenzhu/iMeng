@@ -15,6 +15,11 @@ import java.util.List;
  * @version [iMeng, 2015-06-16 22:12]
  */
 public class BigClothesParser extends JsonParser {
+    private int sex;
+    public BigClothesParser(int sex)
+    {
+        this.sex = sex;
+    }
 
     @Override
     protected void parseResponse(InfoResult infoResult, JSONObject jsonObject) {
@@ -29,6 +34,18 @@ public class BigClothesParser extends JsonParser {
                     PictureInfo pictureInfo = new PictureInfo();
                     JSONObject clothesObj = dataArray.getJSONObject(i);
                     pictureInfo.setOriginalUrl(clothesObj.getString("url"));
+                    String actionIdentifier = null;
+                    switch (sex)
+                    {
+                        case 0:
+                            actionIdentifier = "action_boy_";
+                            break;
+                        case 1:
+                            actionIdentifier = "action_girl_";
+                            break;
+                    }
+                    actionIdentifier += (i + 1);
+                    pictureInfo.setThumbnailUrl(actionIdentifier);
                     pictureInfos.add(pictureInfo);
                 }
                 infoResult.setExtraObj(pictureInfos);

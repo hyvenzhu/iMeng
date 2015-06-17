@@ -32,6 +32,7 @@ import com.android.imeng.logic.model.PictureInfo;
 import com.android.imeng.ui.base.adapter.HairAdpater;
 import com.android.imeng.ui.base.adapter.PictureAdpater;
 import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
+import com.android.imeng.ui.decorate.cartoon.adapter.DecorationAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 
@@ -94,7 +95,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
     private PictureAdpater clothesAdapter; // 衣服
     private int clothesIndex;
     private GridView decorationGrid;
-    private PictureAdpater decorationAdapter; // 装饰
+    private DecorationAdpater decorationAdapter; // 装饰
     private int decorationIndex;
 
     private float scale = Constants.PIC_THUMBNAIL_WIDTH / (Constants.PIC_THUMBNAIL_HEIGHT * 1.0f); // GridView item宽高比
@@ -423,17 +424,26 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
              }
              else
              {
-                 PictureInfo pictureInfo = decorationAdapter.getItem(position);
-                 if (!decorationAdapter.hasDownload(position)) // 未下载
+                 if (position == 0) // 删除装饰
                  {
-                     netLogic.download(pictureInfo);
-                     decorationAdapter.notifyDataSetChanged();
+                     choosedDecoration = null;
+                     drawableMap.put(4, null);
+                     imageView.setImageDrawable(overlay());
                  }
                  else
                  {
-                     choosedDecoration = pictureInfo.getOriginalLocalPath();
-                     drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                     imageView.setImageDrawable(overlay());
+                     PictureInfo pictureInfo = decorationAdapter.getItem(position - 1);
+                     if (!decorationAdapter.hasDownload(position)) // 未下载
+                     {
+                         netLogic.download(pictureInfo);
+                         decorationAdapter.notifyDataSetChanged();
+                     }
+                     else
+                     {
+                         choosedDecoration = pictureInfo.getOriginalLocalPath();
+                         drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+                         imageView.setImageDrawable(overlay());
+                     }
                  }
              }
          }
@@ -572,7 +582,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
                     if (decorationAdapter == null)
                     {
                         int decorationCount = Integer.parseInt(infoResult.getOtherObj().toString());
-                        decorationAdapter = new PictureAdpater(this, pictureInfos, R.layout.layout_item_picture, decorationCount);
+                        decorationAdapter = new DecorationAdpater(this, pictureInfos, R.layout.layout_item_picture, decorationCount);
 
                         final int viewWidth = viewPager.getWidth();
                         int numColumns = 3;

@@ -312,7 +312,7 @@ public class NetLogic extends BaseLogic {
         params.put("sex", sex);
         params.put("categoryId", categoryId);
         InfoResultRequest request = new InfoResultRequest(R.id.bigClothes, Constants.BIG_CLOTHES_URL, params,
-                new BigClothesParser(), this);
+                new BigClothesParser(sex), this);
         sendRequest(request, R.id.bigClothes);
     }
 }

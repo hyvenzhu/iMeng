@@ -10,6 +10,10 @@ import android.widget.TextView;
 import com.android.imeng.R;
 import com.android.imeng.framework.ui.BasicAdapter;
 import com.android.imeng.logic.model.PictureInfo;
+import com.android.imeng.ui.decorate.cartoon.adapter.BigClothesAdpater;
+import com.android.imeng.ui.decorate.cartoon.adapter.DecorationAdpater;
+import com.android.imeng.util.APKUtil;
+import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -56,7 +60,8 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         downloadView.setLayoutParams(layoutParams);
 
-        if (position == mData.size()) // 加载更多图标
+        if ((!(this instanceof DecorationAdpater) && position == mData.size()) ||
+                (this instanceof DecorationAdpater && (position - 1) == mData.size())) // 加载更多图标
         {
             downloadView.setVisibility(View.GONE);
 
@@ -67,8 +72,21 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
         }
         else
         {
+            String thumbnailUrl = getThumbnailUrl(position);
             // 缩略图
-            picView.setImageURI(Uri.parse(getThumbnailUrl(position)));
+            if (this instanceof BigClothesAdpater ||
+                    (this instanceof DecorationAdpater && position == 0)) // 动作适配器，小图是本地资源；装饰第一张是本地图片
+            {
+                Uri uri = new Uri.Builder()
+                        .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
+                        .path(String.valueOf(APKUtil.getDrawableByIdentify(mContext, thumbnailUrl)))
+                        .build();
+                picView.setImageURI(uri);
+            }
+            else
+            {
+                picView.setImageURI(Uri.parse(thumbnailUrl));
+            }
 
             // 是否已下载
             if (hasDownload(position))

@@ -31,6 +31,7 @@ import com.android.imeng.ui.base.adapter.HairAdpater;
 import com.android.imeng.ui.base.adapter.PictureAdpater;
 import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
 import com.android.imeng.ui.decorate.cartoon.adapter.BigClothesAdpater;
+import com.android.imeng.ui.decorate.cartoon.adapter.DecorationAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
@@ -87,7 +88,7 @@ public class DecorateActivity extends BasicActivity implements AdapterView.OnIte
     private BigClothesAdpater actionAdapter; // 动作
 
     private GridView decorationGrid;
-    private PictureAdpater decorationAdapter; // 装饰
+    private DecorationAdpater decorationAdapter; // 装饰
     private int decorationIndex;
 
     private GridView sayGrid;
@@ -459,16 +460,24 @@ public class DecorateActivity extends BasicActivity implements AdapterView.OnIte
             }
             else
             {
-                PictureInfo pictureInfo = decorationAdapter.getItem(position);
-                if (!decorationAdapter.hasDownload(position)) // 未下载
+                if (position == 0) // 删除装饰
                 {
-                    netLogic.download(pictureInfo);
-                    decorationAdapter.notifyDataSetChanged();
+                    drawableMap.put(8, null);
+                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                 }
                 else
                 {
-                    drawableMap.put(8, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    PictureInfo pictureInfo = decorationAdapter.getItem(position - 1);
+                    if (!decorationAdapter.hasDownload(position)) // 未下载
+                    {
+                        netLogic.download(pictureInfo);
+                        decorationAdapter.notifyDataSetChanged();
+                    }
+                    else
+                    {
+                        drawableMap.put(8, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+                        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    }
                 }
             }
         }
@@ -684,7 +693,7 @@ public class DecorateActivity extends BasicActivity implements AdapterView.OnIte
                     if (decorationAdapter == null)
                     {
                         int count = Integer.parseInt(infoResult.getOtherObj().toString());
-                        decorationAdapter = new PictureAdpater(this, pictureInfos, R.layout.layout_item_picture, count);
+                        decorationAdapter = new DecorationAdpater(this, pictureInfos, R.layout.layout_item_picture, count);
 
                         final int viewWidth = viewPager.getWidth();
                         int numColumns = 3;

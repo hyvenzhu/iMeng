@@ -9,37 +9,50 @@ import com.android.imeng.ui.base.adapter.BasePictureAdapter;
 import java.util.List;
 
 /**
- * 大衣服显示适配器（最大区别：没有缩略图，使用本地的）
+ * 装饰适配器（最大区别：第一张图是本地的，表示取消装饰）
  * @author hiphonezhu@gmail.com
- * @version [iMeng, 2015/06/16 23:04]
+ * @version [iMeng, 2015/06/17 22:20]
  * @copyright Copyright 2010 RD information technology Co.,ltd.. All Rights Reserved.
  */
-public class BigClothesAdpater extends BasePictureAdapter<PictureInfo> {
-    public BigClothesAdpater(Context context, List<PictureInfo> data, int resourceId, int totalSize) {
+public class DecorationAdpater extends BasePictureAdapter<PictureInfo> {
+    public DecorationAdpater(Context context, List<PictureInfo> data, int resourceId, int totalSize) {
         super(context, data, resourceId, totalSize);
     }
 
     @Override
     public String getThumbnailUrl(int position) {
-        PictureInfo pictureInfo = getItem(position);
+        if (position == 0)
+        {
+            return "decoration_none";
+        }
+        PictureInfo pictureInfo = getItem(position - 1);
         return pictureInfo.getThumbnailUrl();
     }
 
     @Override
+    public int getCount() {
+        return super.getCount() + 1;
+    }
+
+    @Override
     public boolean hasDownload(int position) {
-        PictureInfo pictureInfo = getItem(position);
+        if (position == 0) // 第一张本地默认
+        {
+            return true;
+        }
+        PictureInfo pictureInfo = getItem(position - 1);
         return !TextUtils.isEmpty(pictureInfo.getOriginalLocalPath());
     }
 
     @Override
     public PictureInfo.State getState(int position) {
-        if (hasDownload(position))
+        if (hasDownload(position) || position == 0)
         {
             return PictureInfo.State.SUCCESS;
         }
         else
         {
-            PictureInfo pictureInfo = getItem(position);
+            PictureInfo pictureInfo = getItem(position - 1);
             return pictureInfo.getmState();
         }
     }
