@@ -189,7 +189,7 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                     return;
                 }
                 // 选择装饰界面
-                Intent intent = new Intent(this, DecorateActivity.class);
+                Intent intent = new Intent(this, CartoonDecorateActivity.class);
                 intent.putExtra("sex", sex);
                 intent.putExtra("clothesPath", clothesPath);
                 intent.putExtra("clothesCategoryId", clothesCategoryId);

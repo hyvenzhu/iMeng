@@ -45,7 +45,7 @@ import java.util.Map;
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015/06/04 17:09]
  */
-public class AssembleImageActivity extends BasicActivity implements ViewPager.OnPageChangeListener, AdapterView.OnItemClickListener{
+public class PhotoDecorateActivity extends BasicActivity implements ViewPager.OnPageChangeListener, AdapterView.OnItemClickListener{
 
     /**
      * 跳转
@@ -56,7 +56,7 @@ public class AssembleImageActivity extends BasicActivity implements ViewPager.On
      */
     public static void actionStart(String faceUrl, int sex, int faceShape, Context context)
     {
-        Intent intent = new Intent(context, AssembleImageActivity.class);
+        Intent intent = new Intent(context, PhotoDecorateActivity.class);
         intent.putExtra("faceUrl", faceUrl);
         intent.putExtra("sex", sex);
         intent.putExtra("faceShape", faceShape);

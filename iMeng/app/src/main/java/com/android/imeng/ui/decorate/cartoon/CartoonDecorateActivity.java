@@ -46,7 +46,7 @@ import java.util.Map;
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015-06-15 20:57]
  */
-public class DecorateActivity extends BasicActivity implements AdapterView.OnItemClickListener{
+public class CartoonDecorateActivity extends BasicActivity implements AdapterView.OnItemClickListener{
     @ViewInject(R.id.image_wall)
     private View imageWall; // 背景墙
     @ViewInject(R.id.image_view)
