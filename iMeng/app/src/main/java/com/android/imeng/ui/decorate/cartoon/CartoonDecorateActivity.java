@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,10 +33,12 @@ import com.android.imeng.ui.base.adapter.PictureAdpater;
 import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
 import com.android.imeng.ui.decorate.cartoon.adapter.BigClothesAdpater;
 import com.android.imeng.ui.decorate.cartoon.adapter.DecorationAdpater;
+import com.android.imeng.ui.decorate.cartoon.adapter.SayAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +54,8 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
     private View imageWall; // 背景墙
     @ViewInject(R.id.image_view)
     private ImageView imageView; // 形象展示View
+//    @ViewInject(R.id.say_edit)
+//    private EditText sayEdit; // 文字输入框
     @ViewInject(R.id.viewpagertab)
     private SmartTabLayout smartTabLayout; // 指示器
     @ViewInject(R.id.view_pager)
@@ -92,7 +97,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
     private int decorationIndex;
 
     private GridView sayGrid;
-    private PictureAdpater sayAdapter; // 文字
+    private SayAdpater sayAdapter; // 文字
 
     private float scale = Constants.PIC_THUMBNAIL_WIDTH / (Constants.PIC_THUMBNAIL_HEIGHT * 1.0f);
     @Override
@@ -143,7 +148,8 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         netLogic.bigClothes(sex, clothesCategoryId);
         // 装饰
         netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
-//        // 文字
+        // 文字
+        loadSay();
     }
 
     /**
@@ -176,6 +182,9 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 layoutParams.width = minSize;
                 layoutParams.height = minSize;
                 imageView.setLayoutParams(layoutParams);
+
+                // x轴往左平移
+                imageView.setTranslationX(-minSize * Constants.TRANSLATE_X_PERCENT);
             }
         });
     }
@@ -295,6 +304,46 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         viewPager.setAdapter(new ViewPagerAdapter(hairGrid, faceGrid, eyebrowGrid, eyeGrid,
                 mouthGrid, actionGrid, decorationGrid, sayGrid));
         smartTabLayout.setViewPager(viewPager);
+    }
+
+    /**
+     * 加载文字
+     */
+    private void loadSay()
+    {
+        List<PictureInfo> pictureInfos = new ArrayList<PictureInfo>();
+        for(int i = 0; i < 20; i++)
+        {
+            PictureInfo pictureInfo = new PictureInfo();
+            switch (sex)
+            {
+                case 0: // 男
+                    pictureInfo.setThumbnailUrl("male_say" + (i + 1) + "_small");
+                    pictureInfo.setOriginalUrl("male_say" + (i + 1));
+                    break;
+                case 1: // 女
+                    pictureInfo.setThumbnailUrl("female_say" + (i + 1) + "_small");
+                    pictureInfo.setOriginalUrl("female_say" + (i + 1));
+                    break;
+            }
+            pictureInfos.add(pictureInfo);
+        }
+        int count = pictureInfos.size();
+        sayAdapter = new SayAdpater(this, pictureInfos, R.layout.layout_item_picture, count);
+
+        viewPager.post(new Runnable() {
+            @Override
+            public void run() {
+                final int viewWidth = viewPager.getWidth();
+                int numColumns = 3;
+                int hoizontalSpacing = APKUtil.dip2px(CartoonDecorateActivity.this, 2);
+                int columnWidth = (int) ((viewWidth - (numColumns - 1) * hoizontalSpacing) / (1.0f * numColumns));
+                int columnHeight = (int) (columnWidth * scale);
+                sayAdapter.setSize(columnWidth, columnHeight);
+                sayGrid.setAdapter(sayAdapter);
+                sayAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -483,7 +532,47 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
         else if (adapter == sayAdapter) // 文字
         {
+            if (position == 0) // 删除装饰
+            {
+                drawableMap.put(9, null);
+                imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
 
+                if (imageView.getTranslationX() >= 0)
+                {
+                    // x轴往左平移
+                    imageView.setTranslationX(-imageView.getMeasuredWidth() * Constants.TRANSLATE_X_PERCENT);
+                }
+            }
+            else if (position == 1) // 自定义文字
+            {
+                if (imageView.getTranslationX() < 0)
+                {
+                    // x轴往右平移
+                    imageView.setTranslationX(0);
+                }
+                drawableMap.put(9, getResources().getDrawable(APKUtil.getDrawableByIdentify(this, "say_empty")));
+                imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+            }
+            else
+            {
+                if (imageView.getTranslationX() < 0)
+                {
+                    // x轴往右平移
+                    imageView.setTranslationX(0);
+                }
+                PictureInfo pictureInfo = sayAdapter.getItem(position - 2);
+                if (!sayAdapter.hasDownload(position)) // 未下载
+                {
+                    // 文字不需要下载
+//                    netLogic.download(pictureInfo);
+//                    sayAdapter.notifyDataSetChanged();
+                }
+                else
+                {
+                    drawableMap.put(9, getResources().getDrawable(APKUtil.getDrawableByIdentify(this, pictureInfo.getOriginalUrl())));
+                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                }
+            }
         }
     }
 

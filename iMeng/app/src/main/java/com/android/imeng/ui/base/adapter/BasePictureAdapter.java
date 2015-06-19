@@ -12,6 +12,7 @@ import com.android.imeng.framework.ui.BasicAdapter;
 import com.android.imeng.logic.model.PictureInfo;
 import com.android.imeng.ui.decorate.cartoon.adapter.BigClothesAdpater;
 import com.android.imeng.ui.decorate.cartoon.adapter.DecorationAdpater;
+import com.android.imeng.ui.decorate.cartoon.adapter.SayAdpater;
 import com.android.imeng.util.APKUtil;
 import com.facebook.common.util.UriUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -60,8 +61,8 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         downloadView.setLayoutParams(layoutParams);
 
-        if ((!(this instanceof DecorationAdpater) && position == mData.size()) ||
-                (this instanceof DecorationAdpater && (position - 1) == mData.size())) // 加载更多图标
+        if (!(this instanceof  SayAdpater) &&((!(this instanceof DecorationAdpater) && position == mData.size()) ||
+                (this instanceof DecorationAdpater && (position - 1) == mData.size()))) // 加载更多图标
         {
             downloadView.setVisibility(View.GONE);
 
@@ -75,7 +76,8 @@ public abstract class BasePictureAdapter<T> extends BasicAdapter<T> {
             String thumbnailUrl = getThumbnailUrl(position);
             // 缩略图
             if (this instanceof BigClothesAdpater ||
-                    (this instanceof DecorationAdpater && position == 0)) // 动作适配器，小图是本地资源；装饰第一张是本地图片
+                    (this instanceof DecorationAdpater && position == 0) ||
+                    (this instanceof SayAdpater)) // 动作适配器，小图是本地资源;装饰第一张是本地图片;文字全部是本地
             {
                 Uri uri = new Uri.Builder()
                         .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)

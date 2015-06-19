@@ -131,6 +131,9 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                 layoutParams.width = minSize;
                 layoutParams.height = minSize;
                 imageView.setLayoutParams(layoutParams);
+
+                // x轴往左平移
+                imageView.setTranslationX(-minSize * Constants.TRANSLATE_X_PERCENT);
             }
         });
     }
