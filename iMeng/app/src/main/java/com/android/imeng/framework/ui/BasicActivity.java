@@ -400,6 +400,15 @@ public class BasicActivity extends BaseActivity implements UIInterface
         /**
          * 这里进行一些输入法的隐藏操作
          */
+        hideSoftInput();
+        Logger.d(TAG, "onPause");
+    }
+
+    /**
+     * 隐藏输入法
+     */
+    public void hideSoftInput()
+    {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         if (null != imm && imm.isActive())
         {
@@ -409,7 +418,6 @@ public class BasicActivity extends BaseActivity implements UIInterface
                         0);
             }
         }
-        Logger.d(TAG, "onPause");
     }
 
     @Override

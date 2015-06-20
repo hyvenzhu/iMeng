@@ -8,25 +8,30 @@
 
     <include layout="@layout/layout_common_title" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/image_wall"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#CAE4F3"
-        android:gravity="center">
+        android:background="#CAE4F3">
 
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY" />
-        <!--<EditText
+            android:scaleType="fitXY"
+            android:layout_centerInParent="true"/>
+        <EditText
             android:id="@+id/say_edit"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"/>-->
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:maxLength="9"
+            android:textSize="25sp"
+            android:background="@null"
+            android:visibility="invisible"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -19,11 +20,13 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.android.imeng.R;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.BasicActivity;
 import com.android.imeng.framework.ui.base.annotations.ViewInject;
+import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.logic.model.HairInfo;
@@ -36,6 +39,7 @@ import com.android.imeng.ui.decorate.cartoon.adapter.DecorationAdpater;
 import com.android.imeng.ui.decorate.cartoon.adapter.SayAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
+import com.nineoldandroids.animation.ObjectAnimator;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import java.util.ArrayList;
@@ -54,8 +58,8 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
     private View imageWall; // 背景墙
     @ViewInject(R.id.image_view)
     private ImageView imageView; // 形象展示View
-//    @ViewInject(R.id.say_edit)
-//    private EditText sayEdit; // 文字输入框
+    @ViewInject(R.id.say_edit)
+    private EditText sayEdit; // 文字输入框
     @ViewInject(R.id.viewpagertab)
     private SmartTabLayout smartTabLayout; // 指示器
     @ViewInject(R.id.view_pager)
@@ -152,6 +156,19 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         loadSay();
     }
 
+    @OnClick({R.id.title_left_btn, R.id.title_right_btn})
+    public void onViewClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.title_left_btn:
+                finish();
+                break;
+            case R.id.title_right_btn:
+                break;
+        }
+    }
+
     /**
      * 调整宽高
      */
@@ -185,6 +202,13 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
 
                 // x轴往左平移
                 imageView.setTranslationX(-minSize * Constants.TRANSLATE_X_PERCENT);
+
+                // 设置输入框宽高, 往左平移
+                RelativeLayout.LayoutParams sayParams = (RelativeLayout.LayoutParams)sayEdit.getLayoutParams();
+                sayParams.height = (int)(minSize * Constants.SAY_CONTENT_HEIGHT * 1.0f / Constants.IMAGE_WIDTH_HEIGHT);
+                sayParams.width = (int)(minSize * Constants.SAY_CONTENT_WIDTH * 1.0f / Constants.IMAGE_WIDTH_HEIGHT);
+
+                sayEdit.setTranslationX(-Constants.SAY_INPUT_TRANSLATE_X_PERCENT * minSize);
             }
         });
     }
@@ -304,6 +328,25 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         viewPager.setAdapter(new ViewPagerAdapter(hairGrid, faceGrid, eyebrowGrid, eyeGrid,
                 mouthGrid, actionGrid, decorationGrid, sayGrid));
         smartTabLayout.setViewPager(viewPager);
+        smartTabLayout.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i2) {
+                sayEdit.clearFocus();
+                sayEdit.setFocusable(false);
+                sayEdit.setFocusableInTouchMode(false);
+                hideSoftInput();
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
     }
 
     /**
@@ -534,17 +577,24 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (position == 0) // 删除装饰
             {
-                drawableMap.put(9, null);
-                imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                sayEdit.setVisibility(View.INVISIBLE);
+                hideSoftInput();
 
                 if (imageView.getTranslationX() >= 0)
                 {
                     // x轴往左平移
                     imageView.setTranslationX(-imageView.getMeasuredWidth() * Constants.TRANSLATE_X_PERCENT);
                 }
+                drawableMap.put(9, null);
+                imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
             }
             else if (position == 1) // 自定义文字
             {
+                sayEdit.setFocusable(true);
+                sayEdit.setFocusableInTouchMode(true);
+                sayEdit.setVisibility(View.VISIBLE);
+                sayEdit.requestFocus();
+
                 if (imageView.getTranslationX() < 0)
                 {
                     // x轴往右平移
@@ -555,6 +605,9 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
             }
             else
             {
+                sayEdit.setVisibility(View.INVISIBLE);
+                hideSoftInput();
+
                 if (imageView.getTranslationX() < 0)
                 {
                     // x轴往右平移
