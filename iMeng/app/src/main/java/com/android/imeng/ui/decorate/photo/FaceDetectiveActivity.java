@@ -99,10 +99,10 @@ public class FaceDetectiveActivity extends BasicActivity {
                 animationDrawable.start();
 
                 // 人脸检测
-//                netLogic.faceDetect(photoPath);
+                netLogic.faceDetect(photoPath);
 
                 // for test
-                netLogic.face(0, 3, 0, 0, 4);
+//                netLogic.face(0, 3, 0, 0, 4);
                 break;
         }
     }

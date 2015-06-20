@@ -120,7 +120,7 @@ public class DetectParser extends JsonParser {
         {
             directionSize = 1;
         }
-        return map.get(String.valueOf(widthRatio) + String.valueOf(heightRatio) + String.valueOf(directionSize));
+        return map.get(String.valueOf((int)widthRatio) + String.valueOf((int)heightRatio) + String.valueOf((int)directionSize));
     }
 
     /**
@@ -207,7 +207,7 @@ public class DetectParser extends JsonParser {
         {
             directionSize = 1;
         }
-        return map.get(String.valueOf(heightRatio) + String.valueOf(widthRatio) + String.valueOf(directionSize));
+        return map.get(String.valueOf((int)heightRatio) + String.valueOf((int)widthRatio) + String.valueOf((int)directionSize));
     }
 
     /**
@@ -265,7 +265,7 @@ public class DetectParser extends JsonParser {
         {
             smilingRatio = 2;
         }
-        return map.get(String.valueOf(widthRatio) + String.valueOf(smilingRatio));
+        return map.get(String.valueOf((int)widthRatio) + String.valueOf((int)smilingRatio));
     }
 
     /**
