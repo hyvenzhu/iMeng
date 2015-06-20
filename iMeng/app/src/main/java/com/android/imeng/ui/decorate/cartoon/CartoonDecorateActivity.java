@@ -1,6 +1,9 @@
 package com.android.imeng.ui.decorate.cartoon;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -31,6 +34,7 @@ import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.logic.NetLogic;
 import com.android.imeng.logic.model.HairInfo;
 import com.android.imeng.logic.model.PictureInfo;
+import com.android.imeng.ui.base.ShareActivity;
 import com.android.imeng.ui.base.adapter.HairAdpater;
 import com.android.imeng.ui.base.adapter.PictureAdpater;
 import com.android.imeng.ui.base.adapter.ViewPagerAdapter;
@@ -42,6 +46,7 @@ import com.android.imeng.util.Constants;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -165,6 +170,48 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 finish();
                 break;
             case R.id.title_right_btn:
+                sayEdit.clearFocus();
+                sayEdit.setFocusable(false);
+                sayEdit.setFocusableInTouchMode(false);
+                hideSoftInput();
+
+                Drawable drawable = BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT);
+                // drawable 2 bitmap
+                String fileName = String.valueOf(System.currentTimeMillis());
+                File imageDir = APKUtil.getDiskCacheDir(this, Constants.TEMP_DIR);
+                String localPath = imageDir.getAbsolutePath() + File.separator + fileName;
+                Bitmap bitmap = null;
+                try {
+                    bitmap = BitmapHelper.drawable2Bitmap(drawable);
+                    // 是否有自定义文字
+                    if (sayEdit.getVisibility() == View.VISIBLE)
+                    {
+                        // 获得文字图片
+                        sayEdit.setDrawingCacheEnabled(true);
+                        sayEdit.buildDrawingCache();
+                        Bitmap sayBitmap = sayEdit.getDrawingCache();
+                        // 按照比例缩放
+                        Matrix matrix = new Matrix();
+                        matrix.postScale(Constants.SAY_CONTENT_WIDTH / sayBitmap.getWidth(), Constants.SAY_CONTENT_HEIGHT / sayBitmap.getHeight()); //长和宽放大缩小的比例
+                        sayBitmap = Bitmap.createBitmap(sayBitmap, 0, 0, sayBitmap.getWidth(), sayBitmap.getHeight(), matrix, true);
+                        // 合并文字与形象图片
+                        Canvas canvas = new Canvas(bitmap);
+                        float x = bitmap.getWidth() * (Constants.SAY_EMPTY_HORIZONTAL_X - Constants.SAY_CONTENT_WIDTH / 2f) / Constants.IMAGE_WIDTH_HEIGHT;
+                        float y = (bitmap.getHeight() - sayBitmap.getHeight()) / 2f;
+                        canvas.drawBitmap(sayBitmap, x, y, null);
+                    }
+                    // 保存到文件
+                    BitmapHelper.bitmap2File(bitmap, localPath);
+                    // 跳转到分享界面
+                    ShareActivity.actionStart(this, localPath, sex);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (bitmap != null && !bitmap.isRecycled())
+                    {
+                        bitmap.recycle();
+                    }
+                }
                 break;
         }
     }
@@ -199,15 +246,14 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 layoutParams.width = minSize;
                 layoutParams.height = minSize;
                 imageView.setLayoutParams(layoutParams);
-
                 // x轴往左平移
                 imageView.setTranslationX(-minSize * Constants.TRANSLATE_X_PERCENT);
 
-                // 设置输入框宽高, 往左平移
+                // 设置输入框宽高
                 RelativeLayout.LayoutParams sayParams = (RelativeLayout.LayoutParams)sayEdit.getLayoutParams();
                 sayParams.height = (int)(minSize * Constants.SAY_CONTENT_HEIGHT * 1.0f / Constants.IMAGE_WIDTH_HEIGHT);
                 sayParams.width = (int)(minSize * Constants.SAY_CONTENT_WIDTH * 1.0f / Constants.IMAGE_WIDTH_HEIGHT);
-
+                // 往左平移, 保证在图片气泡内
                 sayEdit.setTranslationX(-Constants.SAY_INPUT_TRANSLATE_X_PERCENT * minSize);
             }
         });

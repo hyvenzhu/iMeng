@@ -18,12 +18,13 @@ public class Constants {
     public static final int PIC_THUMBNAIL_HEIGHT = 212; // 修饰小图高度
     public static final float SAY_CONTENT_HEIGHT = 420; // 文字高度
     public static final float SAY_CONTENT_WIDTH = 80; // 文字宽度
+    public static final int SAY_EMPTY_HORIZONTAL_X = 95; // 空白文字背景内容区域中间线x坐标
     public static final int DEFAULT_PAGE_SIZE = 10; // 默认每页数据大小
     public static final float TRANSLATE_X_PERCENT = (Constants.IMAGE_WIDTH_HEIGHT -
             Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA +
             Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA / 2f -
             Constants.IMAGE_WIDTH_HEIGHT / 2f) / Constants.IMAGE_WIDTH_HEIGHT; // 图片居中, x轴横向偏移量占图片宽度的百分比
-    public static final float SAY_INPUT_TRANSLATE_X_PERCENT = (IMAGE_WIDTH_HEIGHT / 2 - 95) /
+    public static final float SAY_INPUT_TRANSLATE_X_PERCENT = (IMAGE_WIDTH_HEIGHT / 2 - SAY_EMPTY_HORIZONTAL_X) /
             (IMAGE_WIDTH_HEIGHT * 1.0f); // 输入框平移百分比
 
     // face++

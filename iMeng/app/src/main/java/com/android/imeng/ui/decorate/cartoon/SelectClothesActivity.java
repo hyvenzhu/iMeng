@@ -197,7 +197,6 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                 intent.putExtra("clothesPath", clothesPath);
                 intent.putExtra("clothesCategoryId", clothesCategoryId);
                 startActivity(intent);
-                finish();
                 break;
         }
     }
