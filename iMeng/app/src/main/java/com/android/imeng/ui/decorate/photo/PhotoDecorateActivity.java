@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -100,6 +101,18 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
     private int decorationIndex;
 
     private float scale = Constants.PIC_THUMBNAIL_WIDTH / (Constants.PIC_THUMBNAIL_HEIGHT * 1.0f); // GridView item宽高比
+    /**
+     * 记录请求状态
+     * key=0,1,2
+     * value:0正在请求  1请求成功   2请求失败
+     */
+    private Map<Integer, REQUEST_STATUS> requestStatus = new HashMap<Integer, REQUEST_STATUS>();
+    private enum REQUEST_STATUS
+    {
+        REQUESTING,
+        REQUEST_SUCCESSED,
+        REQUEST_FAILURED
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +141,9 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
         loadGridView();
 
         // 查询头发、衣服、装饰列表
+        requestStatus.put(0, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(1, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(2, REQUEST_STATUS.REQUESTING);
         netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
         netLogic.clothes(sex, clothesIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
         netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
@@ -292,7 +308,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
          BaseAdapter adapter = (BaseAdapter)parent.getAdapter();
          if (adapter == hairAdpater) // 头发
          {
-             if (hairAdpater.isMore(position)) // More
+             if (hairAdpater.isMore(position) && requestStatus.get(0) != REQUEST_STATUS.REQUESTING) // More
              {
                  netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
@@ -340,7 +356,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
          }
          else if (adapter == clothesAdapter) // 衣服
          {
-             if (clothesAdapter.isMore(position)) // More
+             if (clothesAdapter.isMore(position) && requestStatus.get(1) != REQUEST_STATUS.REQUESTING) // More
              {
                  netLogic.clothes(sex, clothesIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
@@ -362,7 +378,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
          }
          else if (adapter == decorationAdapter) // 装饰
          {
-             if (decorationAdapter.isMore(position)) // More
+             if (decorationAdapter.isMore(position) && requestStatus.get(2) != REQUEST_STATUS.REQUESTING) // More
              {
                  netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
@@ -409,6 +425,12 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                 clothesIndicator.setEnabled(true);
                 decorationBtn.setEnabled(true);
                 decorationIndicator.setEnabled(true);
+                // 请求失败, 重试
+                if (requestStatus.get(0) == REQUEST_STATUS.REQUEST_FAILURED)
+                {
+                    requestStatus.put(0, REQUEST_STATUS.REQUESTING);
+                    netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                }
                 break;
             case 1:
                 faceBtn.setEnabled(true);
@@ -417,6 +439,12 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                 clothesIndicator.setEnabled(false);
                 decorationBtn.setEnabled(true);
                 decorationIndicator.setEnabled(true);
+                // 请求失败, 重试
+                if (requestStatus.get(1) == REQUEST_STATUS.REQUEST_FAILURED)
+                {
+                    requestStatus.put(1, REQUEST_STATUS.REQUESTING);
+                    netLogic.clothes(sex, clothesIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                }
                 break;
             case 2:
                 faceBtn.setEnabled(true);
@@ -425,6 +453,12 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                 clothesIndicator.setEnabled(true);
                 decorationBtn.setEnabled(false);
                 decorationIndicator.setEnabled(false);
+                // 请求失败, 重试
+                if (requestStatus.get(2) == REQUEST_STATUS.REQUEST_FAILURED)
+                {
+                    requestStatus.put(2, REQUEST_STATUS.REQUESTING);
+                    netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                }
                 break;
         }
     }
@@ -465,6 +499,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
             case R.id.hairs: // 头发
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(0, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<HairInfo> hairInfos = (List<HairInfo>)infoResult.getExtraObj();
                     hairIndex++;
@@ -488,10 +523,15 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                     }
                     hairAdpater.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(0, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.clothes: // 衣服
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(1, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
                     clothesIndex++;
@@ -515,10 +555,15 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                     }
                     clothesAdapter.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(1, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.decorations: // 装饰
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(2, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
                     decorationIndex++;
@@ -541,6 +586,10 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                         decorationAdapter.getDataSource().addAll(pictureInfos);
                     }
                     decorationAdapter.notifyDataSetChanged();
+                }
+                else
+                {
+                    requestStatus.put(2, REQUEST_STATUS.REQUEST_FAILURED);
                 }
                 break;
         }

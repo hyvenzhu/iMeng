@@ -109,6 +109,18 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
     private SayAdpater sayAdapter; // 文字
 
     private float scale = Constants.PIC_THUMBNAIL_WIDTH / (Constants.PIC_THUMBNAIL_HEIGHT * 1.0f);
+    /**
+     * 记录请求状态
+     * key=0,1,2,3,4,5,6
+     * value:0正在请求  1请求成功   2请求失败
+     */
+    private Map<Integer, REQUEST_STATUS> requestStatus = new HashMap<Integer, REQUEST_STATUS>();
+    private enum REQUEST_STATUS
+    {
+        REQUESTING,
+        REQUEST_SUCCESSED,
+        REQUEST_FAILURED
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,6 +155,13 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         // 初始化GridView
         loadGridView();
 
+        requestStatus.put(0, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(1, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(2, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(3, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(4, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(5, REQUEST_STATUS.REQUESTING);
+        requestStatus.put(6, REQUEST_STATUS.REQUESTING);
         // 头发
         netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
         // 脸型
@@ -334,7 +353,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 return v;
             }
         });
-        for(int i = 0; i < 9; i++)
+        for(int i = 0; i < 8; i++)
         {
             GridView grid = new GridView(this);
             grid.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -385,7 +404,68 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
 
             @Override
             public void onPageSelected(int i) {
-
+                // 请求失败, 重试
+                switch (i)
+                {
+                    case 0:
+                        if (requestStatus.get(0) == REQUEST_STATUS.REQUEST_FAILURED)
+                        {
+                            requestStatus.put(0, REQUEST_STATUS.REQUESTING);
+                            // 头发
+                            netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                        }
+                        break;
+                    case 1:
+                        if (requestStatus.get(1) == REQUEST_STATUS.REQUEST_FAILURED)
+                        {
+                            requestStatus.put(1, REQUEST_STATUS.REQUESTING);
+                            // 脸型
+                            netLogic.faceShapes(sex, faceIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                        }
+                        break;
+                    case 2:
+                        if (requestStatus.get(2) == REQUEST_STATUS.REQUEST_FAILURED)
+                        {
+                            requestStatus.put(2, REQUEST_STATUS.REQUESTING);
+                            // 眉毛
+                            netLogic.eyebrows(sex, eyebrowIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                        }
+                        break;
+                    case 3:
+                        if (requestStatus.get(3) == REQUEST_STATUS.REQUEST_FAILURED)
+                        {
+                            requestStatus.put(3, REQUEST_STATUS.REQUESTING);
+                            // 眼睛
+                            netLogic.eyes(sex, eyeIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                        }
+                        break;
+                    case 4:
+                        if (requestStatus.get(4) == REQUEST_STATUS.REQUEST_FAILURED)
+                        {
+                            requestStatus.put(4, REQUEST_STATUS.REQUESTING);
+                            // 嘴巴
+                            netLogic.mouths(sex, mouthIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                        }
+                        break;
+                    case 5:
+                        if (requestStatus.get(5) == REQUEST_STATUS.REQUEST_FAILURED)
+                        {
+                            requestStatus.put(5, REQUEST_STATUS.REQUESTING);
+                            // 动作(同一类别的衣服)
+                            netLogic.bigClothes(sex, clothesCategoryId);
+                        }
+                        break;
+                    case 6:
+                        if (requestStatus.get(6) == REQUEST_STATUS.REQUEST_FAILURED)
+                        {
+                            requestStatus.put(6, REQUEST_STATUS.REQUESTING);
+                            // 装饰
+                            netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
+                        }
+                        break;
+                    case 7:
+                        break;
+                }
             }
 
             @Override
@@ -440,7 +520,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         BaseAdapter adapter = (BaseAdapter)parent.getAdapter();
         if (adapter == hairAdpater) // 头发
         {
-            if (hairAdpater.isMore(position)) // More
+            if (hairAdpater.isMore(position) && requestStatus.get(0) != REQUEST_STATUS.REQUESTING) // More
             {
                 netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
@@ -486,7 +566,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
         else if (adapter == faceAdapter) // 脸型
         {
-            if (faceAdapter.isMore(position)) // More
+            if (faceAdapter.isMore(position) && requestStatus.get(1) != REQUEST_STATUS.REQUESTING) // More
             {
                 netLogic.faceShapes(sex, faceIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
@@ -507,7 +587,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
         else if (adapter == eyebrowAdapter) // 眉毛
         {
-            if (eyebrowAdapter.isMore(position)) // More
+            if (eyebrowAdapter.isMore(position) && requestStatus.get(2) != REQUEST_STATUS.REQUESTING) // More
             {
                 netLogic.eyebrows(sex, eyebrowIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
@@ -528,7 +608,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
         else if (adapter == eyeAdapter) // 眼睛
         {
-            if (eyeAdapter.isMore(position)) // More
+            if (eyeAdapter.isMore(position) && requestStatus.get(3) != REQUEST_STATUS.REQUESTING) // More
             {
                 netLogic.eyes(sex, eyeIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
@@ -549,7 +629,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
         else if (adapter == mouthAdapter) // 嘴巴
         {
-            if (mouthAdapter.isMore(position)) // More
+            if (mouthAdapter.isMore(position) && requestStatus.get(4) != REQUEST_STATUS.REQUESTING) // More
             {
                 netLogic.mouths(sex, mouthIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
@@ -570,7 +650,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
         else if (adapter == actionAdapter) // 动作
         {
-            if (actionAdapter.isMore(position)) // More
+            if (actionAdapter.isMore(position) && requestStatus.get(5) != REQUEST_STATUS.REQUESTING) // More
             {
                 // 衣服没有分页
 //                netLogic.bigClothes(sex, clothesCategoryId);
@@ -592,7 +672,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
         else if (adapter == decorationAdapter) // 装饰
         {
-            if (decorationAdapter.isMore(position)) // More
+            if (decorationAdapter.isMore(position) && requestStatus.get(6) != REQUEST_STATUS.REQUESTING) // More
             {
                 netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
@@ -713,6 +793,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
             case R.id.hairs: // 头发
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(0, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<HairInfo> hairInfos = (List<HairInfo>)infoResult.getExtraObj();
                     hairIndex++;
@@ -736,10 +817,15 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                     }
                     hairAdpater.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(0, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.faceShapes: // 脸型
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(1, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
                     faceIndex++;
@@ -763,10 +849,15 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                     }
                     faceAdapter.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(1, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.eyebrows: // 眉毛
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(2, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
                     eyebrowIndex++;
@@ -790,10 +881,15 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                     }
                     eyebrowAdapter.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(2, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.eyes: // 眼睛
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(3, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
                     eyeIndex++;
@@ -817,10 +913,15 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                     }
                     eyeAdapter.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(3, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.mouths: // 嘴巴
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(4, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
                     mouthIndex++;
@@ -844,10 +945,15 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                     }
                     mouthAdapter.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(4, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.bigClothes: // 动作
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(5, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
 
@@ -870,10 +976,15 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                     }
                     actionAdapter.notifyDataSetChanged();
                 }
+                else
+                {
+                    requestStatus.put(5, REQUEST_STATUS.REQUEST_FAILURED);
+                }
                 break;
             case R.id.decorations: // 装饰
                 if (checkResponse(msg))
                 {
+                    requestStatus.put(6, REQUEST_STATUS.REQUEST_SUCCESSED);
                     InfoResult infoResult = (InfoResult)msg.obj;
                     List<PictureInfo> pictureInfos = (List<PictureInfo>)infoResult.getExtraObj();
                     decorationIndex++;
@@ -896,6 +1007,10 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                         decorationAdapter.getDataSource().addAll(pictureInfos);
                     }
                     decorationAdapter.notifyDataSetChanged();
+                }
+                else
+                {
+                    requestStatus.put(6, REQUEST_STATUS.REQUEST_FAILURED);
                 }
                 break;
         }

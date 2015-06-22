@@ -28,7 +28,7 @@ public class SplashActivity extends BasicActivity{
                 startActivity(new Intent(SplashActivity.this, HomeActivity.class));
                 finish();
                 // 淡出淡入效果
-                overridePendingTransition(R.anim.fade_int, R.anim.fade_out);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         }, 3000);
     }

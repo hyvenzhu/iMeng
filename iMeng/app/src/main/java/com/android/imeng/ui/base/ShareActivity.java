@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.OvershootInterpolator;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -42,7 +47,9 @@ public class ShareActivity extends BasicActivity {
     private ShareCardView cardView; // 背景
     @ViewInject(R.id.share_img)
     private ImageView shareImg; // 形象
-
+    @ViewInject(R.id.card_lay)
+    private View cardLay; // 整个卡片布局
+    private ScaleAnimation scaleAnimation; // 卡片布局动画
     /**
      * 跳转
      * @param activity
@@ -93,6 +100,17 @@ public class ShareActivity extends BasicActivity {
                 cardView.setColor(getResources().getColor(R.color.female_color));
                 break;
         }
+
+        // 初始化动画
+        scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleAnimation.setDuration(500);
+        scaleAnimation.setInterpolator(new OvershootInterpolator());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cardLay.startAnimation(scaleAnimation);
     }
 
     @OnClick({R.id.btn_favorite, R.id.btn_qq, R.id.btn_wechatmoments, R.id.btn_wechat,

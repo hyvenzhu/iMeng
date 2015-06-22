@@ -10,7 +10,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
@@ -22,7 +21,6 @@ import com.android.imeng.framework.ui.base.annotations.ViewInject;
 import com.android.imeng.framework.ui.base.annotations.event.OnClick;
 import com.android.imeng.logic.BitmapHelper;
 import com.android.imeng.ui.base.FavoriteActivity;
-import com.android.imeng.ui.base.ShareActivity;
 import com.android.imeng.ui.decorate.cartoon.SelectSexActivity;
 import com.android.imeng.ui.decorate.photo.FaceDetectiveActivity;
 import com.android.imeng.ui.gallery.ImageGalleryActivity;
@@ -167,7 +165,7 @@ public class HomeActivity extends BasicActivity {
         {
             case R.id.emoji_btn: // 自定义表情
                 startActivity(new Intent(this, SelectSexActivity.class));
-                overridePendingTransition(R.anim.fade_int, 0);
+                overridePendingTransition(R.anim.fade_in, 0);
                 // 高斯模糊
                 applyBlur();
                 break;
@@ -193,7 +191,7 @@ public class HomeActivity extends BasicActivity {
                 // 高斯模糊
                 applyBlur();
                 startActivity(new Intent(this, WallpaperActivity.class));
-                overridePendingTransition(R.anim.top_int, 0);
+                overridePendingTransition(R.anim.top_in, 0);
                 break;
         }
     }
