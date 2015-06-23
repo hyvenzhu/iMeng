@@ -144,6 +144,9 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
 
     private void loadGridView()
     {
+        // 默认全部选中
+        choosedImageInfos.addAll(localPaths);
+
         final int viewWidth = viewPager.getMeasuredWidth();
         int numColumns = 2;
         int hoizontalSpacing = APKUtil.dip2px(this, 10);

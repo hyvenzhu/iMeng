@@ -17,4 +17,12 @@
     <item type="id" name="downClothesAndExpression"/>
     <item type="id" name="save2Gallery"/>
     <item type="id" name="bigClothes"/>
+
+    <item type="id" name="downloadHair"/>
+    <item type="id" name="downloadEyebrow"/>
+    <item type="id" name="downloadEye"/>
+    <item type="id" name="downloadMouth"/>
+    <item type="id" name="downloadAction"/>
+    <item type="id" name="downloadDecoration"/>
+    <item type="id" name="downloadClothes"/>
 </resources>

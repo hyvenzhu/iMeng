@@ -522,6 +522,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (hairAdpater.isMore(position) && requestStatus.get(0) != REQUEST_STATUS.REQUESTING) // More
             {
+                requestStatus.put(0, REQUEST_STATUS.REQUESTING);
                 netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
             else
@@ -534,7 +535,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                     {
                         if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
                         {
-                            netLogic.download(pictureInfo);
+                            netLogic.download(R.id.downloadHair, pictureInfo, hairInfo);
                         }
                         hairAdpater.notifyDataSetChanged();
                     }
@@ -543,23 +544,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 {
                     if (hairInfos != null && hairInfos.size() > 0)
                     {
-                        drawableMap.remove(0);
-                        drawableMap.remove(3);
-                        for(int i = 0; i < hairInfos.size(); i++)
-                        {
-                            PictureInfo pictureInfo =  hairInfos.get(i);
-                            int index = 0;
-                            if (pictureInfo.getNo() == 1) // 前面的头发
-                            {
-                                index = 3;
-                            }
-                            else if (pictureInfo.getNo() == 2) // 后面的头发
-                            {
-                                index = 0;
-                            }
-                            drawableMap.put(index, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                        }
-                        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                        decorateHair(hairInfos);
                     }
                 }
             }
@@ -568,6 +553,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (faceAdapter.isMore(position) && requestStatus.get(1) != REQUEST_STATUS.REQUESTING) // More
             {
+                requestStatus.put(1, REQUEST_STATUS.REQUESTING);
                 netLogic.faceShapes(sex, faceIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
             else
@@ -575,13 +561,12 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 PictureInfo pictureInfo = faceAdapter.getItem(position);
                 if (!faceAdapter.hasDownload(position)) // 未下载
                 {
-                    netLogic.download(pictureInfo);
+                    netLogic.download(R.id.downloadFace, pictureInfo);
                     faceAdapter.notifyDataSetChanged();
                 }
                 else
                 {
-                    drawableMap.put(2, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    decorateFace(pictureInfo);
                 }
             }
         }
@@ -589,6 +574,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (eyebrowAdapter.isMore(position) && requestStatus.get(2) != REQUEST_STATUS.REQUESTING) // More
             {
+                requestStatus.put(2, REQUEST_STATUS.REQUESTING);
                 netLogic.eyebrows(sex, eyebrowIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
             else
@@ -596,13 +582,12 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 PictureInfo pictureInfo = eyebrowAdapter.getItem(position);
                 if (!eyebrowAdapter.hasDownload(position)) // 未下载
                 {
-                    netLogic.download(pictureInfo);
+                    netLogic.download(R.id.downloadEyebrow, pictureInfo);
                     eyebrowAdapter.notifyDataSetChanged();
                 }
                 else
                 {
-                    drawableMap.put(5, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    decorateEyebrow(pictureInfo);
                 }
             }
         }
@@ -610,6 +595,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (eyeAdapter.isMore(position) && requestStatus.get(3) != REQUEST_STATUS.REQUESTING) // More
             {
+                requestStatus.put(3, REQUEST_STATUS.REQUESTING);
                 netLogic.eyes(sex, eyeIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
             else
@@ -617,13 +603,12 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 PictureInfo pictureInfo = eyeAdapter.getItem(position);
                 if (!eyeAdapter.hasDownload(position)) // 未下载
                 {
-                    netLogic.download(pictureInfo);
+                    netLogic.download(R.id.downloadEye, pictureInfo);
                     eyeAdapter.notifyDataSetChanged();
                 }
                 else
                 {
-                    drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    decorateEye(pictureInfo);
                 }
             }
         }
@@ -631,6 +616,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (mouthAdapter.isMore(position) && requestStatus.get(4) != REQUEST_STATUS.REQUESTING) // More
             {
+                requestStatus.put(4, REQUEST_STATUS.REQUESTING);
                 netLogic.mouths(sex, mouthIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
             else
@@ -638,13 +624,12 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 PictureInfo pictureInfo = mouthAdapter.getItem(position);
                 if (!mouthAdapter.hasDownload(position)) // 未下载
                 {
-                    netLogic.download(pictureInfo);
+                    netLogic.download(R.id.downloadMouth, pictureInfo);
                     mouthAdapter.notifyDataSetChanged();
                 }
                 else
                 {
-                    drawableMap.put(6, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    decorateMouth(pictureInfo);
                 }
             }
         }
@@ -652,6 +637,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (actionAdapter.isMore(position) && requestStatus.get(5) != REQUEST_STATUS.REQUESTING) // More
             {
+                requestStatus.put(5, REQUEST_STATUS.REQUESTING);
                 // 衣服没有分页
 //                netLogic.bigClothes(sex, clothesCategoryId);
             }
@@ -660,13 +646,12 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 PictureInfo pictureInfo = actionAdapter.getItem(position);
                 if (!actionAdapter.hasDownload(position)) // 未下载
                 {
-                    netLogic.download(pictureInfo);
+                    netLogic.download(R.id.downloadAction, pictureInfo);
                     actionAdapter.notifyDataSetChanged();
                 }
                 else
                 {
-                    drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    decorateAction(pictureInfo);
                 }
             }
         }
@@ -674,27 +659,26 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         {
             if (decorationAdapter.isMore(position) && requestStatus.get(6) != REQUEST_STATUS.REQUESTING) // More
             {
+                requestStatus.put(6, REQUEST_STATUS.REQUESTING);
                 netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
             }
             else
             {
                 if (position == 0) // 删除装饰
                 {
-                    drawableMap.put(8, null);
-                    imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                    decorateDecoration(null);
                 }
                 else
                 {
                     PictureInfo pictureInfo = decorationAdapter.getItem(position - 1);
                     if (!decorationAdapter.hasDownload(position)) // 未下载
                     {
-                        netLogic.download(pictureInfo);
+                        netLogic.download(R.id.downloadDecoration, pictureInfo);
                         decorationAdapter.notifyDataSetChanged();
                     }
                     else
                     {
-                        drawableMap.put(8, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                        decorateDecoration(pictureInfo);
                     }
                 }
             }
@@ -755,39 +739,221 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         }
     }
 
+    /**
+     * 头发
+     * @param hairInfos
+     */
+    private void decorateHair(List<PictureInfo> hairInfos)
+    {
+        drawableMap.remove(0);
+        drawableMap.remove(3);
+        for(int i = 0; i < hairInfos.size(); i++)
+        {
+            PictureInfo pictureInfo =  hairInfos.get(i);
+            int index = 0;
+            if (pictureInfo.getNo() == 1) // 前面的头发
+            {
+                index = 3;
+            }
+            else if (pictureInfo.getNo() == 2) // 后面的头发
+            {
+                index = 0;
+            }
+            drawableMap.put(index, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        }
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 脸部
+     * @param pictureInfo
+     */
+    private void decorateFace(PictureInfo pictureInfo)
+    {
+        drawableMap.put(2, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 眉毛
+     * @param pictureInfo
+     */
+    private void decorateEyebrow(PictureInfo pictureInfo)
+    {
+        drawableMap.put(5, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 眼睛
+     * @param pictureInfo
+     */
+    private void decorateEye(PictureInfo pictureInfo)
+    {
+        drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 嘴巴
+     * @param pictureInfo
+     */
+    private void decorateMouth(PictureInfo pictureInfo)
+    {
+        drawableMap.put(6, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 动作
+     * @param pictureInfo
+     */
+    private void decorateAction(PictureInfo pictureInfo)
+    {
+        drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 装饰
+     */
+    private void decorateDecoration(PictureInfo pictureInfo)
+    {
+        if (pictureInfo == null)
+        {
+            drawableMap.put(8, null);
+        }
+        else
+        {
+            drawableMap.put(8, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        }
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
     @Override
     public void onResponse(Message msg) {
         super.onResponse(msg);
         switch (msg.what)
         {
-            case R.id.downloadOriginal:
+            case R.id.downloadHair:
                 if (hairAdpater != null)
                 {
                     hairAdpater.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult)msg.obj;
+                        if (result.getOtherObj() instanceof HairInfo)
+                        {
+                            HairInfo hairInfo = (HairInfo)result.getOtherObj();
+                            // 前后头发全部下载成功
+                            boolean allSuccess = true;
+                            List<PictureInfo> hairInfos = hairInfo.getOriginalInfos();
+                            for(PictureInfo pictureInfo : hairInfos)
+                            {
+                                if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
+                                {
+                                    allSuccess = false;
+                                }
+                            }
+                            if (allSuccess)
+                            {
+                                if (hairInfos != null && hairInfos.size() > 0)
+                                {
+                                    decorateHair(hairInfos);
+                                }
+                            }
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadFace:
                 if (faceAdapter != null)
                 {
                     faceAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateFace(pictureInfo);
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadEyebrow:
                 if (eyebrowAdapter != null)
                 {
                     eyebrowAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateEyebrow(pictureInfo);
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadEye:
                 if (eyeAdapter != null)
                 {
                     eyeAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateEye(pictureInfo);
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadMouth:
                 if (mouthAdapter != null)
                 {
                     mouthAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateMouth(pictureInfo);
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadAction:
                 if (actionAdapter != null)
                 {
                     actionAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateAction(pictureInfo);
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadDecoration:
                 if (decorationAdapter != null)
                 {
                     decorationAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateDecoration(pictureInfo);
+                        }
+                    }
                 }
                 break;
             case R.id.hairs: // 头发

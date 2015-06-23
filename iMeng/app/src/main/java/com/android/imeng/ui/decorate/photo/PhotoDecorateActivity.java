@@ -310,6 +310,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
          {
              if (hairAdpater.isMore(position) && requestStatus.get(0) != REQUEST_STATUS.REQUESTING) // More
              {
+                 requestStatus.put(0, REQUEST_STATUS.REQUESTING);
                  netLogic.hairs(sex, hairIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
              else
@@ -322,7 +323,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                      {
                          if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
                          {
-                             netLogic.download(pictureInfo);
+                             netLogic.download(R.id.downloadHair, pictureInfo, hairInfo);
                          }
                          hairAdpater.notifyDataSetChanged();
                      }
@@ -331,25 +332,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                  {
                      if (hairInfos != null && hairInfos.size() > 0)
                      {
-                         drawableMap.remove(0);
-                         drawableMap.remove(3);
-                         for(int i = 0; i < hairInfos.size(); i++)
-                         {
-                             PictureInfo pictureInfo =  hairInfos.get(i);
-                             int index = 0;
-                             if (pictureInfo.getNo() == 1) // 前面的头发
-                             {
-                                 index = 3;
-                                 choosedHairFont = pictureInfo.getOriginalLocalPath();
-                             }
-                             else if (pictureInfo.getNo() == 2) // 后面的头发
-                             {
-                                 index = 0;
-                                 choosedHairBackground = pictureInfo.getOriginalLocalPath();
-                             }
-                             drawableMap.put(index, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                         }
-                         imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                         decorateHair(hairInfos);
                      }
                  }
              }
@@ -358,6 +341,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
          {
              if (clothesAdapter.isMore(position) && requestStatus.get(1) != REQUEST_STATUS.REQUESTING) // More
              {
+                 requestStatus.put(1, REQUEST_STATUS.REQUESTING);
                  netLogic.clothes(sex, clothesIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
              else
@@ -365,14 +349,12 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                  PictureInfo pictureInfo = clothesAdapter.getItem(position);
                  if (!clothesAdapter.hasDownload(position)) // 未下载
                  {
-                     netLogic.download(pictureInfo);
+                     netLogic.download(R.id.downloadClothes, pictureInfo);
                      clothesAdapter.notifyDataSetChanged();
                  }
                  else
                  {
-                     choosedClothesCategroyId = pictureInfo.getCategoryId();
-                     drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                     decorateClothes(pictureInfo);
                  }
              }
          }
@@ -380,29 +362,26 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
          {
              if (decorationAdapter.isMore(position) && requestStatus.get(2) != REQUEST_STATUS.REQUESTING) // More
              {
+                 requestStatus.put(2, REQUEST_STATUS.REQUESTING);
                  netLogic.decorations(sex, decorationIndex * Constants.DEFAULT_PAGE_SIZE, Constants.DEFAULT_PAGE_SIZE);
              }
              else
              {
                  if (position == 0) // 删除装饰
                  {
-                     choosedDecoration = null;
-                     drawableMap.put(4, null);
-                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                     decorateDecoration(null);
                  }
                  else
                  {
                      PictureInfo pictureInfo = decorationAdapter.getItem(position - 1);
                      if (!decorationAdapter.hasDownload(position)) // 未下载
                      {
-                         netLogic.download(pictureInfo);
+                         netLogic.download(R.id.downloadDecoration, pictureInfo);
                          decorationAdapter.notifyDataSetChanged();
                      }
                      else
                      {
-                         choosedDecoration = pictureInfo.getOriginalLocalPath();
-                         drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
-                         imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                         decorateDecoration(pictureInfo);
                      }
                  }
              }
@@ -468,6 +447,62 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
 
     }
 
+    /**
+     * 头发
+     * @param hairInfos
+     */
+    private void decorateHair(List<PictureInfo> hairInfos)
+    {
+        drawableMap.remove(0);
+        drawableMap.remove(3);
+        for(int i = 0; i < hairInfos.size(); i++)
+        {
+            PictureInfo pictureInfo =  hairInfos.get(i);
+            int index = 0;
+            if (pictureInfo.getNo() == 1) // 前面的头发
+            {
+                index = 3;
+                choosedHairFont = pictureInfo.getOriginalLocalPath();
+            }
+            else if (pictureInfo.getNo() == 2) // 后面的头发
+            {
+                index = 0;
+                choosedHairBackground = pictureInfo.getOriginalLocalPath();
+            }
+            drawableMap.put(index, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        }
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 衣服
+     * @param pictureInfo
+     */
+    private void decorateClothes(PictureInfo pictureInfo)
+    {
+        choosedClothesCategroyId = pictureInfo.getCategoryId();
+        drawableMap.put(1, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
+    /**
+     * 装饰
+     */
+    private void decorateDecoration(PictureInfo pictureInfo)
+    {
+        if (pictureInfo == null)
+        {
+            choosedDecoration = null;
+            drawableMap.put(4, null);
+        }
+        else
+        {
+            choosedDecoration = pictureInfo.getOriginalLocalPath();
+            drawableMap.put(4, new BitmapDrawable(getResources(), pictureInfo.getOriginalLocalPath()));
+        }
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+    }
+
     @Override
     public void onResponse(Message msg) {
         super.onResponse(msg);
@@ -482,18 +517,65 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
                 }
                 break;
-            case R.id.downloadOriginal:
+            case R.id.downloadHair:
                 if (hairAdpater != null)
                 {
                     hairAdpater.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult)msg.obj;
+                        if (result.getOtherObj() instanceof HairInfo)
+                        {
+                            HairInfo hairInfo = (HairInfo)result.getOtherObj();
+                            // 前后头发全部下载成功
+                            boolean allSuccess = true;
+                            List<PictureInfo> hairInfos = hairInfo.getOriginalInfos();
+                            for(PictureInfo pictureInfo : hairInfos)
+                            {
+                                if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
+                                {
+                                    allSuccess = false;
+                                }
+                            }
+                            if (allSuccess)
+                            {
+                                if (hairInfos != null && hairInfos.size() > 0)
+                                {
+                                    decorateHair(hairInfos);
+                                }
+                            }
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadClothes:
                 if (clothesAdapter != null)
                 {
                     clothesAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateClothes(pictureInfo);
+                        }
+                    }
                 }
+                break;
+            case R.id.downloadDecoration:
                 if (decorationAdapter != null)
                 {
                     decorationAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult) msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateDecoration(pictureInfo);
+                        }
+                    }
                 }
                 break;
             case R.id.hairs: // 头发
@@ -516,6 +598,30 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                         int columnHeight = (int)(columnWidth * scale);
                         hairAdpater.setSize(columnWidth, columnHeight);
                         hairGrid.setAdapter(hairAdpater);
+
+                        if (hairInfos != null && hairInfos.size() > 0) // 默认加载第一个
+                        {
+                            HairInfo hairInfo = hairInfos.get(0);
+                            List<PictureInfo> onehairInfos = hairInfo.getOriginalInfos();
+                            if (!hairAdpater.hasDownload(0)) // 未下载
+                            {
+                                for(PictureInfo pictureInfo : onehairInfos)
+                                {
+                                    if (TextUtils.isEmpty(pictureInfo.getOriginalLocalPath()))
+                                    {
+                                        netLogic.download(R.id.downloadHair, pictureInfo, hairInfo);
+                                    }
+                                    hairAdpater.notifyDataSetChanged();
+                                }
+                            }
+                            else
+                            {
+                                if (onehairInfos != null && onehairInfos.size() > 0)
+                                {
+                                    decorateHair(onehairInfos);
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -548,6 +654,20 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                         int columnHeight = (int)(columnWidth * scale);
                         clothesAdapter.setSize(columnWidth, columnHeight);
                         clothesGrid.setAdapter(clothesAdapter);
+
+                        if (pictureInfos != null && pictureInfos.size() > 0) // 默认加载第一个
+                        {
+                            PictureInfo pictureInfo = pictureInfos.get(0);
+                            if (!clothesAdapter.hasDownload(0)) // 未下载
+                            {
+                                netLogic.download(R.id.downloadClothes, pictureInfo);
+                                clothesAdapter.notifyDataSetChanged();
+                            }
+                            else
+                            {
+                                decorateClothes(pictureInfo);
+                            }
+                        }
                     }
                     else
                     {

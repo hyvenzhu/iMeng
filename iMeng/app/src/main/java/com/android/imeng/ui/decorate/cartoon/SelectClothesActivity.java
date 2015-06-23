@@ -222,13 +222,22 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                  }
                  else
                  {
-                     clothesPath = pictureInfo.getOriginalLocalPath();
-                     clothesCategoryId = pictureInfo.getCategoryId();
-                     drawableMap.put(1, new BitmapDrawable(getResources(), clothesPath));
-                     imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
+                     decorateClothes(pictureInfo);
                  }
              }
          }
+    }
+
+    /**
+     * 衣服
+     * @param pictureInfo
+     */
+    private void decorateClothes(PictureInfo pictureInfo)
+    {
+        clothesPath = pictureInfo.getOriginalLocalPath();
+        clothesCategoryId = pictureInfo.getCategoryId();
+        drawableMap.put(1, new BitmapDrawable(getResources(), clothesPath));
+        imageView.setImageDrawable(BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT));
     }
 
     @Override
@@ -240,6 +249,15 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                 if (clothesAdapter != null)
                 {
                     clothesAdapter.notifyDataSetChanged();
+                    if (checkResponse(msg, false))
+                    {
+                        InfoResult result = (InfoResult)msg.obj;
+                        if (result.getExtraObj() instanceof PictureInfo)
+                        {
+                            PictureInfo pictureInfo = (PictureInfo)result.getExtraObj();
+                            decorateClothes(pictureInfo);
+                        }
+                    }
                 }
                 break;
             case R.id.clothes: // 衣服
@@ -261,6 +279,20 @@ public class SelectClothesActivity extends BasicActivity implements AdapterView.
                         int columnHeight = (int)(columnWidth * scale);
                         clothesAdapter.setSize(columnWidth, columnHeight);
                         clothesGrid.setAdapter(clothesAdapter);
+
+                        if (pictureInfos != null && pictureInfos.size() > 0) // 默认加载第一个
+                        {
+                            PictureInfo pictureInfo = pictureInfos.get(0);
+                            if (!clothesAdapter.hasDownload(0)) // 未下载
+                            {
+                                netLogic.download(pictureInfo);
+                                clothesAdapter.notifyDataSetChanged();
+                            }
+                            else
+                            {
+                                decorateClothes(pictureInfo);
+                            }
+                        }
                     }
                     else
                     {

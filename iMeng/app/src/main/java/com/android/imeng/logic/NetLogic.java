@@ -8,6 +8,7 @@ import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.InputStreamParser;
 import com.android.imeng.framework.volley.InfoResultRequest;
 import com.android.imeng.logic.model.ClothesAndExpression;
+import com.android.imeng.logic.model.HairInfo;
 import com.android.imeng.logic.model.ImageInfo;
 import com.android.imeng.logic.model.PictureInfo;
 import com.android.imeng.logic.parser.BigClothesParser;
@@ -76,12 +77,24 @@ public class NetLogic extends BaseLogic {
 
     /**
      * 下载图片
+     * @param requestId
      * @param imageInfo
      */
-    public void download(final PictureInfo imageInfo)
+    public void download(final int requestId, final PictureInfo imageInfo)
+    {
+        download(requestId, imageInfo, null);
+    }
+
+    /**
+     * 下载图片
+     * @param requestId
+     * @param imageInfo
+     * @param hairInfo
+     */
+    public void download(final int requestId, final PictureInfo imageInfo, final HairInfo hairInfo)
     {
         imageInfo.setmState(PictureInfo.State.DOWNLOADING);
-        InfoResultRequest request = new InfoResultRequest(R.id.downloadOriginal, imageInfo.getOriginalUrl(), new InputStreamParser()
+        InfoResultRequest request = new InfoResultRequest(requestId, imageInfo.getOriginalUrl(), new InputStreamParser()
         {
             public InfoResult doParse(final InputStream response)
             {
@@ -99,6 +112,7 @@ public class NetLogic extends BaseLogic {
                     // 下载成功
                     imageInfo.setmState(PictureInfo.State.SUCCESS);
                     infoResult = new InfoResult.Builder().success(true).extraObj(imageInfo).build();
+                    infoResult.setOtherObj(hairInfo);
                 }
                 catch (Exception e)
                 {
@@ -106,12 +120,22 @@ public class NetLogic extends BaseLogic {
                     // 下载失败
                     imageInfo.setmState(PictureInfo.State.ERROR);
                     infoResult = new InfoResult.Builder().success(false).extraObj(imageInfo).build();
+                    infoResult.setOtherObj(hairInfo);
                 }
                 return infoResult;
             }
         }, this);
         request.setNeedStream(true);
-        sendRequest(request, R.id.downloadOriginal);
+        sendRequest(request, requestId);
+    }
+
+    /**
+     * 下载图片
+     * @param imageInfo
+     */
+    public void download(final PictureInfo imageInfo)
+    {
+        download(R.id.downloadOriginal, imageInfo);
     }
 
     /**

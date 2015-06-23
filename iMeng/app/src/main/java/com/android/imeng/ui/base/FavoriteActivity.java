@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -24,7 +25,7 @@ import java.util.List;
  * @author hiphonezhu@gmail.com
  * @version [iMeng, 2015-06-13 21:11]
  */
-public class FavoriteActivity extends BasicActivity implements OptListener {
+public class FavoriteActivity extends BasicActivity implements OptListener, AdapterView.OnItemClickListener {
 
     @ViewInject(R.id.image_grid)
     private GridView favoriteGrid;
@@ -87,10 +88,17 @@ public class FavoriteActivity extends BasicActivity implements OptListener {
                             R.layout.layout_item_favorite, FavoriteActivity.this);
                     favoriteAdpater.setSize(columnWidth, columnWidth);
                     favoriteGrid.setAdapter(favoriteAdpater);
+                    favoriteGrid.setOnItemClickListener(FavoriteActivity.this);
                 }
             });
             rightBtn.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String path = coverPaths.get(position);
+        ShareActivity.actionStart(this, path, path.endsWith("_0")? 0 : 1);
     }
 
     @OnClick({R.id.title_left_btn, R.id.title_right_btn})
