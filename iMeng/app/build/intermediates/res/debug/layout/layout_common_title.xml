@@ -41,6 +41,7 @@
             android:layout_marginRight="10dp"
             android:textColor="#0090ff"
             android:textSize="16sp"
+            android:text="编辑"
             android:visibility="invisible"
             android:background="@drawable/right_ok"/>
     </RelativeLayout>

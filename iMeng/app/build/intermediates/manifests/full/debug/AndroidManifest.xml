@@ -12,6 +12,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
         android:name="com.android.imeng.AppDroid"
@@ -25,12 +31,48 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.imeng.ui.HomeActivity" />
+        <activity android:name="com.android.imeng.ui.home.HomeActivity" />
         <activity
-            android:name="com.android.imeng.ui.SelectSexActivity"
+            android:name="com.android.imeng.ui.decorate.cartoon.SelectSexActivity"
             android:theme="@style/translucent" />
-        <activity android:name="com.android.imeng.ui.FaceDetectiveActivity" />
-        <activity android:name="com.android.imeng.ui.AssembleImageActivity" />
+        <activity android:name="com.android.imeng.ui.decorate.photo.FaceDetectiveActivity" />
+        <activity android:name="com.android.imeng.ui.decorate.photo.PhotoDecorateActivity" />
+        <activity android:name="com.android.imeng.ui.decorate.photo.MakeAllImageActivity" />
+        <activity android:name="com.android.imeng.ui.gallery.ImageGalleryActivity" />
+        <activity android:name="com.android.imeng.ui.gallery.GalleryDetailActivity" />
+        <activity android:name="com.android.imeng.ui.decorate.cartoon.SelectClothesActivity" />
+        <activity
+            android:name="com.android.imeng.ui.home.WallpaperActivity"
+            android:theme="@style/translucent" />
+        <activity
+            android:name="com.android.imeng.ui.base.ShareActivity"
+            android:theme="@style/translucent" />
+        <activity android:name="com.android.imeng.ui.base.FavoriteActivity" />
+        <activity
+            android:name="com.android.imeng.ui.decorate.cartoon.CartoonDecorateActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 微信分享回调 -->
+        <activity
+            android:name="com.android.imeng.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <service
             android:name="com.squareup.leakcanary.internal.HeapAnalyzerService"

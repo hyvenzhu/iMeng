@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="@color/translucent_background" />
+    <stroke android:color="#4bc9f3" android:width="2dp"/>
+</shape><!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/drawable/male_zoomout_circle.xml -->
