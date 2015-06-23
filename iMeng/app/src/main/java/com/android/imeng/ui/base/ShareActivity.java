@@ -126,6 +126,12 @@ public class ShareActivity extends BasicActivity {
                     if (sourceFile.exists())
                     {
                         File dir = APKUtil.getDiskCacheDir(this, Constants.FAVORITE_DIR);
+                        // 收藏点击分享, 此时再收藏忽略
+                        if (sourceFile.getParentFile().getAbsolutePath().equals(dir.getAbsolutePath()))
+                        {
+                            showToast("收藏成功");
+                            return;
+                        }
                         File saveFile = new File(dir, sourceFile.getName() + "_" + sex);
                         if (!saveFile.exists())
                         {
