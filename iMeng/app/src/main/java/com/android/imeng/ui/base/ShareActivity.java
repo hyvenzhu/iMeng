@@ -2,6 +2,7 @@ package com.android.imeng.ui.base;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -77,7 +78,7 @@ public class ShareActivity extends BasicActivity {
         super.init();
         path = getIntent().getStringExtra("path");
         sex = getIntent().getIntExtra("sex", 0);
-        shareImg.setImageURI(Uri.fromFile(new File(path)));
+        shareImg.setImageBitmap(BitmapFactory.decodeFile(path));
 
         // 调整卡片高度
         cardView.post(new Runnable() {

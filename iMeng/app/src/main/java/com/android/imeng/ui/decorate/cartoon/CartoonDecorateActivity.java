@@ -259,9 +259,9 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 int viewHeight = imageView.getMeasuredHeight();
 
                 int minSize = Math.min(viewWidth, viewHeight);
-                if (minSize > Constants.IMAGE_WIDTH_HEIGHT) {
-                    minSize = Constants.IMAGE_WIDTH_HEIGHT;
-                }
+//                if (minSize > Constants.IMAGE_WIDTH_HEIGHT) {
+//                    minSize = Constants.IMAGE_WIDTH_HEIGHT;
+//                }
                 layoutParams.width = minSize;
                 layoutParams.height = minSize;
                 imageView.setLayoutParams(layoutParams);
