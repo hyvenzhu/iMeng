@@ -173,6 +173,7 @@ public class HomeActivity extends BasicActivity {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 File picFile = new File(APKUtil.getDiskCacheDir(this, Constants.TEMP_DIR), System.currentTimeMillis() + ".jpg");
                 photoUri = Uri.fromFile(picFile);
+                intent.putExtra("camerasensortype", 2); // 前置摄像头
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(intent, REQUEST_CODE_CAPTURE);
                 break;
