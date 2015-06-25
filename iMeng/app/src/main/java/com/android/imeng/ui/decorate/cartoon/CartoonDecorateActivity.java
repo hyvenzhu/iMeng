@@ -1,5 +1,6 @@
 package com.android.imeng.ui.decorate.cartoon;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -180,19 +181,36 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         loadSay();
     }
 
-    @OnClick({R.id.title_left_btn, R.id.title_right_btn})
+    /**
+     * 隐藏键盘并清除焦点
+     */
+    private void hideSoftAndClearFocus()
+    {
+        hideSoftInput();
+        // 延迟清除焦点，避免界面抖动
+        sayEdit.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                sayEdit.clearFocus();
+                sayEdit.setFocusable(false);
+                sayEdit.setFocusableInTouchMode(false);
+            }
+        }, 100);
+    }
+
+    @OnClick({R.id.title_left_btn, R.id.title_right_btn, R.id.image_wall})
     public void onViewClick(View v)
     {
         switch (v.getId())
         {
+            case R.id.image_wall:
+                hideSoftAndClearFocus();
+                break;
             case R.id.title_left_btn:
                 finish();
                 break;
             case R.id.title_right_btn:
-                sayEdit.clearFocus();
-                sayEdit.setFocusable(false);
-                sayEdit.setFocusableInTouchMode(false);
-                hideSoftInput();
+                hideSoftAndClearFocus();
 
                 Drawable drawable = BitmapHelper.overlay(drawableMap, TOTAL_LAYER_COUNT);
                 // drawable 2 bitmap
@@ -396,10 +414,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         smartTabLayout.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i2) {
-                sayEdit.clearFocus();
-                sayEdit.setFocusable(false);
-                sayEdit.setFocusableInTouchMode(false);
-                hideSoftInput();
+                hideSoftAndClearFocus();
             }
 
             @Override
@@ -704,6 +719,9 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                 sayEdit.setFocusableInTouchMode(true);
                 sayEdit.setVisibility(View.VISIBLE);
                 sayEdit.requestFocus();
+                // 主动弹出输入法
+                InputMethodManager inputMethodManager = (InputMethodManager)sayEdit.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
 
                 if (imageView.getTranslationX() < 0)
                 {

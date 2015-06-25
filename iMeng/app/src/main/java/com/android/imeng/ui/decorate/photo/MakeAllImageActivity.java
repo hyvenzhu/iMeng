@@ -185,7 +185,6 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
         switch (v.getId())
         {
             case R.id.title_left_btn:
-                startActivity(new Intent(this, ImageGalleryActivity.class));
                 finish();
                 break;
             case R.id.save_btn:
