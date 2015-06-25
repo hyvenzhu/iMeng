@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -155,6 +157,23 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
         loadDefault();
         // 初始化GridView
         loadGridView();
+        sayEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // 根据字数动态设置字体大小
+                sayEdit.setTextSize(38 - sayEdit.getText().toString().length());
+            }
+        });
 
         requestStatus.put(0, REQUEST_STATUS.REQUESTING);
         requestStatus.put(1, REQUEST_STATUS.REQUESTING);
