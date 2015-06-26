@@ -45,7 +45,7 @@ public class ImageAdpater extends BasicAdapter<ImageInfo> {
     {
         ImageInfo imageInfo = getItem(position);
         chooseListener.choose(imageInfo);
-        notifyDataSetChanged();
+//        notifyDataSetChanged();
     }
 
     @Override
@@ -72,7 +72,6 @@ public class ImageAdpater extends BasicAdapter<ImageInfo> {
         }
 
         // 是否选中
-        chooseBtn.setOnCheckedChangeListener(null);
         if (chooseListener.isChoosed(imageInfo))
         {
             chooseBtn.setChecked(true);
@@ -81,11 +80,5 @@ public class ImageAdpater extends BasicAdapter<ImageInfo> {
         {
             chooseBtn.setChecked(false);
         }
-        chooseBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                toggleState(position);
-            }
-        });
     }
 }

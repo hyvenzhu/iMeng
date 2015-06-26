@@ -16,9 +16,11 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.android.imeng.R;
@@ -224,9 +226,19 @@ public class MakeAllImageActivity extends BasicActivity implements AdapterView.O
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ImageAdpater imageAdpater = (ImageAdpater)parent.getAdapter();
+    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+        final ImageAdpater imageAdpater = (ImageAdpater)parent.getAdapter();
         imageAdpater.toggleState(position);
+        // 局部刷新, 避免图片闪烁
+        RadioButton chooseBtn = (RadioButton)view.findViewById(R.id.image_choose);
+        if (isChoosed(imageAdpater.getItem(position)))
+        {
+            chooseBtn.setChecked(true);
+        }
+        else
+        {
+            chooseBtn.setChecked(false);
+        }
     }
 
     @Override
