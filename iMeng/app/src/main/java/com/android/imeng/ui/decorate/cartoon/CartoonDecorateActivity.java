@@ -46,7 +46,6 @@ import com.android.imeng.ui.decorate.cartoon.adapter.DecorationAdpater;
 import com.android.imeng.ui.decorate.cartoon.adapter.SayAdpater;
 import com.android.imeng.util.APKUtil;
 import com.android.imeng.util.Constants;
-import com.nineoldandroids.animation.ObjectAnimator;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 
 import java.io.File;
@@ -171,7 +170,7 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
             @Override
             public void afterTextChanged(Editable s) {
                 // 根据字数动态设置字体大小
-                sayEdit.setTextSize(38 - sayEdit.getText().toString().length());
+                sayEdit.setTextSize(28 - sayEdit.getText().toString().length());
             }
         });
 
