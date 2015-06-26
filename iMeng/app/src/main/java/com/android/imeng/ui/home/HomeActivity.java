@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -154,6 +155,7 @@ public class HomeActivity extends BasicActivity {
                 smallSelfImageView.setImageURI(uri);
             }
         }
+        smallSelfImageView.getHierarchy().setActualImageFocusPoint(new PointF(0.4f, 0.4f));
         imageWallpaperView.setBackgroundResource(APKUtil.getDrawableByIdentify(this, bgWallIdentifier));
     }
 

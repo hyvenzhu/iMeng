@@ -3,6 +3,7 @@ package com.android.imeng.ui.gallery;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PointF;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -81,6 +82,7 @@ public class GalleryDetailActivity extends BasicActivity implements RadioGroup.O
         // 封面图片
         File coverFile = new File(galleryDir, Constants.GALLERY_COVER);
         smallCoverView.setImageURI(Uri.fromFile(coverFile));
+        smallCoverView.getHierarchy().setActualImageFocusPoint(new PointF(0.4f, 0.4f));
 
         // 相册所有图片
         final File[] files = new File(galleryDir).listFiles(new FileFilter() {

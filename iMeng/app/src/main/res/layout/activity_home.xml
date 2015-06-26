@@ -32,6 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     fresco:roundAsCircle="true"
+                    fresco:actualImageScaleType="focusCrop"
                     fresco:placeholderImage="@drawable/home_small_default_self_image"/>
             </FrameLayout>
         </RelativeLayout>

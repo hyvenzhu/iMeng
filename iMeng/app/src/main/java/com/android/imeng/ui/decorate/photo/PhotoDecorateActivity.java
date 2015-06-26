@@ -294,6 +294,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                 // 制作界面
                 MakeAllImageActivity.actionStart(sex, choosedClothesCategroyId, faceShape,
                     choosedHairBackground, choosedHairFont, choosedDecoration, faceUrl, this);
+                finish();
                 break;
         }
     }
