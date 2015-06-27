@@ -255,6 +255,15 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                         float y = (bitmap.getHeight() - sayBitmap.getHeight()) / 2f;
                         canvas.drawBitmap(sayBitmap, x, y, null);
                     }
+                    // 判断是否选择文字, 如果没有，裁剪掉部分区域；或者自定义文字但没有输入内容
+                    if (drawableMap.get(9) == null
+                        || (drawableMap.get(9) != null && sayEdit.getVisibility() == View.VISIBLE
+                        && TextUtils.isEmpty(sayEdit.getText().toString())))
+                    {
+                        bitmap = Bitmap.createBitmap(bitmap, Constants.IMAGE_WIDTH_HEIGHT - Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA, 0,
+                            Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA, Constants.IMAGE_WIDTH_HEIGHT);
+                    }
+
                     // 保存到文件
                     BitmapHelper.bitmap2File(bitmap, localPath);
                     // 跳转到分享界面
