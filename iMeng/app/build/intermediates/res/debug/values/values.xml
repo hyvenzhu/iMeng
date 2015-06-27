@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/color.xml -->
+    <!-- From: file:/D:/Project/iMeng/iMeng/app/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="female_color">#f3bec4</color>
     <color name="male_color">#CAE4F3</color>
@@ -8,7 +8,7 @@
     <declare-styleable name="CardView"><attr format="integer" name="direction"/><attr format="reference" name="color"/></declare-styleable>
     <declare-styleable name="GenericDraweeView"><attr format="integer" name="fadeDuration"/><attr format="float" name="viewAspectRatio"/><attr format="reference" name="placeholderImage"/><attr format="string" name="placeholderImageScaleType"/><attr format="reference" name="retryImage"/><attr format="string" name="retryImageScaleType"/><attr format="reference" name="failureImage"/><attr format="string" name="failureImageScaleType"/><attr format="reference" name="progressBarImage"/><attr format="string" name="progressBarImageScaleType"/><attr format="integer" name="progressBarAutoRotateInterval"/><attr format="string" name="actualImageScaleType"/><attr format="reference" name="backgroundImage"/><attr format="reference" name="overlayImage"/><attr format="reference" name="pressedStateOverlayImage"/><attr format="boolean" name="roundAsCircle"/><attr format="dimension" name="roundedCornerRadius"/><attr format="boolean" name="roundTopLeft"/><attr format="boolean" name="roundTopRight"/><attr format="boolean" name="roundBottomRight"/><attr format="boolean" name="roundBottomLeft"/><attr format="color" name="roundWithOverlayColor"/><attr format="dimension" name="roundingBorderWidth"/><attr format="color" name="roundingBorderColor"/></declare-styleable>
     <declare-styleable name="stl_SmartTabLayout"><attr format="boolean" name="stl_indicatorAlwaysInCenter"/><attr format="boolean" name="stl_indicatorInFront"/><attr format="enum" name="stl_indicatorInterpolation"><enum name="smart" value="0"/><enum name="linear" value="1"/></attr><attr format="color" name="stl_indicatorColor"/><attr format="reference" name="stl_indicatorColors"/><attr format="dimension" name="stl_indicatorThickness"/><attr format="dimension" name="stl_indicatorCornerRadius"/><attr format="color" name="stl_underlineColor"/><attr format="dimension" name="stl_underlineThickness"/><attr format="color" name="stl_dividerColor"/><attr format="reference" name="stl_dividerColors"/><attr format="dimension" name="stl_dividerThickness"/><attr format="reference" name="stl_defaultTabBackground"/><attr format="boolean" name="stl_defaultTabTextAllCaps"/><attr format="color|reference" name="stl_defaultTabTextColor"/><attr format="dimension" name="stl_defaultTabTextSize"/><attr format="dimension" name="stl_defaultTabTextHorizontalPadding"/><attr format="dimension" name="stl_defaultTabTextMinWidth"/><attr format="reference" name="stl_customTabTextLayoutId"/><attr format="reference" name="stl_customTabTextViewId"/><attr format="boolean" name="stl_distributeEvenly"/></declare-styleable>
-    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/ids.xml -->
+    <!-- From: file:/D:/Project/iMeng/iMeng/app/src/main/res/values/ids.xml -->
     <eat-comment/>
     <item name="bigClothes" type="id"/>
     <item name="clothes" type="id"/>
@@ -33,7 +33,7 @@
     <item name="mouths" type="id"/>
     <item name="onLoading" type="id"/>
     <item name="save2Gallery" type="id"/>
-    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
+    <!-- From: file:/D:/Project/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
     <eat-comment/>
     <integer name="__leak_canary_max_stored_leaks">7</integer>
     <string name="__leak_canary_class_has_leaked">%s has leaked</string>
@@ -43,22 +43,22 @@
     <string name="__leak_canary_share_heap_dump">Share heap dump</string>
     <string name="__leak_canary_share_leak">Share leak</string>
     <string name="__leak_canary_share_with">Share with…</string>
-    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/D:/Project/iMeng/iMeng/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">爱萌</string>
     <string name="loading_failure">点击屏幕 , 重新加载</string>
     <string name="loading_text">正在加载, 请稍候...</string>
     <string name="requesting_failure">请求失败, 请稍后重试</string>
-    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/D:/Project/iMeng/iMeng/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
     </style>
-    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
+    <!-- From: file:/D:/Project/iMeng/iMeng/app/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3/res/values/values.xml -->
     <eat-comment/>
     <style name="__LeakCanary.Base" parent="android:Theme">
   </style>
-    <!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/D:/Project/iMeng/iMeng/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="loading_dialog" parent="@android:style/Theme.Dialog">
 		<item name="android:windowFrame">@null</item>

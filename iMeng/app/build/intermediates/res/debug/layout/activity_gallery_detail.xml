@@ -38,6 +38,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     fresco:roundAsCircle="true"
+                    fresco:actualImageScaleType="focusCrop"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
@@ -73,4 +74,4 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal"/>
-</LinearLayout><!-- From: file:/D:/Android/source/iMeng/iMeng/app/src/main/res/layout/activity_gallery_detail.xml -->
+</LinearLayout><!-- From: file:/D:/Project/iMeng/iMeng/app/src/main/res/layout/activity_gallery_detail.xml -->
