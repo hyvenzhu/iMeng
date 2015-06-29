@@ -201,6 +201,7 @@ public class HomeActivity extends BasicActivity {
 
     public final int REQUEST_CODE_CAPTURE = 100; // 拍照
     public final int REQUEST_CODE_PICK = 101; // 相册
+    public final int REQUEST_CODE_CROP = 102; // 裁剪
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -209,20 +210,44 @@ public class HomeActivity extends BasicActivity {
             switch (requestCode)
             {
                 case REQUEST_CODE_PICK:
+                case REQUEST_CODE_CAPTURE:
                     if (data != null)
                     {
                         photoUri = data.getData();
                     }
+                    startPhotoZoom(photoUri);
+                    break;
+                case REQUEST_CODE_CROP:
+                    if (photoUri != null)
+                    {
+                        Intent faceIntent = new Intent(this, FaceDetectiveActivity.class);
+                        faceIntent.putExtra("photoUri", photoUri);
+                        startActivity(faceIntent);
+                    }
                     break;
             }
-
-            if (photoUri != null)
-            {
-                Intent faceIntent = new Intent(this, FaceDetectiveActivity.class);
-                faceIntent.putExtra("photoUri", photoUri);
-                startActivity(faceIntent);
-            }
         }
+    }
+
+    /**
+     * 照片裁剪
+     * @param uri
+     */
+    private void startPhotoZoom(Uri uri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        // crop为true是设置在开启的intent中设置显示的view可以剪裁
+        intent.putExtra("crop", "true");
+
+        // aspectX aspectY 是宽高的比例
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+
+        // outputX,outputY 是剪裁图片的宽高
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        intent.putExtra("output", photoUri);
+        startActivityForResult(intent, REQUEST_CODE_CROP);
     }
 
     /**
