@@ -1,5 +1,9 @@
 package com.android.imeng.logic;
 
+import android.os.Environment;
+
+import com.android.imeng.util.APKUtil;
+
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
@@ -44,6 +48,7 @@ public class ShareHelper {
         {
             Platform platform = ShareSDK.getPlatform(platForm);
             platform.setPlatformActionListener(actionListener);
+            shareParams.setShareType(Platform.SHARE_IMAGE);
             platform.share(shareParams);
         }
     }
