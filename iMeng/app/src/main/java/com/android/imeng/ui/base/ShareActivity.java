@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,7 @@ import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
 import cn.sharesdk.wechat.moments.WechatMoments;
+import de.greenrobot.event.EventBus;
 
 /**
  * 分享
@@ -50,6 +52,8 @@ public class ShareActivity extends BasicActivity {
     private ImageView shareImg; // 形象
     @ViewInject(R.id.card_lay)
     private View cardLay; // 整个卡片布局
+    @ViewInject(R.id.btn_favorite)
+    private Button favoriteBtn; // 收藏与取消收藏
     private ScaleAnimation scaleAnimation; // 卡片布局动画
     /**
      * 跳转
@@ -59,14 +63,28 @@ public class ShareActivity extends BasicActivity {
      */
     public static void actionStart(Context activity, String path, int sex)
     {
+        actionStart(activity, path, sex, false);
+    }
+
+    /**
+     * 跳转
+     * @param activity
+     * @param path 图片路径
+     * @param sex 性别 0：男  1：女
+     * @param fromFavorite 是否来源收藏界面
+     */
+    public static void actionStart(Context activity, String path, int sex, boolean fromFavorite)
+    {
         Intent intent = new Intent(activity, ShareActivity.class);
         intent.putExtra("path", path);
         intent.putExtra("sex", sex);
+        intent.putExtra("fromFavorite", fromFavorite);
         activity.startActivity(intent);
     }
 
     private String path; // 图片路径
     private int sex; // 性别
+    private boolean fromFavorite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +96,7 @@ public class ShareActivity extends BasicActivity {
         super.init();
         path = getIntent().getStringExtra("path");
         sex = getIntent().getIntExtra("sex", 0);
+        fromFavorite = getIntent().getBooleanExtra("fromFavorite", false);
         shareImg.setImageBitmap(BitmapFactory.decodeFile(path));
 
         // 调整卡片高度
@@ -101,6 +120,10 @@ public class ShareActivity extends BasicActivity {
                 cardView.setColor(getResources().getColor(R.color.female_color));
                 break;
         }
+        if (fromFavorite)
+        {
+            favoriteBtn.setText("取消收藏");
+        }
 
         // 初始化动画
         scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
@@ -120,25 +143,41 @@ public class ShareActivity extends BasicActivity {
     {
         switch (v.getId())
         {
-            case R.id.btn_favorite: // 收藏
+            case R.id.btn_favorite: // 收藏、取消收藏
                 if (!TextUtils.isEmpty(path))
                 {
-                    File sourceFile = new File(path);
-                    if (sourceFile.exists())
+                    if (fromFavorite) // 取消收藏
                     {
-                        File dir = APKUtil.getDiskCacheDir(this, Constants.FAVORITE_DIR);
-                        // 收藏点击分享, 此时再收藏忽略
-                        if (sourceFile.getParentFile().getAbsolutePath().equals(dir.getAbsolutePath()))
+                        File sourceFile = new File(path);
+                        if (sourceFile.exists())
                         {
+                            // 通知收藏界面
+                            Message msg = new Message();
+                            msg.what = R.id.cancelFavorite;
+                            msg.obj = path;
+                            EventBus.getDefault().post(msg);
+                        }
+                        finish();
+                    }
+                    else
+                    {
+                        File sourceFile = new File(path);
+                        if (sourceFile.exists())
+                        {
+                            File dir = APKUtil.getDiskCacheDir(this, Constants.FAVORITE_DIR);
+                            // 收藏点击分享, 此时再收藏忽略
+                            if (sourceFile.getParentFile().getAbsolutePath().equals(dir.getAbsolutePath()))
+                            {
+                                showToast("收藏成功");
+                                return;
+                            }
+                            File saveFile = new File(dir, sourceFile.getName() + "_" + sex);
+                            if (!saveFile.exists())
+                            {
+                                BitmapHelper.copyFile(sourceFile, saveFile);
+                            }
                             showToast("收藏成功");
-                            return;
                         }
-                        File saveFile = new File(dir, sourceFile.getName() + "_" + sex);
-                        if (!saveFile.exists())
-                        {
-                            BitmapHelper.copyFile(sourceFile, saveFile);
-                        }
-                        showToast("收藏成功");
                     }
                 }
                 break;

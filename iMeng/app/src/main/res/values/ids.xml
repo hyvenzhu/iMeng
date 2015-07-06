@@ -25,4 +25,5 @@
     <item type="id" name="downloadAction"/>
     <item type="id" name="downloadDecoration"/>
     <item type="id" name="downloadClothes"/>
+    <item type="id" name="cancelFavorite"/>
 </resources>

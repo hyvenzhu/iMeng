@@ -56,10 +56,18 @@ public class FaceDetectiveActivity extends BasicActivity {
     protected void init() {
         super.init();
         setTitleBar(true, "选择性别", false);
-        leftBtn.setText("重拍");
         netLogic = new NetLogic(this);
 
         Uri uri = (Uri)getIntent().getParcelableExtra("photoUri");
+        boolean isCapture = getIntent().getBooleanExtra("isCapture", false); // 是否是拍照
+        if (isCapture)
+        {
+            leftBtn.setText("重拍");
+        }
+        else
+        {
+            leftBtn.setText("重选");
+        }
         photoPath = null;
         if (uri.getScheme().equals("content")) // 相册
         {

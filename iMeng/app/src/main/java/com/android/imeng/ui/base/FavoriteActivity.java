@@ -1,6 +1,7 @@
 package com.android.imeng.ui.base;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -19,6 +20,8 @@ import com.android.imeng.util.Constants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * 收藏
@@ -51,6 +54,27 @@ public class FavoriteActivity extends BasicActivity implements OptListener, Adap
 
         // 加载视图
         loadGridView();
+
+        // 注册分享界面取消收藏通知
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onResponse(Message msg) {
+        super.onResponse(msg);
+        switch (msg.what)
+        {
+            case R.id.cancelFavorite: // 取消收藏
+                String path = (String)msg.obj;
+                onOpt(null, path);
+                break;
+        }
     }
 
     /**
@@ -98,7 +122,7 @@ public class FavoriteActivity extends BasicActivity implements OptListener, Adap
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String path = coverPaths.get(position);
-        ShareActivity.actionStart(this, path, path.endsWith("_0")? 0 : 1);
+        ShareActivity.actionStart(this, path, path.endsWith("_0")? 0 : 1, true);
     }
 
     @OnClick({R.id.title_left_btn, R.id.title_right_btn})
@@ -138,6 +162,7 @@ public class FavoriteActivity extends BasicActivity implements OptListener, Adap
             rightBtn.setVisibility(View.INVISIBLE);
         }
     }
+
     /**
      * 无数据
      * @return 是否有数据

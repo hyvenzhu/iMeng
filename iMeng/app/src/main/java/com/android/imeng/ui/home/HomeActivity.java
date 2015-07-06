@@ -172,6 +172,7 @@ public class HomeActivity extends BasicActivity {
                 applyBlur();
                 break;
             case R.id.camera_btn: // 魔法相机
+                isCapture = true;
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 File picFile = new File(APKUtil.getDiskCacheDir(this, Constants.TEMP_DIR), System.currentTimeMillis() + ".jpg");
                 photoUri = Uri.fromFile(picFile);
@@ -180,6 +181,7 @@ public class HomeActivity extends BasicActivity {
                 startActivityForResult(intent, REQUEST_CODE_CAPTURE);
                 break;
             case R.id.choose_pic_btn: // 照片变身
+                isCapture = false;
                 intent = new Intent(Intent.ACTION_PICK);
                 intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                 startActivityForResult(intent, REQUEST_CODE_PICK);
@@ -202,6 +204,7 @@ public class HomeActivity extends BasicActivity {
     public final int REQUEST_CODE_CAPTURE = 100; // 拍照
     public final int REQUEST_CODE_PICK = 101; // 相册
     public final int REQUEST_CODE_CROP = 102; // 裁剪
+    private boolean isCapture; // 是否是拍照
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -222,6 +225,7 @@ public class HomeActivity extends BasicActivity {
                     {
                         Intent faceIntent = new Intent(this, FaceDetectiveActivity.class);
                         faceIntent.putExtra("photoUri", photoUri);
+                        faceIntent.putExtra("isCapture", isCapture);
                         startActivity(faceIntent);
                     }
                     break;
