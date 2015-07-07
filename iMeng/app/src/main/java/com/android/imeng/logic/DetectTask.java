@@ -30,14 +30,17 @@ public class DetectTask extends Task {
         {
             // 1、找出最大脸的取出face_id
             JSONObject result = httpRequests.detectionDetect(new PostParameters()
-                    .setImg(new File(photoPath)).setMode("oneface"));
+                    .setImg(new File(photoPath)).setMode("oneface").setAttribute("gender,age,race,smiling,glass,pose"));
             JSONArray faceArray = result.optJSONArray("face");
             if (faceArray != null && faceArray.length() > 0)
             {
                 // 取出face_id
                 String faceId = faceArray.getJSONObject(0).optString("face_id");
+                JSONObject attributeObj = faceArray.getJSONObject(0).optJSONObject("attribute");
                 // 微笑值0－100的实数
-                float smiling = faceArray.getJSONObject(0).optInt("smiling");
+                double smiling = attributeObj.getJSONObject("smiling").optDouble("value");
+                // 眼镜
+                String glassValue = attributeObj.getJSONObject("glass").getString("value");
 
                 // 2、检测给定人脸(Face)相应的面部轮廓，五官等关键点的位置
                 result = httpRequests.detectionLandmark(new PostParameters()
@@ -47,7 +50,7 @@ public class DetectTask extends Task {
                 {
                     JSONObject faceObject = faceArray.getJSONObject(0);
                     JSONObject landmarkObject = faceObject.optJSONObject("landmark");
-                    return new DetectParser(smiling).doParse(landmarkObject.toString());
+                    return new DetectParser(smiling, glassValue).doParse(landmarkObject.toString());
                 }
                 else
                 {

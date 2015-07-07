@@ -1,15 +1,11 @@
 package com.android.imeng.logic.parser;
 
-import android.content.Intent;
-import android.graphics.Point;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.logic.parser.JsonParser;
 import com.android.imeng.logic.model.FaceInfo;
-
 import java.util.HashMap;
 
 /**
@@ -19,10 +15,12 @@ import java.util.HashMap;
  * @copyright Copyright 2010 RD information technology Co.,ltd.. All Rights Reserved.
  */
 public class DetectParser extends JsonParser {
-    private float smiling;
-    public DetectParser(float smiling)
+    private double smiling;
+    private String glassValue; // None/Dark/Normal
+    public DetectParser(double smiling, String glassValue)
     {
         this.smiling = smiling;
+        this.glassValue = glassValue;
     }
 
     @Override
@@ -35,6 +33,7 @@ public class DetectParser extends JsonParser {
         faceInfo.setEyebrows(eyebrowAnalyse(landmarkObject));
         faceInfo.setMouth(mouthAnalyse(landmarkObject));
         faceInfo.setShape(contourAnalyse(landmarkObject));
+        faceInfo.setGlassValue(glassValue);
         infoResult.setExtraObj(faceInfo);
         return infoResult;
     }

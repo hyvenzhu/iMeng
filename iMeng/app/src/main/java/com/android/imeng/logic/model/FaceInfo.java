@@ -12,6 +12,7 @@ public class FaceInfo
     private int shape; // 脸型
     private int eyebrows; // 眉毛
     private String url; // 脸地址
+    private String glassValue; // None/Dark/Normal
 
     public int getEye() {
         return eye;
@@ -51,5 +52,13 @@ public class FaceInfo
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getGlassValue() {
+        return glassValue;
+    }
+
+    public void setGlassValue(String glassValue) {
+        this.glassValue = glassValue;
     }
 }

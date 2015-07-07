@@ -115,6 +115,7 @@ public class FaceDetectiveActivity extends BasicActivity {
         }
     }
 
+    private String glassVaue;
     @Override
     public void onResponse(Message msg) {
         super.onResponse(msg);
@@ -124,6 +125,7 @@ public class FaceDetectiveActivity extends BasicActivity {
                 if (checkResponse(msg))
                 {
                     FaceInfo faceInfo = (FaceInfo)((InfoResult)msg.obj).getExtraObj();
+                    glassVaue = faceInfo.getGlassValue();
                     netLogic.face(maleBtn.isEnabled()? 1 : 0, faceInfo.getEye(), faceInfo.getMouth(),
                             faceInfo.getShape(), faceInfo.getEyebrows());
                 }
@@ -153,7 +155,7 @@ public class FaceDetectiveActivity extends BasicActivity {
                         // 性别
                         int sex = maleBtn.isEnabled()? 1 : 0;
                         // 形象拼装界面
-                        PhotoDecorateActivity.actionStart(faceUrl, sex, faceInfo.getShape(), this);
+                        PhotoDecorateActivity.actionStart(faceUrl, sex, faceInfo.getShape(), this, faceInfo.getGlassValue());
                         finish();
                     }
                     else

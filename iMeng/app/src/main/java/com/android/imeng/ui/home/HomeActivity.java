@@ -248,8 +248,13 @@ public class HomeActivity extends BasicActivity {
         intent.putExtra("aspectY", 1);
 
         // outputX,outputY 是剪裁图片的宽高
-        intent.putExtra("outputX", 300);
-        intent.putExtra("outputY", 300);
+        int width = getWindowManager().getDefaultDisplay().getWidth();
+        if (width > 500)
+        {
+            width = 500;
+        }
+        intent.putExtra("outputX", width);
+        intent.putExtra("outputY", width);
         intent.putExtra("output", photoUri);
         startActivityForResult(intent, REQUEST_CODE_CROP);
     }

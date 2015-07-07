@@ -54,13 +54,15 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
      * @param sex 性别 0：女 1：男
      * @param faceShape 脸型
      * @param context 上下文
+     * @param glassValue 眼镜 // None/Dark/Normal
      */
-    public static void actionStart(String faceUrl, int sex, int faceShape, Context context)
+    public static void actionStart(String faceUrl, int sex, int faceShape, Context context, String glassValue)
     {
         Intent intent = new Intent(context, PhotoDecorateActivity.class);
         intent.putExtra("faceUrl", faceUrl);
         intent.putExtra("sex", sex);
         intent.putExtra("faceShape", faceShape);
+        intent.putExtra("glassValue", glassValue);
         context.startActivity(intent);
     }
 
@@ -85,6 +87,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
     private String faceUrl; // 脸地址
     private int sex; // 性别
     private int faceShape; // 脸型
+    private String glassValue; // None/Dark/Normal
     private NetLogic netLogic;
     // key 0：后面的头发  1：衣服   2：脸   3：前面的头发   4：装饰
     private Map<Integer, Drawable> drawableMap = new HashMap<Integer, Drawable>();
@@ -129,6 +132,7 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
         faceUrl = getIntent().getStringExtra("faceUrl");
         sex = getIntent().getIntExtra("sex", 0);
         faceShape = getIntent().getIntExtra("faceShape", 0);
+        glassValue = getIntent().getStringExtra("glassValue");
         netLogic = new NetLogic(this);
 
         // 调整宽高
@@ -700,6 +704,36 @@ public class PhotoDecorateActivity extends BasicActivity implements ViewPager.On
                         int columnHeight = (int)(columnWidth * scale);
                         decorationAdapter.setSize(columnWidth, columnHeight);
                         decorationGrid.setAdapter(decorationAdapter);
+
+                        if (pictureInfos != null && pictureInfos.size() > 0)
+                        {
+                            int glassIndex = -1;
+                            if (!"None".equals(glassValue))
+                            {
+                                if ("Dark".equals(glassValue))
+                                {
+                                    glassIndex = 6;
+                                }
+                                else if ("Normal".equals(glassValue))
+                                {
+                                    glassIndex = 5;
+                                }
+                                if (glassIndex != -1)
+                                {
+                                    PictureInfo pictureInfo = pictureInfos.get(glassIndex);
+                                    glassIndex += 1; // 排除第一张是默认的
+                                    if (!decorationAdapter.hasDownload(glassIndex)) // 未下载
+                                    {
+                                        netLogic.download(R.id.downloadDecoration, pictureInfo);
+                                        decorationAdapter.notifyDataSetChanged();
+                                    }
+                                    else
+                                    {
+                                        decorateDecoration(pictureInfo);
+                                    }
+                                }
+                            }
+                        }
                     }
                     else
                     {
