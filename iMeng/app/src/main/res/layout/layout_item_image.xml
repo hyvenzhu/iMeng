@@ -14,8 +14,8 @@
         android:scaleType="fitCenter"/>
     <RadioButton
         android:id="@+id/image_choose"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:background="@drawable/image_choose_bg"
         android:button="@null"
         android:layout_marginLeft="5dp"

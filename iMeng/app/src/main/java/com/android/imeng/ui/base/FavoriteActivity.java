@@ -1,5 +1,7 @@
 package com.android.imeng.ui.base;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
@@ -150,17 +152,24 @@ public class FavoriteActivity extends BasicActivity implements OptListener, Adap
     }
 
     @Override
-    public void onOpt(Object tag, Object value) {
-        // 删除
-        APKUtil.deleteFile(new File(value.toString()).getAbsolutePath());
-        coverPaths.remove(value.toString());
-        favoriteAdpater.notifyDataSetChanged();
+    public void onOpt(Object tag, final Object value) {
+        new AlertDialog.Builder(this).setTitle("提示").setMessage("删除后将不能撤销此操作, 确定删除吗?")
+                .setPositiveButton("删除", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 删除
+                        APKUtil.deleteFile(new File(value.toString()).getAbsolutePath());
+                        coverPaths.remove(value.toString());
+                        favoriteAdpater.notifyDataSetChanged();
 
-        if (adjustEmpty())
-        {
-            // 隐藏右侧按钮
-            rightBtn.setVisibility(View.INVISIBLE);
-        }
+                        if (adjustEmpty())
+                        {
+                            // 隐藏右侧按钮
+                            rightBtn.setVisibility(View.INVISIBLE);
+                        }
+                    }
+                })
+                .setNegativeButton("取消", null).create().show();
     }
 
     /**

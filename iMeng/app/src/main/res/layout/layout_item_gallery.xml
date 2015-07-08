@@ -15,9 +15,8 @@
             android:id="@+id/cover_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            fresco:actualImageScaleType="fitCenter" />
+            fresco:actualImageScaleType="centerCrop" />
     </LinearLayout>
-
     <Button
         android:id="@+id/delete_btn"
         android:layout_width="20dp"

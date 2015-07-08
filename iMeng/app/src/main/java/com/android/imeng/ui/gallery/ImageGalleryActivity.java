@@ -1,5 +1,7 @@
 package com.android.imeng.ui.gallery;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -138,17 +140,24 @@ public class ImageGalleryActivity extends BasicActivity implements AdapterView.O
     }
 
     @Override
-    public void onDelete(String coverPath) {
-        // 删除相册文件夹
-        APKUtil.deleteFile(new File(coverPath).getParentFile().getAbsolutePath());
-        coverPaths.remove(coverPath);
-        galleryAdpater.notifyDataSetChanged();
+    public void onDelete(final String coverPath) {
+        new AlertDialog.Builder(this).setTitle("提示").setMessage("删除后将不能撤销此操作, 确定删除吗?")
+                .setPositiveButton("删除", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 删除相册文件夹
+                        APKUtil.deleteFile(new File(coverPath).getParentFile().getAbsolutePath());
+                        coverPaths.remove(coverPath);
+                        galleryAdpater.notifyDataSetChanged();
 
-        if (adjustEmpty())
-        {
-            // 隐藏右侧按钮
-            rightBtn.setVisibility(View.INVISIBLE);
-        }
+                        if (adjustEmpty())
+                        {
+                            // 隐藏右侧按钮
+                            rightBtn.setVisibility(View.INVISIBLE);
+                        }
+                    }
+                })
+                .setNegativeButton("取消", null).create().show();
     }
 
     /**
