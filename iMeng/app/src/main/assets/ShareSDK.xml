@@ -97,15 +97,15 @@
     <Wechat
         Id="4"
         SortId="4"
-        AppId="wx775169d54b05c8d9"
-        AppSecret="2c291ffe154e1a340a2921977c878ea6"
+        AppId="wxf8825af32428b2d8"
+        AppSecret="bfca023eb35d25071e0f53cff13772ba"
         Enable="true" />
     
     <WechatMoments
         Id="5"
         SortId="5"
-        AppId="wx775169d54b05c8d9"
-        AppSecret="2c291ffe154e1a340a2921977c878ea6"
+        AppId="wxf8825af32428b2d8"
+        AppSecret="bfca023eb35d25071e0f53cff13772ba"
         Enable="true" />
         
 	<WechatFavorite
