@@ -18,6 +18,7 @@ import com.android.imeng.framework.logic.InfoResult;
 import com.android.imeng.framework.ui.base.BaseActivity;
 import com.android.imeng.framework.ui.base.UIInterface;
 import com.android.imeng.framework.ui.view.LoadingView;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * 基类Activity [主要提供对话框、进度条和其他有关UI才做相关的功能]
@@ -353,6 +354,7 @@ public class BasicActivity extends BaseActivity implements UIInterface
         {
             mIsNeedRefresh = false;
         }
+        MobclickAgent.onResume(this);
     }
 
     /**
@@ -402,6 +404,7 @@ public class BasicActivity extends BaseActivity implements UIInterface
          */
         hideSoftInput();
         Logger.d(TAG, "onPause");
+        MobclickAgent.onPause(this);
     }
 
     /**

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.imeng"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.0.1" >
 
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19"/>
     <!-- 连接网络权限 -->
@@ -62,5 +62,9 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+        <!-- 友盟配置 -->
+        <meta-data android:value="55b75083e0f55a41e5001596" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="default" android:name="UMENG_CHANNEL"/>
     </application>
 </manifest>
