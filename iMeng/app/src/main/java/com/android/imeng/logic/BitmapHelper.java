@@ -75,21 +75,18 @@ public class BitmapHelper {
      * @return
      */
     public static Bitmap drawable2Bitmap(Drawable drawable) {
+        int intrinsicWidth = drawable.getIntrinsicWidth();
+        int intrinsicHeight = drawable.getIntrinsicHeight();
         Bitmap bitmap = Bitmap
                 .createBitmap(
-                        Constants.IMAGE_WIDTH_HEIGHT,
-                        Constants.IMAGE_WIDTH_HEIGHT,
+                        intrinsicWidth,
+                        intrinsicHeight,
                         drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
                                 : Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(bitmap);
-        int intrinsicWidth = drawable.getIntrinsicWidth();
-        int intrinsicHeight = drawable.getIntrinsicHeight();
-        drawable.setBounds(0, 0, Constants.IMAGE_WIDTH_HEIGHT,
-                Constants.IMAGE_WIDTH_HEIGHT);
-        drawable.draw(canvas);
-
         drawable.setBounds(0, 0, intrinsicWidth,
                 intrinsicHeight);
+        drawable.draw(canvas);
         return bitmap;
     }
 

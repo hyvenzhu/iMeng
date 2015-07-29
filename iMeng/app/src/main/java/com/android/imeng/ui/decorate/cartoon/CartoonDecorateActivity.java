@@ -260,8 +260,10 @@ public class CartoonDecorateActivity extends BasicActivity implements AdapterVie
                         || (drawableMap.get(9) != null && sayEdit.getVisibility() == View.VISIBLE
                         && TextUtils.isEmpty(sayEdit.getText().toString())))
                     {
-                        bitmap = Bitmap.createBitmap(bitmap, Constants.IMAGE_WIDTH_HEIGHT - Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA, 0,
-                            Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA, Constants.IMAGE_WIDTH_HEIGHT);
+                        // 缩放比例
+                        float scale = (bitmap.getWidth() * 1.0f / Constants.IMAGE_WIDTH_HEIGHT);
+                        bitmap = Bitmap.createBitmap(bitmap, (int)(scale * (Constants.IMAGE_WIDTH_HEIGHT - Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA)), 0,
+                                (int)(scale * Constants.IMAGE_WIDTH_WITHOUT_LEFT_EREA), (int)(scale * Constants.IMAGE_WIDTH_HEIGHT));
                     }
 
                     // 保存到文件
